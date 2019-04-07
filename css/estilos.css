@@ -19,7 +19,8 @@ body{
     width: 100% !important;
     max-width: 415px !important;
     max-height: 736px !important;
-    font-family: 'Kalam', cursive;
+    font-family: 'Kalam', bold !important;
+    font-size: 20px !important;
 }
 
 #l-usuario{
@@ -42,6 +43,9 @@ body{
 
     input {
         width: 246px !important;
+        font-size: 20px !important;
+        text-align: center;
+        color: #ffffff !important;
 }
 
 .azulDegradado{
@@ -53,7 +57,14 @@ body{
 }
 .btnAccionGrande{
     width: 246px !important;
+    height: 36px !important;
+    font-size: 20px !important;
+    color: #ffffff;
+}
 
+.btnAccionSmall{
+    width: 112px !important;
+    height: 36px !important;
     color: #ffffff;
 }
 
