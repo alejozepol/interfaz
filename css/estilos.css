@@ -93,3 +93,8 @@ body{
     width : 85%;
     height : 250px;
 }
+.barraProgreso{
+    margin-top: 45px;
+    width: 85%;
+    margin-left: 25px;
+}
