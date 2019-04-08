@@ -33,9 +33,7 @@ body{
 }
 
 
-#usuario, #Password{
-    background-color: transparent !important
-}
+
 #logo{
     background-color: navajowhite;
     width: 100px;
@@ -55,11 +53,15 @@ body{
 ::placeholder { color: #ffffff !important; }
 
     input {
-        width: 246px !important;
         font-size: 20px !important;
         text-align: center;
         color: #ffffff !important;
+         background-color: transparent !important
 }
+  .inputMediano {
+        width: 246px !important;
+}
+
 
 .azulDegradado{
     background: -webkit-gradient(linear, left top, left bottom, from(#0DC9E5), to(#20228F));
