@@ -14,8 +14,6 @@
     */
 
 body{
-    background-image: url("../img/FondoBarras.png");
-    background-size: cover;
     width: 100% !important;
     max-width: 415px !important;
     max-height: 736px !important;
@@ -23,6 +21,13 @@ body{
     font-size: 20px !important;
 }
 
+.fondoImagen{
+    background-image: url("../img/FondoBarras.png");
+    background-size: cover;
+}
+.fondoAzul{
+    background: -webkit-gradient(linear, left bottom, right bottom, from(#0AA9C1), to(#261647));
+}
 #l-usuario{
     display:inherit
 }
@@ -85,5 +90,5 @@ body{
     font-size: 20px !important;
     overflow : auto !important;
     width : 100%;
-    height : 300px;
+    height : 290px;
 }
