@@ -7,17 +7,19 @@ import * as firebase from 'firebase';
 @Injectable()
 
 export class AutorizacionSericios{
-  constructor(//afDB  objeto para conexion con base de datos de firebase
+  constructor(
+    //afDB  objeto para conexion con base de datos de firebase
     private afDB: AngularFireDatabase,
     // angularFireAuth objeto para autenticacion con las opciones de firebase
-    private angularFireAuth: AngularFireAuth, private router:Router){
+    private angularFireAuth: AngularFireAuth,
+    private router:Router){
       this.islogged()
   }
   public login = (email, clave) =>{
     this.angularFireAuth.auth.signInWithEmailAndPassword(email, clave)
                       .then((respuesta)=>{
                         alert('Usuario logueado')
-                        this.router.navigate(['lugares'])
+                        this.router.navigate(['deshboard'])
                       })
                     .catch((error)=>{
                       alert('un error a ocurrido')
@@ -35,7 +37,7 @@ export class AutorizacionSericios{
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, clave)
                       .then((respuesta)=>{
                         alert('Usuario registrado con exito')
-                        this.router.navigate(['lugares'])
+                        this.router.navigate(['deshboard'])
 
                       })
                     .catch((error)=>{
@@ -58,7 +60,7 @@ export class AutorizacionSericios{
           .then((resultado)=>{
             console.log(resultado)
               alert('Usuario logueado con facebook')
-              this.router.navigate(['lugares'])
+              this.router.navigate(['deshboard'])
           })
           .catch((error)=>{
             console.log(error)
@@ -71,7 +73,7 @@ export class AutorizacionSericios{
       .then((resultado)=>{
         console.log(resultado)
           alert('Usuario logueado con Google')
-          this.router.navigate(['lugares'])
+
       })
       .catch((error)=>{
         console.log(error)

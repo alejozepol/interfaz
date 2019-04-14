@@ -11,6 +11,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { DeshboardComponentes } from './deshboard/deshboard.componentes';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDCuSSpHi3L9PSbLnCOGid3zuQLqSSwNj0",
@@ -20,9 +23,15 @@ const  firebaseConfig = {
   storageBucket: "",
   messagingSenderId: "823849314972"}
 
+  const appRoutes: Routes =[
+    {path:'', component: AppComponent},
+    {path:'deshboard', component: DeshboardComponentes}
+  ]
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DeshboardComponentes
   ],
   imports: [
     BrowserModule,
@@ -33,6 +42,8 @@ const  firebaseConfig = {
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireDatabaseModule,
         // import HttpClientModule after BrowserModule.
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [AutorizacionSericios],
   bootstrap: [AppComponent]

@@ -14,16 +14,16 @@
             <form>
                 <div class="form-group">
                     <br>
-                    <input type="email" class="form-control rounded-pill" id="usuario" aria-describedby="usuario" placeholder="Usuario" required>
+                    <input [(ngModel)]="loginP.email" name="email" type="email" class="form-control rounded-pill" aria-describedby="email" placeholder="Usuario" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control rounded-pill" id="Password" placeholder="Password" required>
+                    <input [(ngModel)]="loginP.clave" name="clave" type="password" class="form-control rounded-pill" placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn btn-success btn-block rounded-pill azulDegradado">Ingresar</button>
+                <button (click)="login()" type="submit" class="btn btn-success btn-block rounded-pill azulDegradado">Ingresar</button>
             </form>
             <br>
-            <button type="submit" class="btn rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
-            <button type="submit" class="btn rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
+            <button (click)="facebookLogin()" type="submit" class="btn rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
+            <button (click)="googleLogin()" type="submit" class="btn rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
 
         </div>
       </div>
@@ -37,4 +37,3 @@
   </div>
 </div>
 </div>
-<router-outlet></router-outlet>
