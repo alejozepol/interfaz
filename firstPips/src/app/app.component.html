@@ -1,6 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<ng-container *ngIf="loggedIn">
 <nav class="navbar navbar-dark bg-dark">
-    <ul class="nav justify-content-end navbar-nav" *ngIf="loggedIn">
+    <ul class="nav justify-content-end navbar-nav">
         <li *ngIf="usuario" class="nav-item" routerLinkActive="active">
             <a class="btn nav-link">{{usuario}}</a>
           </li>
@@ -8,8 +9,7 @@
             <button type="button" class="btn btn-danger" routerLink="/logueo/" (click)="cerrar()" >Salir</button>
           </li>
       </ul>
-
-
  </nav>
+</ng-container>
 <router-outlet></router-outlet>
 
