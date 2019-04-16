@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from "@angular/core";
 })
 
 export class DeshboardComponentes{
+  constructor(){
+
+  }
+
 
 }

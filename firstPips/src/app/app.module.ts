@@ -14,6 +14,9 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { DeshboardComponentes } from './deshboard/deshboard.componentes';
+import { LogueoComponent } from './logueo/logueo.component';
+import { RegistroComponent } from './registro/registro.component';
+import { GuardianServicios } from './servicios/guardian.servicios';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDCuSSpHi3L9PSbLnCOGid3zuQLqSSwNj0",
@@ -24,14 +27,18 @@ const  firebaseConfig = {
   messagingSenderId: "823849314972"}
 
   const appRoutes: Routes =[
-    {path:'', component: AppComponent},
-    {path:'deshboard', component: DeshboardComponentes}
+    {path:'', component: AppComponent, canActivate:[GuardianServicios]},
+    {path:'deshboard', component: DeshboardComponentes, canActivate:[GuardianServicios]},
+    {path:'logueo', component: LogueoComponent},
+    {path:'registro', component: RegistroComponent}
   ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    DeshboardComponentes
+    DeshboardComponentes,
+    LogueoComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,8 @@ const  firebaseConfig = {
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AutorizacionSericios],
+  providers: [AutorizacionSericios,
+              GuardianServicios],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

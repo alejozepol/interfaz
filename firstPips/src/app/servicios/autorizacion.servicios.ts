@@ -29,7 +29,10 @@ export class AutorizacionSericios{
 
   public logout(){
     // metodo para logueo con usuario y contraseña
-    return this.angularFireAuth.auth.signOut();
+    return this.angularFireAuth.auth.signOut()
+              .then(()=>{
+                this.router.navigate(['logueo'])
+              });
   }
 
   public registro = (email , clave) =>{
@@ -48,6 +51,7 @@ export class AutorizacionSericios{
 
   public islogged(){
     return this.angularFireAuth.authState;
+
   }
 
   public getUsuario(){

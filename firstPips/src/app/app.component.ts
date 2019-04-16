@@ -8,11 +8,12 @@ import { AutorizacionSericios } from './servicios/autorizacion.servicios';
 })
 export class AppComponent {
   title = 'firstPips';
-  loginP : any ={}
   loggedIn =false;
   usuario: any = null
-  constructor( private autorizacionService: AutorizacionSericios) {
-    this.autorizacionService.islogged()
+
+  constructor( private autorizacionService: AutorizacionSericios){
+
+      this.autorizacionService.islogged()
         .subscribe((resultado)=>{
           if  (resultado && resultado.uid){
 
@@ -30,21 +31,8 @@ export class AppComponent {
         }, (error) =>{
           this.loggedIn = false
         })
-   }
-
-   login(){
-        this.autorizacionService.login(  this.loginP.email,this.loginP.clave)
-   }
-
-   facebookLogin(){
-     this.autorizacionService.loginFacebook()
-   }
-
-   googleLogin(){
-    this.autorizacionService.loginGoogle()
   }
-
-   cerrar(){
-     this.autorizacionService.logout()
-   }
+  cerrar(){
+    this.autorizacionService.logout()
+  }
 }

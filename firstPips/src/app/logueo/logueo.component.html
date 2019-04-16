@@ -1,0 +1,38 @@
+<div class="text-white fondoImagen">
+  <div class="container">
+    <div  class="row justify-content-center">
+      <!--caja de logo-->
+      <div id="logo" class="col col-2">
+          <div >Logo</div>
+
+      </div>
+       <!-- fin caja de logo-->
+        <!-- inicio caja formulario logueo-->
+      <div class="col-md-12 col-sm-12" align="center">
+      <div class="col col-xs-12  col-sm-12 col-md-6  col-lg-6 ">
+            <form>
+                <div class="form-group">
+                    <br>
+                    <input [(ngModel)]="loginP.email" name="email" type="email" class="form-control rounded-pill" aria-describedby="email" placeholder="Usuario" required>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="loginP.clave" name="clave" type="password" class="form-control rounded-pill" placeholder="Password" required>
+                </div>
+                <button (click)="login()" type="submit" class="btn btn-success btn-block rounded-pill azulDegradado">Ingresar</button>
+            </form>
+            <br>
+            <button (click)="facebookLogin()" type="submit" class="btn rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
+            <button (click)="googleLogin()" type="submit" class="btn rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
+
+        </div>
+      </div>
+          <!--Creacion de formulario de usuario y contraseña-->
+          <br>
+          <hr class="vl">
+          <div style="margin-top: 45px;" align="center">
+              <button type="button" class="btn rounded-pill btnAccionGrande azulDegradado">Registro</button>
+          </div>
+
+    </div>
+  </div>
+</div>
