@@ -3,6 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import swal from'sweetalert';
 
 @Injectable()
 
@@ -18,7 +19,7 @@ export class AutorizacionSericios{
   public login = (email, clave) =>{
     this.angularFireAuth.auth.signInWithEmailAndPassword(email, clave)
                       .then((respuesta)=>{
-                        alert('Usuario logueado')
+                        swal("¡Bienvenido!🤩 NOMBRE", "estamos muy feliz de que estes aqui");
                         this.router.navigate(['deshboard'])
                       })
                     .catch((error)=>{

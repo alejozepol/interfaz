@@ -20,6 +20,10 @@ export class LogueoComponent {
      this.autorizacionService.loginFacebook()
    }
 
+   googleLogin(){
+    this.autorizacionService.loginGoogle()
+  }
+
    cerrar(){
      this.autorizacionService.logout()
    }
