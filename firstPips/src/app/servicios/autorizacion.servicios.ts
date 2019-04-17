@@ -61,10 +61,10 @@ export class AutorizacionSericios{
 
   loginFacebook(){
     //metodo de logueo con facebook utilizando un popup para ingreso a la red social y devolverse a la pagina de la aplicacion
-      this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      this.angularFireAuth.auth.signInWithPopup(
+        new firebase.auth.FacebookAuthProvider())
           .then((resultado)=>{
-            console.log(resultado)
-              alert('Usuario logueado con facebook')
+            swal("¡Bienvenido!🤩 NOMBRE", "estamos muy feliz de que estes aqui");
               this.router.navigate(['deshboard'])
           })
           .catch((error)=>{
@@ -76,8 +76,8 @@ export class AutorizacionSericios{
     this.angularFireAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider())
       .then((resultado)=>{
-        console.log(resultado)
-          alert('Usuario logueado con Google')
+        swal("¡Bienvenido!🤩 NOMBRE", "estamos muy feliz de que estes aqui");
+        this.router.navigate(['deshboard'])
 
       })
       .catch((error)=>{
