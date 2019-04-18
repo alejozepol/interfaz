@@ -48,24 +48,24 @@
     <mat-step >
       <ng-template matStepLabel>Datos Basicos</ng-template>
       <br>
-    <mat-form-field class="datos col-4">
+    <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput [(ngModel)]="registro.nombres" placeholder="Nombres" type="text" required>
     </mat-form-field>
-    <mat-form-field class="datos col-4">
+    <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput [(ngModel)]="registro.apellidos" placeholder="Apellidos" type="text" required>
       </mat-form-field>
-      <mat-form-field class="datos col-4">
+      <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput [(ngModel)]="registro.telefono" placeholder="Telefono" type="number" required>
       </mat-form-field>
-      <mat-form-field class="datos col-4">
-        <input matInput [(ngModel)]="registro.fechaNacimiento" placeholder="Fecha de Nacimiento" type="date" required>
+      <mat-form-field class="datos col-md-4 col-sm-6">
+          <input matInput [(ngModel)]="registro.fechaNacimiento" placeholder="Fecha de Nacimiento" type="date" required>
       </mat-form-field>
-      <mat-form-field class="datos col-4" type="email">
-        <input matInput [(ngModel)]="registro.email" placeholder="Correo" required>
+      <mat-form-field class="datos col-md-4 col-sm-6">
+            <input matInput [(ngModel)]="registro.email" placeholder="Correo" type="email" required>
       </mat-form-field>
-      <mat-form-field class="datos col-4">
+      <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput [(ngModel)]="registro.clave" placeholder="Contraseña" type="password" required>
-    </mat-form-field>
+      </mat-form-field>
     <div align="center">
         <button mat-button (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionSmall">Siguiente</button>
       </div>
