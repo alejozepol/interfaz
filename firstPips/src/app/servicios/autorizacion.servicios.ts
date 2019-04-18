@@ -42,8 +42,6 @@ export class AutorizacionSericios{
                       .then((respuesta)=>{
                         alert('Usuario registrado con exito')
                         swal("¡Gracias por registrarte y Bienvenido!🤩 NOMBRE", );
-
-
                       })
                     .catch((error)=>{
                       alert('un error a ocurrido')
@@ -77,8 +75,9 @@ export class AutorizacionSericios{
     this.angularFireAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider())
       .then((resultado)=>{
-        swal("¡Bienvenido!🤩 NOMBRE", "estamos muy feliz de que estes aqui");
         this.router.navigate(['deshboard'])
+        swal("¡Bienvenido!🤩 NOMBRE", "estamos muy feliz de que estes aqui");
+
 
       })
       .catch((error)=>{

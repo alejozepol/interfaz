@@ -40,6 +40,10 @@ body{
   background: -webkit-gradient(linear, left top, right bottom, from(#0DC9E5), to(#20228F));
 }
 
+.moradoDegradado{
+  background: -webkit-gradient(linear, left top, right bottom, from(#BB57A6), to(#4B2B8D));
+}
+
 .btnAccionSmall{
   width: 112px !important;
   height: 36px !important;
@@ -77,4 +81,12 @@ body{
 .datos{
   background-color: #ffffff!important;
   color: #000000;
+}
+
+#despegable{
+  position:absolute;
+  top:50%;
+  left: -5%;
+  padding: 0 0 0 0;
+  background-color: transparent
 }

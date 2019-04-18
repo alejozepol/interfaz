@@ -1,15 +1,62 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<ng-container *ngIf="loggedIn">
-<nav class="navbar navbar-dark bg-dark">
-    <ul class="nav justify-content-end navbar-nav">
-        <li *ngIf="usuario" class="nav-item" routerLinkActive="active">
-            <a class="btn nav-link">{{usuario}}</a>
-          </li>
-        <li class="nav-item" routerLinkActive="active">
-            <button type="button" class="btn btn-danger" routerLink="/logueo/" (click)="cerrar()" >Salir</button>
-          </li>
-      </ul>
- </nav>
-</ng-container>
-<router-outlet></router-outlet>
+ <mat-drawer-container [hasBackdrop]="true" #mode value="over" #hasBackdrop value="true">
+    <mat-drawer #drawer [mode]="over" class="moradoDegradado text-white">
+            <ul class="nav justify-content-end navbar-nav" *ngIf="loggedIn" align="center">
+              <li *ngIf="usuario">
+                <img src="../assets/icons/Avatar.svg" alt="avatar" sizes="" srcset="">
+                <a class="btn nav-link">{{usuario}}</a>
+              </li>
+                <li>
+                  <br>
+                  <button mat-button routerLink="/deshboard/" >
+                    <img src="../assets/icons/deshboard.svg" alt="deshboard">
+                  </button> <br>
+                  <span>Deshboard</span>
+                </li>
+
+                <li>
+                    <button mat-button >
+                      <img src="../assets/icons/chat.svg" alt="chat">
+                    </button>
+                    <br>
+                  <span>Chat</span>
+                </li>
+
+                <li>
+                    <button mat-button >
+                      <img src="../assets/icons/hitorico.svg" alt="historico">
+                    </button>
+                    <br>
+                  <span>Historico</span>
+                </li>
+
+                <li>
+                    <button mat-button >
+                      <img src="../assets/icons/ayuda.svg" alt="Ayuda">
+                    </button>
+                    <br>
+                  <span>Ayuda</span>
+                </li>
+
+                <li class="nav-item">
+                  <button mat-button routerLink="/logueo/" (click)="cerrar()" >
+                    <img src="../assets/icons/cerrarSesion.svg" alt="Cerrar">
+                  </button>
+                  <br>
+                  <span>Cerrar</span>
+                  </li>
+              </ul>
+    </mat-drawer>
+    <mat-drawer-content style="height: 100% !important;">
+      <button id="despegable"  *ngIf="loggedIn" mat-raised-button (click)="drawer.toggle()">
+        <img src="../assets/icons/desplazamientoMenu.png" alt="">
+      </button>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+
+
+
+
 

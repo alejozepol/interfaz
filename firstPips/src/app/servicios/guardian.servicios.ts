@@ -15,6 +15,7 @@ constructor(private autorizacionServios: AutorizacionSericios,
 
       if  (resultado && resultado.uid){
           this.loggedIn =true
+          this.router.navigate(['deshboard'])
       }
       else{
         this.loggedIn =false
