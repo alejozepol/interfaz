@@ -36,12 +36,13 @@ export class AutorizacionSericios{
               });
   }
 
-  public registro = (email , clave) =>{
+  public registro = (nombres, apellidos,telefono,fechaNacimiento, email , clave) =>{
 
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, clave)
                       .then((respuesta)=>{
                         alert('Usuario registrado con exito')
-                        this.router.navigate(['deshboard'])
+                        swal("¡Gracias por registrarte y Bienvenido!🤩 NOMBRE", );
+
 
                       })
                     .catch((error)=>{

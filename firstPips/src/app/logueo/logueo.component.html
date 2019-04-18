@@ -18,11 +18,11 @@
                 <div class="form-group">
                     <input [(ngModel)]="loginP.clave" name="clave" type="password" class="form-control rounded-pill" placeholder="Password" required>
                 </div>
-                <button (click)="login()" type="submit" class="btn btn-success btn-block rounded-pill azulDegradado">Ingresar</button>
+                <button mat-button (click)="login()" type="submit" class="btn-block btn-success rounded-pill azulDegradado">Ingresar</button>
             </form>
             <br>
-            <button (click)="facebookLogin()" type="submit" class="btn rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
-            <button (click)="googleLogin()" type="submit" class="btn rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
+            <button mat-button (click)="facebookLogin()" type="submit" class="rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
+            <button mat-button (click)="googleLogin()" type="submit" class="rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
 
         </div>
         <br>
@@ -31,8 +31,9 @@
           <br>
           <hr class="vl">
           <br>
+          <br>
           <div align="center" class="col col-xs-12  col-sm-12 col-md-6  col-lg-6 ">
-              <button routerLink="/registro" type="button" class="btn btn-success btn-block rounded-pill azulDegradado">Registro</button>
+              <button mat-button routerLink="/registro" type="button" class="btn-block btn-success rounded-pill azulDegradado">Registro</button>
           </div>
     </div>
   </div>
