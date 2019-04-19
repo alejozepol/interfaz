@@ -3,6 +3,7 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 body{
   width: 100% !important;
+  height: 100% !important;
   font-family: 'Kalam', bold !important;
   font-size: 20px !important;
 }
@@ -82,11 +83,28 @@ body{
   background-color: #ffffff!important;
   color: #000000;
 }
-
-#despegable{
-  position:absolute;
-  top:50%;
-  left: -5%;
-  padding: 0 0 0 0;
-  background-color: transparent
+#deshboard{
+  margin: 0 0 0 0 !important;
+  width: 100%;
 }
+
+
+@media (max-width: 600px) {
+  #despegable{
+    position:absolute;
+    top:50%;
+    left: -5%;
+    padding: 0 0 0 0;
+    background-color: transparent
+  }
+  }
+
+  @media (min-width: 601px) {
+    #despegable{
+      position:absolute;
+      top:50%;
+      left: 0%;
+      padding: 0 0 0 0;
+      background-color: transparent
+    }
+    }
