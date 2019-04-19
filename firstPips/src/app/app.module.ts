@@ -66,20 +66,24 @@ import { PortalModule } from '@angular/cdk/portal';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SenalesServicios } from './servicios/senales.servicios';
+import { CrearComponent } from './crear/crear.component';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDCuSSpHi3L9PSbLnCOGid3zuQLqSSwNj0",
   authDomain: "fistpips.firebaseapp.com",
   databaseURL: "https://fistpips.firebaseio.com",
   projectId: "fistpips",
-  storageBucket: "",
-  messagingSenderId: "823849314972"}
+  storageBucket: "fistpips.appspot.com",
+  messagingSenderId: "823849314972"
+}
 
   const appRoutes: Routes =[
     {path:'', component: AppComponent, canActivate:[GuardianServicios]},
     {path:'deshboard', component: DeshboardComponentes, canActivate:[GuardianServicios]},
     {path:'logueo', component: LogueoComponent},
-    {path:'registro', component: RegistroComponent}
+    {path:'registro', component: RegistroComponent},
+    {path:'crear/:id', component: CrearComponent, canActivate:[GuardianServicios]},
   ]
 
 @NgModule({
@@ -87,7 +91,8 @@ const  firebaseConfig = {
     AppComponent,
     DeshboardComponentes,
     LogueoComponent,
-    RegistroComponent
+    RegistroComponent,
+    CrearComponent
   ],
   imports: [
     BrowserModule,
@@ -148,7 +153,8 @@ const  firebaseConfig = {
 
   ],
   providers: [AutorizacionSericios,
-              GuardianServicios],
+              GuardianServicios,
+              SenalesServicios],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

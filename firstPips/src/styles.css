@@ -88,6 +88,16 @@ body{
   width: 100%;
 }
 
+#btnNuevo{
+  position:absolute;
+  top:85%;
+  left: 90%;
+}
+
+#contenido{
+  height: 100%;
+}
+
 
 @media (max-width: 600px) {
   #despegable{
@@ -100,10 +110,11 @@ body{
   }
 
   @media (min-width: 601px) {
+
     #despegable{
       position:absolute;
       top:50%;
-      left: 0%;
+      left: -2%;
       padding: 0 0 0 0;
       background-color: transparent
     }

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
+import { SenalesServicios } from '../servicios/senales.servicios';
 
 export interface PeriodicElement {
   name: string;
@@ -19,6 +20,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+
 ];
 
 @Component({
@@ -30,9 +32,13 @@ export class DeshboardComponentes{
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+  senales = null
 
+  constructor(private senalesServicio: SenalesServicios,
+              private autorizacionservice: AutorizacionSericios){
 
-  constructor(){
+senalesServicio.getSenales().valueChanges()
+              .subscribe(senales => this.senales = senales)
 
   }
 
