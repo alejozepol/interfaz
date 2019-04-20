@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="62.013" height="62.012" viewBox="0 0 62.013 62.012">
+  <g id="Grupo_864" data-name="Grupo 864" transform="translate(-569.305 -216.968)">
+    <circle id="Elipse_107" data-name="Elipse 107" cx="25.526" cy="25.526" r="25.526" transform="translate(571.026 269.082) rotate(-80.783)" fill="#fafbfc" stroke="#192657" stroke-miterlimit="10" stroke-width="3"/>
+    <circle id="Elipse_108" data-name="Elipse 108" cx="18.733" cy="18.733" r="18.733" transform="translate(575.836 237.836) rotate(-22.5)" fill="#fafbfc" stroke="#192657" stroke-miterlimit="10" stroke-width="3"/>
+    <line id="Línea_133" data-name="Línea 133" y2="6.793" transform="translate(600.312 222.448)" fill="none" stroke="#192657" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <line id="Línea_134" data-name="Línea 134" x1="5.741" y2="3.642" transform="translate(616.471 234.86)" fill="none" stroke="#192657" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <line id="Línea_135" data-name="Línea 135" x1="5.685" y1="3.737" transform="translate(578.289 235.071)" fill="none" stroke="#192657" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <line id="Línea_136" data-name="Línea 136" x2="4.79" y2="4.79" transform="translate(581.579 230.641)" fill="none" stroke="#192657" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <text id="_" data-name="%" transform="translate(593.522 253.63)" fill="#192657" stroke="#192657" stroke-miterlimit="10" stroke-width="0.75" font-size="18.038" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">%</tspan></text>
+  </g>
+</svg>

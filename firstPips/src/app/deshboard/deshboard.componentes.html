@@ -1,0 +1,39 @@
+  <br>
+  <div class="container">
+      <div class="row">
+      <ng-container *ngFor="let senal of senales">
+        <mat-card class="col-5 tarjetaSenal">
+          <div class="row text-center">
+            <div class="col-12">
+              <div>
+                 {{senal.id | date:"dd/MM/yyyy hh:mm"}}
+              </div>
+            </div>
+            <div class="col-4">
+              {{senal.grupoDivisa}}
+              <br>
+                {{senal.orden}}
+              <br>
+              {{senal.lotaje}}
+              <br>
+              {{senal.precioEntrada}}
+          </div>
+          <div class="col-4">
+            <h4>SL</h4>
+            {{senal.sl}}
+          </div>
+          <div class="col-4">
+              <h4>TP</h4>
+            {{senal.tp1}}
+            {{senal.tp2}}
+            {{senal.tp3}}
+          </div>
+        </div>
+        </mat-card>
+        <div class="col-md-1"></div>
+      </ng-container>
+        <ng-container>
+          <button id="btnNuevo" mat-fab  routerLink="/crear/new">+</button>
+        </ng-container>
+    </div>
+  </div>

@@ -1,0 +1,127 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+body{
+  width: 100% !important;
+  height: 100% !important;
+  font-family: 'Kalam', bold !important;
+  font-size: 20px !important;
+}
+
+.fondoImagen{
+  background-image: url("assets/FondoImagen.png");
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+
+}
+.fondoAzul{
+  background-image: url("assets/FondoImagen.png");
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+  background-image: url("assets/fondoColor.png");
+}
+#logo{
+  background-color: navajowhite;
+  width: 100px;
+  height: 100px;
+  margin-top: 30px;
+  padding: 0 0 0 0;
+
+}
+.btnAccionGrande{
+  width: 246px !important;
+  height: 36px !important;
+  font-size: 20px !important;
+  color: #ffffff;
+}
+
+.azulDegradado{
+  background: -webkit-gradient(linear, left top, right bottom, from(#0DC9E5), to(#20228F));
+}
+
+.moradoDegradado{
+  background: -webkit-gradient(linear, left top, right bottom, from(#BB57A6), to(#4B2B8D));
+}
+
+.btnAccionSmall{
+  width: 112px !important;
+  height: 36px !important;
+  color: #ffffff;
+}
+.transparente{
+  background-color: transparent !important
+}
+
+.mat-horizontal-stepper-header-container {
+  background-color: #ffffff !important;
+  font-family: 'Patrick Hand', cursive !important;
+}
+
+.mat-horizontal-content-container{
+  padding: 0% !important;
+}
+
+.textoLargo{
+  font-family: 'Patrick Hand', cursive !important;
+  text-align: justify;
+  font-size: 20px !important;
+  overflow : auto !important;
+  width : 100% !important;
+  height : 250px;
+  padding: 0,0,0,0 !important
+}
+
+.btnAccionSmall{
+  width: 112px !important;
+  height: 36px !important;
+  color: #ffffff;
+}
+
+.datos{
+  background-color: #ffffff!important;
+  color: #000000;
+}
+#deshboard{
+  margin: 0 0 0 0 !important;
+  width: 100%;
+}
+
+#btnNuevo{
+  position:absolute;
+  top:85%;
+  left: 90%;
+}
+
+#contenido{
+  height: 100%;
+}
+.tarjetaSenal{
+  background-color:rgba(0, 0, 0, 0.356);
+  font-family: 'Patrick Hand', cursive !important;
+  color: #ffffff
+
+}
+
+
+@media (max-width: 600px) {
+  #despegable{
+    position:absolute;
+    top:50%;
+    left: -5%;
+    padding: 0 0 0 0;
+    background-color: transparent
+  }
+  }
+
+  @media (min-width: 601px) {
+
+    #despegable{
+      position:absolute;
+      top:50%;
+      left: -2%;
+      padding: 0 0 0 0;
+      background-color: transparent
+    }
+    }

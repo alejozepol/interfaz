@@ -1,0 +1,115 @@
+
+<div class="text-white fondoImagen">
+    <mat-icon (click)="anterior()" style="display: flex;">reply</mat-icon>
+
+  <div class="container">
+      <div  class="row justify-content-center">
+          <!--caja de logo-->
+          <div id="logo" class="col col-2">
+              <div >Logo</div>
+
+          </div>
+         <!-- fin caja de logo-->
+      </div>
+<br>
+
+<mat-horizontal-stepper #stepper class="transparente" *ngIf="paso === 1">
+    <mat-step>
+      <form >
+        <ng-template matStepLabel >Bienvenida</ng-template>
+        <br>
+        <div align="center" style="margin-top: 30px;" >
+            <h4 class="text-warning">Dile SI</h4>
+            <span>a todo lo que te imaginas para ser el dueño de tu propia
+              <span class="text-warning">historia</span>
+            </span>
+            <h2 style="margin-top: 50px;" class="text-warning">Obtén 15 días gratis de las mejores señales</h2>
+            <span style="margin-top: 20px;">y contaras un bono en dólares para crear <span class="text-warning">capital </span>desde tu telefono
+          </span>
+        </div>
+        <br>
+        <div align="center">
+          <button mat-button matStepperNext class="btn-success rounded-pill azulDegradado btnAccionGrande">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form>
+        <ng-template matStepLabel>Terminos y condiciones</ng-template>
+            <div class="textoLargo ">
+                <p class="text-break">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
+            </div>
+            <div align="center">
+          <button mat-button matStepperPrevious class="btn-danger rounded-pill  btnAccionSmall">Anterior</button>
+          <button mat-button matStepperNext class="btn-success rounded-pill btnAccionSmall">Acepto</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step >
+      <ng-template matStepLabel>Datos Basicos</ng-template>
+      <br>
+    <mat-form-field class="datos col-md-4 col-sm-6">
+        <input matInput [(ngModel)]="registro.nombres" placeholder="Nombres" type="text" required>
+    </mat-form-field>
+    <mat-form-field class="datos col-md-4 col-sm-6">
+        <input matInput [(ngModel)]="registro.apellidos" placeholder="Apellidos" type="text" required>
+      </mat-form-field>
+      <mat-form-field class="datos col-md-4 col-sm-6">
+        <input matInput [(ngModel)]="registro.telefono" placeholder="Telefono" type="number" required>
+      </mat-form-field>
+      <mat-form-field class="datos col-md-4 col-sm-6">
+          <input matInput [(ngModel)]="registro.fechaNacimiento" placeholder="Fecha de Nacimiento" type="date" required>
+      </mat-form-field>
+      <mat-form-field class="datos col-md-4 col-sm-6">
+            <input matInput [(ngModel)]="registro.email" placeholder="Correo" type="email" required>
+      </mat-form-field>
+      <mat-form-field class="datos col-md-4 col-sm-6">
+        <input matInput [(ngModel)]="registro.clave" placeholder="Contraseña" type="password" required>
+      </mat-form-field>
+    <div align="center">
+        <button mat-button (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionSmall">Siguiente</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+  <mat-horizontal-stepper #stepper class="transparente" *ngIf="paso === 2">
+      <mat-step>
+        <form >
+          <ng-template matStepLabel >Apertura de cuenta</ng-template>
+          <br>
+          <div class="embed-responsive embed-responsive-16by9">
+
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+          </div>
+          <br>
+          <div align="center">
+            <button mat-button matStepperNext class="btn-success rounded-pill azulDegradado btnAccionGrande">Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <form>
+          <ng-template matStepLabel>Anclar cuenta</ng-template>
+          <div class="embed-responsive embed-responsive-16by9">
+
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+          </div>
+              <div align="center">
+             <button mat-button matStepperNext class="btn-success rounded-pill btnAccionSmall">siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step >
+        <ng-template matStepLabel>¿Como copiar señales?</ng-template>
+        <br>
+        <div class="embed-responsive embed-responsive-16by9">
+
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+        </div>
+      <div align="center">
+          <button mat-button (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionSmall">Siguiente</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+</div>
+</div>
