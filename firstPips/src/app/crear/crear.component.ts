@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SenalesServicios } from '../servicios/senales.servicios';
 import { ActivatedRoute } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-crear',
@@ -8,8 +9,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./crear.component.css']
 })
 export class CrearComponent {
-id = null
-senal: any ={}
+  senal: any ={}
+  id = null
+
 
   constructor(private senalesServicio: SenalesServicios,
               private route: ActivatedRoute) {
@@ -21,5 +23,16 @@ senal: any ={}
               }
                }
 
+               FDivisa = new FormControl()
+               divisas: string[] = ['EURJPY', 'EURUSD', 'USDEUR'];
+
+               FOrden = new FormControl()
+               ordenes: string[] = ['SELL', 'SELL STOP', 'SELL LIMIT', 'SELL STOP LIMIT', 'BUY', 'BUY STOP','BUY LIMIT', 'BUY STOP LIMIT'];
+
+guardarSenal(){
+  this.senal.id = Date.now()
+  this.senalesServicio.guardarSenal(this.senal)
+  alert('Señal guardada con exito')
+}
 
 }

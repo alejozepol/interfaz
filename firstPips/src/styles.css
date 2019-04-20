@@ -97,6 +97,12 @@ body{
 #contenido{
   height: 100%;
 }
+.tarjetaSenal{
+  background-color:rgba(0, 0, 0, 0.356);
+  font-family: 'Patrick Hand', cursive !important;
+  color: #ffffff
+
+}
 
 
 @media (max-width: 600px) {

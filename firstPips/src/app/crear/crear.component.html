@@ -1,14 +1,23 @@
-<p>
     <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput [(ngModel)]="senal.grupoDivisa" placeholder="grupoDivisa" type="text" required>
+        <input matInput [(ngModel)]="senal.grupoDivisa" placeholder="grupoDivisa" type="text"
+        [matAutocomplete]="auto" required>
+        <mat-autocomplete >
+            <mat-option *ngFor="let divisa of divisas" [value]="divisa">
+              {{divisa}}
+            </mat-option>
+          </mat-autocomplete>
     </mat-form-field>
-
-
     <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput [(ngModel)]="senal.lotaje" placeholder="lotaje" type="text" required>
+        <input matInput [(ngModel)]="senal.lotaje" placeholder="lotaje" type="number"
+        required>
     </mat-form-field>
     <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput [(ngModel)]="senal.orden" placeholder="orden" type="text" required>
+        <input matInput [(ngModel)]="senal.orden" placeholder="orden" type="text" [formControl] ="FOrden" [matAutocomplete]="auto" required>
+        <mat-autocomplete #auto="matAutocomplete" >
+            <mat-option *ngFor="let orden of ordenes" [value]="orden">
+              {{orden}}
+            </mat-option>
+          </mat-autocomplete>
     </mat-form-field>
     <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput [(ngModel)]="senal.precioEntrada" placeholder="precioEntrada" type="text" required>
@@ -25,4 +34,6 @@
     <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput [(ngModel)]="senal.tp3" placeholder="tp3" type="text" required>
     </mat-form-field>
-</p>
+    <ng-container>
+        <button id="btnNuevo" mat-fab (click)="guardarSenal()" routerLink="/deshboard">guardar</button>
+      </ng-container>
