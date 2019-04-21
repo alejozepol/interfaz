@@ -1,3 +1,9 @@
+<div class="container">
+  <div class="row">
+    <br>
+    <div class="col-md-12">
+      <h2>Nueva Señal</h2>
+    </div>
     <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput [(ngModel)]="senal.grupoDivisa" placeholder="grupoDivisa" type="text"
         [matAutocomplete]="auto" required>
@@ -43,3 +49,5 @@
     <ng-container>
         <button id="btnNuevo" mat-fab (click)="guardarSenal()" routerLink="/deshboard">guardar</button>
       </ng-container>
+    </div>
+  </div>

@@ -1,37 +1,59 @@
-  <h1>Señales Activas</h1>
-  <br>
   <div class="container">
-      <div class="row">
-      <ng-container *ngFor="let senal of senales">
-        <mat-card class="col-5 tarjetaSenal">
+      <br>
+    <div class="row justify-content-md-center justify-content-sm-center">
+      <div class="col-md-12 text-center text-white">
+          <h1>Señales Activas</h1>
+      </div>
+      <ng-container *ngFor="let senal of senales" [ngSwitch]="senal.orden" >
+        <mat-card class="col-md-5 col-sm-12 tarjetaSenal" >
           <div class="row text-center">
             <div class="col-12">
-              <div>
-                 {{senal.id | date:"dd/MM/yyyy hh:mm"}}
+              <H3>💵{{senal.grupoDivisa}}💵</H3>
+                <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">📉SELL📉</h4>
+                <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">📉SELL STOP📉</h4>
+                <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
+                <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
+                <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">📈BUY📈</h4>
+                <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
+                <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
+                <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
+                <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                <h5>Lotaje: {{senal.lotaje}}</h5>
+            </div>
+          <div class="col-6">
+            <h4>SL</h4>
+            👁‍🗨{{senal.sl}}👁‍🗨
+          </div>
+          <div class="col-6">
+              <h4>TP</h4>
+            1: 🎯{{senal.tp1}}🎯
+            <br>
+            2: 🎯{{senal.tp2}}🎯
+            <br>
+            3: 🎯{{senal.tp3}}🎯
+          </div>
+          <br>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-4">
+                  <mat-icon>edit</mat-icon>
+                 <br>
+                  Editar
+              </div>
+              <div class="col-4">
+                <mat-checkbox ></mat-checkbox>
+                <br>Copiado
+              </div>
+              <div class="col-4">
+                <mat-icon >visibility</mat-icon>
+                <br>
+                Detatalle
               </div>
             </div>
-            <div class="col-4">
-              {{senal.grupoDivisa}}
-              <br>
-                {{senal.orden}}
-              <br>
-              {{senal.lotaje}}
-              <br>
-              {{senal.precioEntrada}}
-          </div>
-          <div class="col-4">
-            <h4>SL</h4>
-            {{senal.sl}}
-          </div>
-          <div class="col-4">
-              <h4>TP</h4>
-            {{senal.tp1}}
-            {{senal.tp2}}
-            {{senal.tp3}}
           </div>
         </div>
+        <span class="idFecha ">{{senal.id | date:"dd/MM/yyyy hh:mm"}}</span>
         </mat-card>
-        <div class="col-md-1"></div>
       </ng-container>
         <ng-container>
           <button id="btnNuevo" mat-fab  routerLink="/crear/new">+</button>
