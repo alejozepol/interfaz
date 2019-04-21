@@ -1,3 +1,54 @@
-<p>
-  detalle-senal works!
-</p>
+<div class="container">
+     <div class="row justify-content-md-center justify-content-sm-center">
+          <div class="col-md-12 text-center text-white">
+              <h1>Detalle Señal</h1>
+          </div>
+          <mat-card class="col-md-12 col-sm-12" [ngSwitch]="senal.orden" style="padding: 0 0 0 0 !important; margin: 0 0 0 0 !important">
+            <div class="row text-center">
+                <div class="col-4 tarjetaSenal" style="padding: 0 0 0 0 !important; margin: 0 0 0 0 !important">
+                    <h4>SL</h4>
+                    👁‍🗨{{senal.sl}}👁‍🗨
+                  </div>
+              <div class="col-4 text-white tarjetaSenalOscuro" style="padding: 0 0 0 0 !important; margin: 0 0 0 0 !important">
+                <H3>💵{{senal.grupoDivisa}}💵</H3>
+                  <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">📉SELL📉</h4>
+                  <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">📉SELL STOP📉</h4>
+                  <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
+                  <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
+                  <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">📈BUY📈</h4>
+                  <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
+                  <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
+                  <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
+                  <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                  <h5>Lotaje: {{senal.lotaje}}</h5>
+              </div>
+            <div class="col-4 tarjetaSenal" style="padding: 0 0 0 0 !important; margin: 0 0 0 0 !important">
+                <h4>TP</h4>
+              1: 🎯{{senal.tp1}}🎯
+              <br>
+              2: 🎯{{senal.tp2}}🎯
+              <br>
+              3: 🎯{{senal.tp3}}🎯
+            </div>
+          </div>
+        </mat-card>
+<br>
+    <h3>Grafica</h3>
+    <br>
+<mat-card>
+
+
+
+        <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div id="tradingview_9809b"></div>
+    <div class="tradingview-widget-copyright"><a href="https://es.tradingview.com/symbols/OANDA-EURJPY/" rel="noopener" target="_blank"><span class="blue-text">EURJPY Gráfico</span></a>deTradingView</div>
+    <script type="text/javascript">
+    
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+</mat-card>
+     </div>
+</div>
+
