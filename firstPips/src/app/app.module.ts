@@ -68,6 +68,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SenalesServicios } from './servicios/senales.servicios';
 import { CrearComponent } from './crear/crear.component';
+import { DetalleSenalComponent } from './detalleSenal/detalleSenal.component';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDCuSSpHi3L9PSbLnCOGid3zuQLqSSwNj0",
@@ -92,7 +93,8 @@ const  firebaseConfig = {
     DeshboardComponentes,
     LogueoComponent,
     RegistroComponent,
-    CrearComponent
+    CrearComponent,
+    DetalleSenalComponent
   ],
   imports: [
     BrowserModule,
