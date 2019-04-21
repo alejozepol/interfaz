@@ -20,4 +20,9 @@ export class SenalesServicios{
   getSenales(){
     return this.afDB.list('senales')
   }
+  editarsenal(senal){
+    this.afDB.database.ref('senales/'+senal.id).set(senal);
+  }
+
+
 }

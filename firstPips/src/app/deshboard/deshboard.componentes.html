@@ -6,6 +6,7 @@
       </div>
       <ng-container *ngFor="let senal of senales" [ngSwitch]="senal.orden" >
         <mat-card class="col-md-5 col-sm-12 tarjetaSenal" >
+            <span class="idFecha ">{{senal.id | date:"dd/MM/yyyy hh:mm"}}</span>
           <div class="row text-center">
             <div class="col-12">
               <H3>💵{{senal.grupoDivisa}}💵</H3>
@@ -32,27 +33,31 @@
             <br>
             3: 🎯{{senal.tp3}}🎯
           </div>
-          <br>
           <div class="col-12">
+            <br>
             <div class="row">
               <div class="col-4">
+                <a mat-fab routerLink="/crear/{{senal.id}}" style="text-decoration: none;">
                   <mat-icon>edit</mat-icon>
                  <br>
-                  Editar
+                </a>
               </div>
               <div class="col-4">
+                <button mat-fab>
                 <mat-checkbox ></mat-checkbox>
-                <br>Copiado
+                <!-- <br>Copiado -->
+              </button>
               </div>
               <div class="col-4">
-                <mat-icon >visibility</mat-icon>
-                <br>
-                Detatalle
+                <button mat-fab>
+                <mat-icon  >visibility</mat-icon>
+              </button>
+                <!-- <br>
+                Detatalle -->
               </div>
             </div>
           </div>
         </div>
-        <span class="idFecha ">{{senal.id | date:"dd/MM/yyyy hh:mm"}}</span>
         </mat-card>
       </ng-container>
         <ng-container>

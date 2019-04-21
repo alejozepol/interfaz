@@ -30,9 +30,16 @@ export class CrearComponent {
                ordenes: string[] = ['SELL', 'SELL STOP', 'SELL LIMIT', 'SELL STOP LIMIT', 'BUY', 'BUY STOP','BUY LIMIT', 'BUY STOP LIMIT'];
 
 guardarSenal(){
-  this.senal.id = Date.now()
-  this.senalesServicio.guardarSenal(this.senal)
-  alert('Señal guardada con exito')
+  if(this.id !='new'){
+    this.senalesServicio.editarsenal(this.senal)
+    alert('Señal modificado con exito')
+  }
+  else{
+    this.senal.id = Date.now()
+    this.senalesServicio.guardarSenal(this.senal)
+    alert('Señal guardada con exito')
+  }
+
 }
 
 }
