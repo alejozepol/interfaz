@@ -55,7 +55,7 @@ body{
 }
 
 .mat-horizontal-stepper-header-container {
-  background-color: #ffffff !important;
+  background-color:#ffffff !important;
   font-family: 'Patrick Hand', cursive !important;
 }
 
@@ -81,7 +81,7 @@ body{
 }
 
 .datos{
-  background-color: #ffffff!important;
+  background-color:rgba(214, 206, 228, 0.459)!important;
   color: #000000;
 }
 #deshboard{

@@ -8,7 +8,19 @@ import swal from'sweetalert';
 @Injectable()
 
 export class AutorizacionSericios{
-usuario = {}
+usuario = {
+  nombres           : null,
+  apellidos         : null,
+  telefono          : null,
+  fechaNacimiento   : null,
+  email             : null,
+  clave             : null,
+  fechaRegistro     : null,
+  fechaPago         : null,
+  usuarioPrimium    : false,
+  usuarioAdmin      : false,
+  superAdmin        : false
+}
 
   constructor(
     //afDB  objeto para conexion con base de datos de firebase
@@ -37,31 +49,28 @@ usuario = {}
                 this.router.navigate(['logueo'])
               });
   }
+  guardarUsuario(usuario){
+    this.usuario.nombres = usuario.nombres
+    this.usuario.apellidos = usuario.apellidos
+    this.usuario.telefono = usuario.telefono
+    this.usuario.fechaNacimiento = usuario.fechaNacimiento
+    this.usuario.email = usuario.email
+    this.usuario.clave = usuario.clave
+    this.usuario.fechaRegistro = new Date
+    return this.afDB.database.ref('Usuarios/'+usuario.telefono).set(usuario);
+  }
 
-  public registro = (nombres, apellidos,telefono,fechaNacimiento, email , clave) =>{
-
-    this.usuario={
-      nombres,apellidos,telefono,fechaNacimiento,email,clave
-    }
-
-    this.guardarUsuario(this.usuario)
+  public registro = (nombres, email , clave) =>{
 
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, clave)
                       .then((respuesta)=>{
-                        alert('Usuario registrado con exito')
-                        swal("¡Gracias por registrarte y Bienvenido!🤩 NOMBRE", );
+                        swal(`¡Gracias por registrarte y Bienvenido!🤩 ${nombres}`);
                       })
                     .catch((error)=>{
                       alert('un error a ocurrido')
                       console.log(error)
                     })
                   }
-
-
-guardarUsuario(usuario){
-  return this.afDB.database.ref('Usuarios/'+usuario.email).set(usuario);
-}
-
 
   public islogged(){
     return this.angularFireAuth.authState;

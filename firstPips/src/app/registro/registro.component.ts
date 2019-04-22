@@ -15,13 +15,8 @@ export class RegistroComponent {
               private router:Router) { }
 
   registrar(){
-    this.autorizacionService.registro(
-                  this.registro.nombres,
-                  this.registro.apellidos,
-                  this.registro.telefono,
-                  this.registro.fechaNacimiento,
-                  this.registro.email,
-                  this.registro.clave)
+    this.autorizacionService.guardarUsuario(this.registro)
+    this.autorizacionService.registro(this.registro.nombres,this.registro.email,this.registro.clave)
   }
 
   siguiente(){
