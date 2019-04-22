@@ -70,7 +70,8 @@ body{
   overflow : auto !important;
   width : 100% !important;
   height : 250px;
-  padding: 0,0,0,0 !important
+  padding: 0,0,0,0 !important;
+  background-color: rgba(21, 4, 51, 0.527);
 }
 
 .btnAccionSmall{

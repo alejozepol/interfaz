@@ -8,6 +8,8 @@ import swal from'sweetalert';
 @Injectable()
 
 export class AutorizacionSericios{
+usuario = {}
+
   constructor(
     //afDB  objeto para conexion con base de datos de firebase
     private afDB: AngularFireDatabase,
@@ -38,6 +40,12 @@ export class AutorizacionSericios{
 
   public registro = (nombres, apellidos,telefono,fechaNacimiento, email , clave) =>{
 
+    this.usuario={
+      nombres,apellidos,telefono,fechaNacimiento,email,clave
+    }
+
+    this.guardarUsuario(this.usuario)
+
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, clave)
                       .then((respuesta)=>{
                         alert('Usuario registrado con exito')
@@ -48,6 +56,12 @@ export class AutorizacionSericios{
                       console.log(error)
                     })
                   }
+
+
+guardarUsuario(usuario){
+  return this.afDB.database.ref('Usuarios/'+usuario.email).set(usuario);
+}
+
 
   public islogged(){
     return this.angularFireAuth.authState;
