@@ -85,6 +85,7 @@ const  firebaseConfig = {
     {path:'logueo', component: LogueoComponent},
     {path:'registro', component: RegistroComponent},
     {path:'crear/:id', component: CrearComponent, canActivate:[GuardianServicios]},
+    {path:'detalleSenal/:id', component: DetalleSenalComponent, canActivate:[GuardianServicios]},
   ]
 
 @NgModule({
