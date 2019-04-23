@@ -86,6 +86,7 @@ usuario = {
       this.angularFireAuth.auth.signInWithPopup(
         new firebase.auth.FacebookAuthProvider())
           .then((resultado)=>{
+            console.log(resultado)
             swal("¡Bienvenido!🤩 NOMBRE", "estamos muy feliz de que estes aqui");
               this.router.navigate(['deshboard'])
           })

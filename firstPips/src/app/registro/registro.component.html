@@ -65,33 +65,44 @@
     <mat-step >
       <ng-template matStepLabel>Datos Basicos</ng-template>
       <br>
-    <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput [(ngModel)]="registro.nombres" placeholder="Nombres" type="text" required>
-    </mat-form-field>
-    <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput [(ngModel)]="registro.apellidos" placeholder="Apellidos" type="text" required>
+    <form [formGroup]="formRegistro">
+      <mat-form-field class="datos col-md-4 col-sm-6">
+        <input matInput placeholder="Nombres" type="text" formControlName="nombres" required>
+        <mat-error *ngIf="formRegistro.controls.nombres.invalid">{{errorNombres()}}</mat-error>
       </mat-form-field>
       <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput [(ngModel)]="registro.telefono" placeholder="Telefono" type="number" required>
+        <input matInput formControlName="apellidos" placeholder="Apellidos" type="text" required>
+        <mat-error *ngIf="formRegistro.controls.apellidos.invalid">{{errorApellidos()}}</mat-error>
       </mat-form-field>
       <mat-form-field class="datos col-md-4 col-sm-6">
-          <input matInput [(ngModel)]="registro.fechaNacimiento" placeholder="Fecha de Nacimiento" type="date" required>
+        <input matInput formControlName="telefono" placeholder="Telefono" type="number" required>
+        <mat-error *ngIf="formRegistro.controls.telefono.invalid">{{errorTelefono()}}</mat-error>
       </mat-form-field>
       <mat-form-field class="datos col-md-4 col-sm-6">
-            <input matInput [(ngModel)]="registro.email" placeholder="Correo" type="email" required>
+          <input matInput formControlName="fechaNacimiento" placeholder="Fecha de Nacimiento"
+          type="date" required>
+          <mat-error *ngIf="formRegistro.controls.fechaNacimiento.invalid">{{errorFechaNacimiento()}}</mat-error>
       </mat-form-field>
       <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput [(ngModel)]="registro.clave" placeholder="Contraseña" type="password" required>
+            <input matInput formControlName="email" placeholder="Correo" type="email" required>
+            <mat-error *ngIf="formRegistro.controls.email.invalid">{{errorCorreo()}}</mat-error>
+      <p *ngIf="expression"></p>
+          </mat-form-field>
+      <mat-form-field class="datos col-md-4 col-sm-6">
+        <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
+        <mat-error *ngIf="formRegistro.controls.clave.invalid">{{errorClave()}}</mat-error>
       </mat-form-field>
-    <div align="center">
+      <div align="center">
         <button mat-button (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionSmall">Siguiente</button>
       </div>
+    </form>
     </mat-step>
+
   </mat-horizontal-stepper>
 
   <mat-horizontal-stepper #stepper class="transparente" *ngIf="paso === 2">
       <mat-step>
-        <form >
+        <form method="get">
           <ng-template matStepLabel >Apertura de cuenta</ng-template>
           <br>
           <div class="embed-responsive embed-responsive-16by9">

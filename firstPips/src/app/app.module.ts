@@ -106,6 +106,7 @@ const  firebaseConfig = {
     AngularFireDatabaseModule,
         // import HttpClientModule after BrowserModule.
     FormsModule,
+
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     A11yModule,
