@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder,Validators, FormControl } from '@angular/forms';
+import { GuardianServicios } from '../servicios/guardian.servicios';
 
+@Injectable()
 
 @Component({
   selector: 'app-registro',
@@ -13,6 +15,8 @@ export class RegistroComponent implements OnInit{
   paso = 1
   fechaActual = new Date()
   fechaMinima: number
+  registro : any={}
+
   formRegistro= new FormGroup({
             nombres           : new FormControl('',[Validators.required,
                                                     Validators.minLength(3),
@@ -34,8 +38,8 @@ export class RegistroComponent implements OnInit{
               private router:Router) {
                 this.fechaActual.setFullYear(this.fechaActual.getFullYear()-12)
                 this.fechaMinima = this.fechaActual.setFullYear(this.fechaActual.getFullYear()-12)
+                }
 
-              }
 
 ngOnInit(){
 
@@ -56,7 +60,6 @@ errorTelefono() {
           this.formRegistro.controls.telefono.hasError('maxLength') ? 'Numero de carecteres invalido' : 'Numero de carecteres invalido'
         }
 errorFechaNacimiento() {
-  console.log(this.fechaMinima)
   return  this.formRegistro.controls.fechaNacimiento.hasError('required') ? 'Fecha de nacimiento requeridos' :
           this.formRegistro.controls.fechaNacimiento.hasError('min') ? 'Fecha de nacimiento no valido' : 'Numero de carecteres invalido'
     }
@@ -70,20 +73,34 @@ errorClave() {
   }
 
   registrar(){
-    this.autorizacionService.guardarUsuario(this.formRegistro)
+    this.registro.id = Date.now()
+    this.registro.nombres= this.formRegistro.controls.nombres.value
+    this.registro.apellidos= this.formRegistro.controls.apellidos.value
+    this.registro.telefono= this.formRegistro.controls.telefono.value
+    this.registro.fechaNacimiento= this.formRegistro.controls.fechaNacimiento.value
+    this.registro.email= this.formRegistro.controls.email.value
+    this.registro.clave= this.formRegistro.controls.clave.value
+    this.registro.fechaPago = null,
+    this.registro.usuarioPrimium = false,
+    this.registro.usuarioAdmin =false,
+    this.registro.superAdmin = false
+    this.registro.fechaRegistro = new Date()
+    this.autorizacionService.guardarUsuario(this.registro)
     this.autorizacionService.registro(
-                this.formRegistro.controls.nombres,
-                this.formRegistro.controls.email,this.formRegistro.controls.clave)
+                this.registro.nombres,
+                this.registro.email,this.registro.clave)
   }
 
   siguiente(){
     this.paso++
     if(this.paso ===3){
-      this.router.navigate(['deshboard'])
+
+      this.router.navigate(['logueo'])
   }}
   anterior(){
     if(this.paso ===1){
       this.router.navigate(['logueo'])
+
     }
     else{
       this.paso--

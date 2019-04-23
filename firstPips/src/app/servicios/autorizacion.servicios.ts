@@ -8,19 +8,6 @@ import swal from'sweetalert';
 @Injectable()
 
 export class AutorizacionSericios{
-usuario = {
-  nombres           : null,
-  apellidos         : null,
-  telefono          : null,
-  fechaNacimiento   : null,
-  email             : null,
-  clave             : null,
-  fechaRegistro     : null,
-  fechaPago         : null,
-  usuarioPrimium    : false,
-  usuarioAdmin      : false,
-  superAdmin        : false
-}
 
   constructor(
     //afDB  objeto para conexion con base de datos de firebase
@@ -50,14 +37,7 @@ usuario = {
               });
   }
   guardarUsuario(usuario){
-    this.usuario.nombres = usuario.nombres
-    this.usuario.apellidos = usuario.apellidos
-    this.usuario.telefono = usuario.telefono
-    this.usuario.fechaNacimiento = usuario.fechaNacimiento
-    this.usuario.email = usuario.email
-    this.usuario.clave = usuario.clave
-    this.usuario.fechaRegistro = new Date
-    return this.afDB.database.ref('Usuarios/'+usuario.telefono).set(usuario);
+    return this.afDB.database.ref('Usuarios/'+usuario.id).set(usuario);
   }
 
   public registro = (nombres, email , clave) =>{
