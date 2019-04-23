@@ -18,6 +18,10 @@ export class AutorizacionSericios{
       this.islogged()
   }
   public login = (email, clave) =>{
+
+    this.getUsuarios()
+    console.log(this.getUsuarios())
+
     this.angularFireAuth.auth.signInWithEmailAndPassword(email, clave)
                       .then((respuesta)=>{
                         swal("¡Bienvenido!🤩 NOMBRE", "estamos muy feliz de que estes aqui");
@@ -57,8 +61,16 @@ export class AutorizacionSericios{
 
   }
 
-  public getUsuario(){
+  public getCorreoAutenticacion(){
     return this.angularFireAuth.auth
+  }
+
+  getUsuarios(){
+    return this.afDB.list('Usuarios')
+  }
+
+  getUsuario(id){
+    return this.afDB.object('Usuarios/'+id)
   }
 
   loginFacebook(){

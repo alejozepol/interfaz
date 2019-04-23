@@ -2,7 +2,6 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder,Validators, FormControl } from '@angular/forms';
-import { GuardianServicios } from '../servicios/guardian.servicios';
 
 @Injectable()
 
@@ -81,7 +80,6 @@ errorClave() {
     this.registro.email= this.formRegistro.controls.email.value
     this.registro.clave= this.formRegistro.controls.clave.value
     this.registro.fechaPago = null,
-    this.registro. fechaPago= null
     this.registro.usuarioPrimium = false,
     this.registro.usuarioAdmin =false,
     this.registro.superAdmin = false
@@ -95,7 +93,6 @@ errorClave() {
   siguiente(){
     this.paso++
     if(this.paso ===3){
-
       this.router.navigate(['logueo'])
   }}
   anterior(){

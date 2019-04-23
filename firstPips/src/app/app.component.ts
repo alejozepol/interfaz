@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
               this.loggedIn = true
               setTimeout(()=>{
-                this.usuario =this.autorizacionService.getUsuario().currentUser.email
+                this.usuario =this.autorizacionService.getCorreoAutenticacion().currentUser.email
               },500)
 
               // console.log(this.usuario)

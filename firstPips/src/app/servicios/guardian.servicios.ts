@@ -13,11 +13,6 @@ constructor(private autorizacionServios: AutorizacionSericios,
   private router:Router, private registro: RegistroComponent){
     this.autorizacionServios.islogged()
     .subscribe((resultado)=>{
-      if(this.registro.paso ===3){
-        this.loggedIn =false
-      }
-
-
 
       if  (resultado && resultado.uid){
           this.loggedIn =true

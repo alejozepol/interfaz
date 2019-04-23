@@ -158,7 +158,7 @@ const  firebaseConfig = {
   providers: [AutorizacionSericios,
               GuardianServicios,
               SenalesServicios,
-            RegistroComponent],
+              RegistroComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
