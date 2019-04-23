@@ -81,6 +81,7 @@ errorClave() {
     this.registro.email= this.formRegistro.controls.email.value
     this.registro.clave= this.formRegistro.controls.clave.value
     this.registro.fechaPago = null,
+    this.registro. fechaPago= null
     this.registro.usuarioPrimium = false,
     this.registro.usuarioAdmin =false,
     this.registro.superAdmin = false
