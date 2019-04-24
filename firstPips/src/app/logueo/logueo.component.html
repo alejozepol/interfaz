@@ -3,40 +3,51 @@
   <div class="container ">
     <div  class="row justify-content-center">
       <!--caja de logo-->
-      <div id="logo" class="col col-2">
+      <div id="logo" class="col-xs-2  col-sm-2 col-md-2  col-lg-2">
           <div >Logo</div>
 
       </div>
+      <div class="col-xs-12  col-sm-12 col-md-12  col-lg-12">
+          <div  class="row justify-content-center">
        <!-- fin caja de logo-->
         <!-- inicio caja formulario logueo-->
-      <div class="col-md-12 col-sm-12" align="center">
-      <div class="col col-xs-12  col-sm-12 col-md-6  col-lg-6 ">
-            <form>
-                <div class="form-group">
-                    <br>
-                    <input [(ngModel)]="loginP.email" name="email" type="email" class="form-control rounded-pill" aria-describedby="email" placeholder="Usuario" required>
+            <form align="center" [formGroup]="formLogin" class="col-6">
+              <!--Inicio email -->
+              <br>
+              <mat-form-field class="form-group col-12">
+                <div class="form-control rounded-pill">
+                  <input matInput formControlName="email" placeholder="Correo" type="email" class="" required>
                 </div>
-                <div class="form-group">
-                    <input [(ngModel)]="loginP.clave" name="clave" type="password" class="form-control rounded-pill" placeholder="Password" required>
+                    <mat-error *ngIf="formLogin.controls.email.invalid">{{errorCorreo()}}</mat-error>
+              </mat-form-field>
+              <!--Fin email           -->
+              <!--Inicio clave -->
+              <mat-form-field class="form-group col-12">
+                <div class="form-control rounded-pill">
+                  <input matInput formControlName="clave" placeholder="Contraseña" type="password" class="rounded-pill" required>
                 </div>
-                <button mat-button (click)="login()" type="submit" class="btn-block btn-success rounded-pill moradoDegradado">Ingresar</button>
+                    <mat-error *ngIf="formLogin.controls.clave.invalid">{{errorClave()}}</mat-error>
+
+              </mat-form-field>
+              <!--Fin clave           -->
+               <button mat-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block btn-success rounded-pill moradoDegradado">Ingresar</button>
             </form>
+            <div class="col-12" align="center" style="padding-top: 12px;">
+                <button mat-button (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
+               <button mat-button (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
+            </div>
+                      <!--Creacion de formulario de usuario y contraseña-->
             <br>
-            <!-- <button mat-button (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>-->
-           <!--  <button mat-button (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button> -->
+            <hr class="vl">
+            <br>
+            <br>
+            <div align="center" class="col-6 ">
+                <button mat-button routerLink="/registro" type="button" class="btn-block btn-success rounded-pill moradoDegradado">Registro</button>
+            </div>
+          </div>
+        </div>
 
         </div>
-        <br>
-      </div>
-          <!--Creacion de formulario de usuario y contraseña-->
-          <br>
-          <hr class="vl">
-          <br>
-          <br>
-          <div align="center" class="col col-xs-12  col-sm-12 col-md-6  col-lg-6 ">
-              <button mat-button routerLink="/registro" type="button" class="btn-block btn-success rounded-pill moradoDegradado">Registro</button>
-          </div>
     </div>
   </div>
-</div>
 </ng-container>
