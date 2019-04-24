@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'firstPips';
   loggedIn =false;
   usuario: any = null
+  usuarios : any = {}
 
   constructor( private autorizacionService: AutorizacionSericios, private swUpdate: SwUpdate){
 
@@ -19,9 +20,9 @@ export class AppComponent implements OnInit {
           if  (resultado && resultado.uid){
 
               this.loggedIn = true
-              setTimeout(()=>{
+/*               setTimeout(()=>{
                 this.usuario =this.autorizacionService.getCorreoAutenticacion().currentUser.email
-              },500)
+              },500) */
 
               // console.log(this.usuario)
           }

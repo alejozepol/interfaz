@@ -1,5 +1,5 @@
 
-<div class="text-white fondoImagen">
+<div class="text-white fondoImagen contenidoApp">
     <mat-icon (click)="anterior()" style="display: flex;">reply</mat-icon>
 
   <div class="container">
@@ -29,7 +29,7 @@
         </div>
         <br>
         <div align="center">
-          <button mat-button matStepperNext class="btn-success rounded-pill azulDegradado btnAccionGrande">Next</button>
+          <button mat-button matStepperNext class="btn-success rounded-pill moradoDegradado btnAccionGrande">Siguiente</button>
         </div>
       </form>
     </mat-step>
@@ -56,45 +56,62 @@
                     <strong>Se brindara a los clientes videos iniciales para educarlos en la copia de señales y a la ves se emviara diario infogramas el cual les ayudara a obtener un mejor beneficio y contaran con un sevicio al cliente en de 16 horas en un horario de 6am a 9 pm.</strong>
                 </div>
             </div>
+            <br>
             <div align="center">
-          <button mat-button matStepperPrevious class="btn-danger rounded-pill  btnAccionSmall">Anterior</button>
-          <button mat-button matStepperNext class="btn-success rounded-pill btnAccionSmall">Acepto</button>
+          <button mat-button matStepperPrevious class="btn-danger rounded-pill  btnAccionGrande">Anterior</button>
+          <button mat-button matStepperNext class="btn-success rounded-pill btnAccionGrande">Acepto</button>
         </div>
       </form>
     </mat-step>
     <mat-step >
       <ng-template matStepLabel>Datos Basicos</ng-template>
       <br>
-    <form [formGroup]="formRegistro">
+    <form [formGroup]="formRegistro" action="sumit">
+      <!--Inicio Nombre  -->
       <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput placeholder="Nombres" type="text" formControlName="nombres" required>
         <mat-error *ngIf="formRegistro.controls.nombres.invalid">{{errorNombres()}}</mat-error>
       </mat-form-field>
+      <!--Fin Nombre      -->
+      <!--Inicio Apellido -->
       <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput formControlName="apellidos" placeholder="Apellidos" type="text" required>
         <mat-error *ngIf="formRegistro.controls.apellidos.invalid">{{errorApellidos()}}</mat-error>
       </mat-form-field>
+      <!--Fin Apellido    -->
+      <!--Inicio telefono -->
       <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput formControlName="telefono" placeholder="Telefono" type="number" required>
         <mat-error *ngIf="formRegistro.controls.telefono.invalid">{{errorTelefono()}}</mat-error>
       </mat-form-field>
+      <!--Fin telefono           -->
+      <!--Inicio fechaNacimiento -->
       <mat-form-field class="datos col-md-4 col-sm-6">
           <input matInput formControlName="fechaNacimiento" placeholder="Fecha de Nacimiento"
           type="date" required>
           <mat-error *ngIf="formRegistro.controls.fechaNacimiento.invalid">{{errorFechaNacimiento()}}</mat-error>
       </mat-form-field>
+      <!--Fin fechaNacimiento           -->
+      <!--Inicio email -->
       <mat-form-field class="datos col-md-4 col-sm-6">
             <input matInput formControlName="email" placeholder="Correo" type="email" required>
             <mat-error *ngIf="formRegistro.controls.email.invalid">{{errorCorreo()}}</mat-error>
-      <p *ngIf="expression"></p>
-          </mat-form-field>
+            <p *ngIf="expression"></p>
+      </mat-form-field>
+      <!--Fin email           -->
+      <!--Inicio clave -->
       <mat-form-field class="datos col-md-4 col-sm-6">
         <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
         <mat-error *ngIf="formRegistro.controls.clave.invalid">{{errorClave()}}</mat-error>
       </mat-form-field>
+      <!--Fin clave           -->
+      <!--Inicio Boton -->
+      <br>
+      <br>
       <div align="center">
-        <button mat-button (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionSmall">Siguiente</button>
+        <button mat-button (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionGrande moradoDegradado">Siguiente</button>
       </div>
+      <!--fin Boton -->
     </form>
     </mat-step>
 
@@ -105,39 +122,38 @@
         <form method="get">
           <ng-template matStepLabel >Apertura de cuenta</ng-template>
           <br>
-          <div class="embed-responsive embed-responsive-16by9">
+          <div align="center" class="embed-responsive embed-responsive-16by9">
 
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
           </div>
           <br>
           <div align="center">
-            <button mat-button matStepperNext class="btn-success rounded-pill azulDegradado btnAccionGrande">Siguiente</button>
+            <button mat-button matStepperNext class="btn-success rounded-pill moradoDegradado btnAccionGrande">Siguiente</button>
           </div>
         </form>
       </mat-step>
       <mat-step>
-        <form>
-          <ng-template matStepLabel>Anclar cuenta</ng-template>
-          <div class="embed-responsive embed-responsive-16by9">
-
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+          <ng-template matStepLabel >Anclar cuenta</ng-template>
+          <br>
+          <div align="center" class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
           </div>
-              <div align="center">
-             <button mat-button matStepperNext class="btn-success rounded-pill btnAccionSmall">siguiente</button>
+          <br>
+          <div align="center">
+             <button mat-button matStepperNext class="btn-success rounded-pill btnAccionGrande moradoDegradado">siguiente</button>
           </div>
-        </form>
       </mat-step>
       <mat-step >
         <ng-template matStepLabel>¿Como copiar señales?</ng-template>
         <br>
-        <div class="embed-responsive embed-responsive-16by9">
-
+        <div align="center" class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
         </div>
+        <br>
       <div align="center">
-          <button mat-button (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionSmall">Siguiente</button>
+          <button mat-button (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionGrande moradoDegradado">Siguiente</button>
         </div>
       </mat-step>
-    </mat-horizontal-stepper>
+  </mat-horizontal-stepper>
 </div>
 </div>

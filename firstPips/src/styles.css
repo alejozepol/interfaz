@@ -12,7 +12,7 @@
   }
   }
 
-  @media (min-width: 601px) {
+  @media (min-width: 601px)  {
 
     #despegable{
       position:absolute;
@@ -23,25 +23,27 @@
     }
     }
 
+.contenidoApp{
+  min-height: 660px;
+  background: -webkit-gradient(linear, left top, right bottom, from(#0DC9E5), to(#20228F)) !important;
+  margin: 0 0 0 0 !important;
+  padding: 0 0 0 0 !important;
+}
 
 body{
-  width: 100% !important;
-  height: 100% !important;
   font-family: 'Kalam', bold !important;
   font-size: 20px !important;
-}
+ }
 
 .fondoImagen{
   background-image: url("assets/FondoImagen.png");
   background-size: cover;
-  height: 100vh;
   background-attachment: fixed;
 
 }
 .fondoAzul{
   background-image: url("assets/FondoImagen.png");
   background-size: cover;
-  height: 100vh;
   background-attachment: fixed;
   background-image: url("assets/fondoColor.png");
 }
