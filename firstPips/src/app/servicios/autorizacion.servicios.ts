@@ -11,6 +11,7 @@ export class AutorizacionSericios{
 //inicio de declaracion de atributos de la clase
   usuarios={}
   Configuracion = {url: 'http://localhost:4200'}
+  usuario = {}
 //fin de declaracion de atributos de la clase
 
 constructor(//afDB  objeto para conexion con base de datos de firebase
@@ -19,9 +20,7 @@ constructor(//afDB  objeto para conexion con base de datos de firebase
                 private angularFireAuth: AngularFireAuth,
             // Router para redireccionamiento de paginas
                 private router:Router)
-          {
-              this.islogged()
-          }
+          {this.islogged()}
 
 
 //inicio Creacion de usuario por email y contraseña
@@ -107,7 +106,7 @@ public login(email, clave){
             this.router.navigate(['logueo'])
             swal({
               title: `¡Lo sentimos
-              😰 ${respuesta.user.displayName}😰!`,
+              😰${respuesta.user.displayName}😰!`,
               text: `Para poder ingresar primero debes verificar tu correo electronico ${respuesta.user.email} donde encontraras un enlace para activar tu cuenta `,
               icon: 'warning'
         })}
@@ -151,7 +150,7 @@ public login(email, clave){
 
   }
 
-  public getCorreoAutenticacion(){
+  public datosUsuario(){
 
     return this.angularFireAuth.auth
   }
@@ -163,8 +162,12 @@ public login(email, clave){
       this.angularFireAuth.auth.signInWithPopup(
         new firebase.auth.FacebookAuthProvider())
           .then((resultado)=>{
-            console.log(resultado)
-            swal("¡Bienvenido!🤩 NOMBRE", "estamos muy feliz de que estes aqui");
+             this.usuario = resultado.user
+            swal({
+              title: `¡Bienvenido 🤩 ${resultado.user.displayName}🤩!`,
+              text: `estamos muy feliz de que estes aqui`,
+              icon: 'info'
+        })
               this.router.navigate(['deshboard'])
           })
           .catch((error)=>{
@@ -176,8 +179,13 @@ public login(email, clave){
     this.angularFireAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider())
       .then((resultado)=>{
+        this.usuario = resultado.user.email
         this.router.navigate(['deshboard'])
-        swal("¡Bienvenido!🤩 NOMBRE", "estamos muy feliz de que estes aqui");
+        swal({
+          title: `¡Bienvenido 🤩${resultado.user.displayName}🤩!`,
+          text: `estamos muy feliz de que estes aqui`,
+          icon: 'info'
+    })
 
 
       })

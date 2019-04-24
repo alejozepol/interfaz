@@ -3,8 +3,13 @@
     <mat-drawer #drawer [mode]="mode.value" class="moradoDegradado text-white">
             <ul class="nav justify-content-end navbar-nav" *ngIf="loggedIn" align="center">
               <li *ngIf="usuario">
-                <img src="../assets/icons/Avatar.svg" alt="avatar" sizes="" srcset="">
-                <a class="btn nav-link">{{usuario}}</a>
+                <ng-container *ngIf="usuario.avatar">
+                  <img src="{{usuario.avatar}}" alt="avatar"srcset="" style="height: 70px; width: 70px;" class="rounded-circle">
+                </ng-container>
+                <ng-container *ngIf="!usuario.avatar">
+                  <img src="/assets/icons/Avatar.svg" alt="avatar" sizes="" srcset="">
+                </ng-container>
+                <a class="btn nav-link">{{usuario.email}}</a>
               </li>
                 <li>
                   <br>

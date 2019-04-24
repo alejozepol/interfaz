@@ -10,7 +10,7 @@ import { SwUpdate } from '@angular/service-worker';
 export class AppComponent implements OnInit {
   title = 'firstPips';
   loggedIn =false;
-  usuario: any = null
+  usuario: any = {}
   usuarios : any = {}
 
   constructor( private autorizacionService: AutorizacionSericios, private swUpdate: SwUpdate){
@@ -20,11 +20,10 @@ export class AppComponent implements OnInit {
           if  (resultado && resultado.uid){
 
               this.loggedIn = true
-/*               setTimeout(()=>{
-                this.usuario =this.autorizacionService.getCorreoAutenticacion().currentUser.email
-              },500) */
-
-              // console.log(this.usuario)
+             setTimeout(()=>{
+                this.usuario.email = this.autorizacionService.datosUsuario().currentUser.email
+                this.usuario.avatar = this.autorizacionService.datosUsuario().currentUser.photoURL
+              },500)
           }
           else{
 
