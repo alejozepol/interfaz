@@ -109,7 +109,7 @@
       <br>
       <br>
       <div align="center">
-        <button mat-button (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionGrande moradoDegradado">Siguiente</button>
+        <button mat-button [disabled]="formRegistro.invalid" (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionGrande moradoDegradado">Siguiente</button>
       </div>
       <!--fin Boton -->
     </form>
