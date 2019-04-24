@@ -16,7 +16,7 @@
               <br>
               <mat-form-field class="form-group col-12">
                 <div class="form-control rounded-pill">
-                  <input matInput formControlName="email" placeholder="Correo" type="email" class="" required>
+                  <input matInput formControlName="email" placeholder="Correo" type="email" required>
                 </div>
                     <mat-error *ngIf="formLogin.controls.email.invalid">{{errorCorreo()}}</mat-error>
               </mat-form-field>
@@ -24,13 +24,13 @@
               <!--Inicio clave -->
               <mat-form-field class="form-group col-12">
                 <div class="form-control rounded-pill">
-                  <input matInput formControlName="clave" placeholder="Contraseña" type="password" class="rounded-pill" required>
+                  <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
                 </div>
                     <mat-error *ngIf="formLogin.controls.clave.invalid">{{errorClave()}}</mat-error>
 
               </mat-form-field>
               <!--Fin clave           -->
-               <button mat-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block btn-success rounded-pill moradoDegradado">Ingresar</button>
+               <button mat-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block btn-success rounded-pill azulDegradado">Ingresar</button>
             </form>
             <div class="col-12" align="center" style="padding-top: 12px;">
                 <button mat-button (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
@@ -42,7 +42,7 @@
             <br>
             <br>
             <div align="center" class="col-6 ">
-                <button mat-button routerLink="/registro" type="button" class="btn-block btn-success rounded-pill moradoDegradado">Registro</button>
+                <button mat-button routerLink="/registro" type="button" class="btn-block btn-success rounded-pill azulDegradado">Registro</button>
             </div>
           </div>
         </div>

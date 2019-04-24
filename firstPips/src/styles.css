@@ -32,9 +32,13 @@
   padding-top: 0px !important;
   font-family: 'Patrick Hand', cursive !important;
 }
+.mat-form-field-appearance-legacy .mat-form-field-label{
+  color:#000000 ;
+}
+
 .contenidoApp{
   min-height: 660px;
-  background: -webkit-gradient(linear, left top, right bottom, from(#0DC9E5), to(#20228F)) !important;
+  background: -webkit-gradient(linear, left top, right bottom, from(#0DC9E5), to(#20228F));
   margin: 0 0 0 0 !important;
   padding: 0 0 0 0 !important;
 }

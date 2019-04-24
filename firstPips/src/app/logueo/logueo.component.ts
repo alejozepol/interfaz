@@ -28,6 +28,8 @@ errorClave() {
   }
 
    login(){
+    this.loginP.email= this.formLogin.controls.email.value
+    this.loginP.clave= this.formLogin.controls.clave.value
         this.autorizacionService.login(  this.loginP.email,this.loginP.clave)
    }
 

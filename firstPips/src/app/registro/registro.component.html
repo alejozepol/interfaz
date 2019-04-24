@@ -68,40 +68,51 @@
       <br>
     <form [formGroup]="formRegistro" action="sumit">
       <!--Inicio Nombre  -->
-      <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput placeholder="Nombres" type="text" formControlName="nombres" required>
+      <mat-form-field class="form-group col-md-4 col-sm-6">
+        <div class="form-control rounded-pill">
+          <input matInput placeholder="Nombres" type="text" formControlName="nombres" required>
+        </div>
         <mat-error *ngIf="formRegistro.controls.nombres.invalid">{{errorNombres()}}</mat-error>
       </mat-form-field>
       <!--Fin Nombre      -->
       <!--Inicio Apellido -->
-      <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput formControlName="apellidos" placeholder="Apellidos" type="text" required>
+      <mat-form-field class="form-group col-md-4 col-sm-6">
+        <div class="form-control rounded-pill">
+          <input matInput formControlName="apellidos" placeholder="Apellidos" type="text" required>
+        </div>
         <mat-error *ngIf="formRegistro.controls.apellidos.invalid">{{errorApellidos()}}</mat-error>
       </mat-form-field>
       <!--Fin Apellido    -->
       <!--Inicio telefono -->
-      <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput formControlName="telefono" placeholder="Telefono" type="number" required>
+      <mat-form-field class="form-group col-md-4 col-sm-6">
+        <div class="form-control rounded-pill">
+          <input matInput formControlName="telefono" placeholder="Telefono" type="number" required>
+        </div>
         <mat-error *ngIf="formRegistro.controls.telefono.invalid">{{errorTelefono()}}</mat-error>
       </mat-form-field>
       <!--Fin telefono           -->
       <!--Inicio fechaNacimiento -->
-      <mat-form-field class="datos col-md-4 col-sm-6">
+      <mat-form-field class="form-group col-md-4 col-sm-6">
+        <div class="form-control rounded-pill">
           <input matInput formControlName="fechaNacimiento" placeholder="Fecha de Nacimiento"
           type="date" required>
-          <mat-error *ngIf="formRegistro.controls.fechaNacimiento.invalid">{{errorFechaNacimiento()}}</mat-error>
+      </div>
+      <mat-error *ngIf="formRegistro.controls.fechaNacimiento.invalid">{{errorFechaNacimiento()}}</mat-error>
       </mat-form-field>
       <!--Fin fechaNacimiento           -->
       <!--Inicio email -->
-      <mat-form-field class="datos col-md-4 col-sm-6">
-            <input matInput formControlName="email" placeholder="Correo" type="email" required>
-            <mat-error *ngIf="formRegistro.controls.email.invalid">{{errorCorreo()}}</mat-error>
-            <p *ngIf="expression"></p>
+      <mat-form-field class="form-group col-md-4 col-sm-6">
+        <div class="form-control rounded-pill">
+          <input matInput formControlName="email" placeholder="Correo" type="email" required>
+        </div>
+          <mat-error *ngIf="formRegistro.controls.email.invalid">{{errorCorreo()}}</mat-error>
       </mat-form-field>
       <!--Fin email           -->
       <!--Inicio clave -->
-      <mat-form-field class="datos col-md-4 col-sm-6">
-        <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
+      <mat-form-field class="form-group col-md-4 col-sm-6">
+        <div class="form-control rounded-pill">
+          <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
+        </div>
         <mat-error *ngIf="formRegistro.controls.clave.invalid">{{errorClave()}}</mat-error>
       </mat-form-field>
       <!--Fin clave           -->
