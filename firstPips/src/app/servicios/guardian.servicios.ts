@@ -10,7 +10,7 @@ export class GuardianServicios implements CanActivate{
   loggedIn =false
 
 constructor(private autorizacionServios: AutorizacionSericios,
-  private router:Router, private registro: RegistroComponent){
+  private router:Router){
     this.autorizacionServios.islogged()
     .subscribe((resultado)=>{
 

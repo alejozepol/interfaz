@@ -72,38 +72,35 @@ errorClave() {
   }
 
   registrar(){
-    this.registro.id = Date.now()
+    /* asignacion de los valores al arreglo registro asignando cada valor
+    recolectado en el formulario de registro */
     this.registro.nombres= this.formRegistro.controls.nombres.value
     this.registro.apellidos= this.formRegistro.controls.apellidos.value
     this.registro.telefono= this.formRegistro.controls.telefono.value
     this.registro.fechaNacimiento= this.formRegistro.controls.fechaNacimiento.value
     this.registro.email= this.formRegistro.controls.email.value
     this.registro.clave= this.formRegistro.controls.clave.value
-    this.registro.fechaPago = null,
-    this.registro.usuarioPrimium = false,
-    this.registro.usuarioAdmin =false,
-    this.registro.superAdmin = false
-    this.registro.fechaRegistro = new Date()
-    this.autorizacionService.guardarUsuario(this.registro)
-    this.autorizacionService.registro(
-                this.registro.nombres,
-                this.registro.email,this.registro.clave)
+
+    this.autorizacionService.crearCuentaEmailClave(this.registro)
+      /* Metodo del servicio autorizacionService para creacion de usuario mediante email y contraseña */
+
+    this.paso === 3
+    this.router.navigate(['registro'])
   }
 
-  siguiente(){
-    this.paso++
-    if(this.paso ===3){
-      this.router.navigate(['logueo'])
-  }}
-  anterior(){
-    if(this.paso ===1){
-      this.router.navigate(['logueo'])
+siguiente(){
+  this.paso++
+  if(this.paso ===3){
+    this.router.navigate(['logueo'])
+}}
+anterior(){
+  if(this.paso ===1){
+    this.router.navigate(['logueo'])
 
-    }
-    else{
-      this.paso--
-    }
-
+  }else{
+    this.paso--
   }
+
+}
 
 }
