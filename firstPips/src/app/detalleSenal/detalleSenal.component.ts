@@ -17,8 +17,7 @@ export class DetalleSenalComponent {
   constructor(private senalesServicio: SenalesServicios,
     private route: ActivatedRoute) {
     this.id = this.route.snapshot.params['id']
-      this.senalesServicio.getSenal(this.id).valueChanges()
-          .subscribe((senal) => this.senal = senal)
+    this.senal =  this.senalesServicio.getSenal(this.id)
 
           console.log()
     }

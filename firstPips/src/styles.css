@@ -159,6 +159,10 @@ body{
 }
 
 .tituloSenal{
+    height: 5em;
+    left: 0;
+    top: 0;
+    width: 100%;
   position:fixed !important;
 }
 .swal-text{
