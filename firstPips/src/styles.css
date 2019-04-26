@@ -25,7 +25,7 @@
     #despegable{
       position:fixed;
       top:50%;
-      left: -2%;
+      left: 0%;
       padding: 0 0 0 0;
       background-color: transparent
     }
@@ -101,7 +101,7 @@ body{
 }
 
 .moradoDegradado{
-  background: -webkit-gradient(linear, left top, right bottom, from(#BB57A6), to(#4B2B8D));
+  background: -webkit-gradient(linear, left top, right bottom, from(rgb(231, 109, 205)), to(rgb(112, 64, 206)));
 }
 
 .btnAccionSmall{

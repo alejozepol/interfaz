@@ -6,10 +6,10 @@
     <br>
   <div class="container ">
       <div  class="row justify-content-center">
-        <form align="center" [formGroup]="FCrearSenal" class="col-md-12 col-xl-12 col-sm-12">
+        <form align="center" [formGroup]="FCrearSenal" class="col-md-12 col-xl-12 col-sm-12 text-white">
             <!--Inicio Grupo Divisas -->
             <br>
-            <mat-form-field class="form-group col-6">
+            <mat-form-field class="form-group col-md-6 col-xl-6 col-sm-12">
               <div class="form-control rounded-pill">
                 <mat-select placeholder="Grupo Divisas" formControlName="grupoDivisa">
                   <div *ngFor="let i of divisas">
@@ -21,7 +21,7 @@
             </mat-form-field>
             <!--Fin Grupo Divisas -->
             <!--Inicio Lotaje     -->
-            <mat-form-field class="form-group col-6">
+            <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
               <div class="form-control rounded-pill">
                 <input matInput formControlName="lotaje"  placeholder="Lotaje" type="number" required>
               </div>
@@ -29,7 +29,7 @@
             </mat-form-field>
             <!--Fin Lotaje      -->
             <!--Inicio orden     -->
-            <mat-form-field class="form-group col-6">
+            <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                 <div class="form-control rounded-pill">
                   <mat-select placeholder="Orden" formControlName="orden">
                     <div *ngFor="let i of ordenes">
@@ -41,7 +41,7 @@
               </mat-form-field>
               <!--Fin orden      -->
               <!--Inicio orden     -->
-              <mat-form-field class="form-group col-6">
+              <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                 <div class="form-control rounded-pill">
                   <input matInput formControlName="precioEntrada"  placeholder="Precio Entrada" type="number" required>
                 </div>
@@ -49,7 +49,7 @@
               </mat-form-field>
               <!--Fin orden      -->
               <!--Inicio sl     -->
-              <mat-form-field class="form-group col-6">
+              <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                   <div class="form-control rounded-pill">
                     <input matInput formControlName="sl"  placeholder="Stop Loss" type="number" required>
                   </div>
@@ -57,7 +57,7 @@
                 </mat-form-field>
                 <!--Fin sl      -->
                 <!--Inicio tp1     -->
-              <mat-form-field class="form-group col-6">
+              <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                   <div class="form-control rounded-pill">
                     <input matInput formControlName="tp1"  placeholder="Primer Take Proffit" type="number" required>
                   </div>
@@ -65,7 +65,7 @@
                 </mat-form-field>
                 <!--Fin tp1      -->
                 <!--Inicio tp2     -->
-              <mat-form-field class="form-group col-6">
+              <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                   <div class="form-control rounded-pill">
                     <input matInput formControlName="tp2"  placeholder="Segundo Take Proffit" type="number" required>
                   </div>
@@ -73,7 +73,7 @@
                 </mat-form-field>
                 <!--Fin tp2      -->
                 <!--Inicio tp3     -->
-                <mat-form-field class="form-group col-6">
+                <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                   <div class="form-control rounded-pill">
                     <input matInput formControlName="tp3"  placeholder="Tercer Take Proffit" type="number" required>
                   </div>
@@ -84,14 +84,14 @@
 
 
                 <!--Inicio Activo -->
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12 col-xl-6 ">
                     <label>Estado: </label>
                     <br>
                     <mat-checkbox [required] formControlName="estado">Activo</mat-checkbox>
                     <!-- <mat-error *ngIf="FCrearSenal.controls.tp3.invalid">{{errorEstado()}}</mat-error> -->
                 </div>
                 <!--Fin Activo-->
-                  <div class="col-6">
+                  <div class="col-md-6 col-sm-12">
                     <label>Tipo de Señal: </label>
                     <br>
                     <mat-radio-group formControlName="tipo">

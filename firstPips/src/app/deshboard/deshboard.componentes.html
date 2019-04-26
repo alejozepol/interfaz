@@ -22,7 +22,7 @@
               <div class="row text-center">
                   <div class="col-4 rounded" >
                       <h4>SL</h4>
-                      👁‍🗨{{senal.sl}}👁‍🗨
+                      {{senal.sl}}
                     </div>
                 <div class="col-4">
                     <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
@@ -30,28 +30,28 @@
                 </div>
               <div class="col-4 rounded" >
                   <h4>TP</h4>
-                1: 🎯{{senal.tp1}}🎯
+                {{senal.tp1}}
                 <br>
-                2: 🎯{{senal.tp2}}🎯
+                {{senal.tp2}}
                 <br>
-                3: 🎯{{senal.tp3}}🎯
+                {{senal.tp3}}
               </div>
               <div class="col-12">
                   <div class="row">
                     <div class="col-4">
-                      <a mat-fab routerLink="/crear/{{senal.id}}" style="text-decoration: none;">
+                      <a mat-mini-fab routerLink="/crear/{{senal.id}}" style="text-decoration: none;">
                         <mat-icon>edit</mat-icon>
                        <br>
                       </a>
                     </div>
                     <div class="col-4">
-                      <button mat-fab>
+                      <button mat-mini-fab>
                       <mat-checkbox ></mat-checkbox>
                       <!-- <br>Copiado -->
                     </button>
                     </div>
                     <div class="col-4">
-                      <button mat-fab (click)="consularSenal(senal.id)" >
+                      <button mat-mini-fab (click)="consularSenal(senal.id)" >
                       <mat-icon  >visibility</mat-icon>
                     </button>
                       <!-- <br>
@@ -101,15 +101,15 @@
                 </div>
               <div class="col-6">
                 <h4>SL</h4>
-                👁‍🗨{{senal.sl}}👁‍🗨
+                {{senal.sl}}
               </div>
               <div class="col-6">
                   <h4>TP</h4>
-                1: 🎯{{senal.tp1}}🎯
+                {{senal.tp1}}
                 <br>
-                2: 🎯{{senal.tp2}}🎯
+                {{senal.tp2}}
                 <br>
-                3: 🎯{{senal.tp3}}🎯
+                {{senal.tp3}}
               </div>
             </div>
             </mat-card>
