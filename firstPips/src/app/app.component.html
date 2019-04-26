@@ -52,10 +52,10 @@
                   </li>
               </ul>
     </mat-drawer>
-
-      <button id="despegable"  *ngIf="loggedIn" mat-raised-button (click)="drawer.toggle()">
+    <router-outlet></router-outlet>
+      <button id="despegable"  *ngIf="loggedIn"  (click)="drawer.toggle()">
         <img src="../assets/icons/desplazamientoMenu.png" alt="">
       </button>
-      <router-outlet></router-outlet>
+
 
   </mat-drawer-container>
