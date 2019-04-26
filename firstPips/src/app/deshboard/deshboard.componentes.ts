@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
 import { SenalesServicios } from '../servicios/senales.servicios';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,27 +12,28 @@ import { SenalesServicios } from '../servicios/senales.servicios';
 export class DeshboardComponentes{
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-   senales = null
+   senales: any = []
    usuarios = null
+   senal = {}
+   vista = 0
 
   constructor(private senalesServicio: SenalesServicios,
-              private autorizacionservice: AutorizacionSericios){
+              private autorizacionservice: AutorizacionSericios, private router:Router){
 
-senalesServicio.getSenales().valueChanges()
-              .subscribe(senales => this.senales = senales)
-
-/* autorizacionservice.getUsuarios().valueChanges()
-              .subscribe(usuarios => {
-                this.usuarios =usuarios
-              }
-                ) */
-
-
+              senalesServicio.getSenales().valueChanges()
+                            .subscribe(senales => this.senales = senales)
   }
 
-datosUsuario(){
-
-
+consularSenal(id){
+    this.vista = 1
+    this.senales
+        .forEach(e => {
+          if (e.id === id) {
+            this.senal=e
+          }
+        });
+  }
+  anterior(){
+  this.vista = 0
 }
-
 }

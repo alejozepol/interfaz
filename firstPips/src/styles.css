@@ -38,7 +38,8 @@
 
 .contenidoApp{
   min-height: 660px;
-  background: -webkit-gradient(linear, left top, right bottom, from(#0DC9E5), to(#20228F));
+  background: rgb(11, 15, 126);
+  /* background: -webkit-gradient(linear, left bottom, right top, from(rgb(75, 160, 173)), to(rgb(11, 15, 126))); */
   margin: 0 0 0 0 !important;
   padding: 0 0 0 0 !important;
 }
@@ -76,7 +77,8 @@ body{
 }
 
 .azulDegradado{
-  background: -webkit-gradient(linear, left top, right bottom, from(#0DC9E5), to(#20228F));
+
+  background: -webkit-gradient(linear, left top, right bottom, from(rgb(4, 54, 61)), to(rgb(6, 6, 37)));
 }
 
 .moradoDegradado{
@@ -99,7 +101,8 @@ body{
 }
 
 .mat-card {
-  background: transparent !important;
+  /* background:  rgba(212, 0, 255, 0.459)!important; */
+  margin: 2% !important;
 
 }
 .mat-horizontal-content-container{

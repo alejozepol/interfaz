@@ -68,7 +68,7 @@ this.senal = {
 
   }
   else{
-    this.senal.id = Date.now(),
+    this.senal.id = Date.now()
     this.senalesServicio.guardarSenal(this.senal)
     swal({
       title: `🤩¡Señal Agrego con exito!🤩`,

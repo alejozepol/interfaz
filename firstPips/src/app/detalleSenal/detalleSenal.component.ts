@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SenalesServicios } from '../servicios/senales.servicios';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import tw from './tv'
 
@@ -12,13 +12,25 @@ import tw from './tv'
 })
 export class DetalleSenalComponent {
 
-  senal: any ={}
+  senal
   id = null
   constructor(private senalesServicio: SenalesServicios,
-    private route: ActivatedRoute) {
-    this.id = this.route.snapshot.params['id']
-    this.senal =  this.senalesServicio.getSenal(this.id)
+    private activatedRoute: ActivatedRoute, private router:Router) {
+    this.id = this.activatedRoute.snapshot.params['id']
+      if( this.id != 'new'){
+    this.senal = this.senalesServicio.getSenal(this.id).valueChanges()
+        .subscribe( senal => {this.senal = senal
+          console.log(senal)
+          console.log(this.senal)
+          return senal
 
-          console.log()
+        } )
+
+        console.log(this.senal)
+
+
+    }
+
+
     }
 }
