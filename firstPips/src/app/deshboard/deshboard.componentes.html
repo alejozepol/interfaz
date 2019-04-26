@@ -62,11 +62,10 @@
             </div>
           </mat-card>
       </ng-container>
-        <ng-container>
           <button id="btnNuevo" mat-fab  routerLink="/crear/new">
             <mat-icon style="display: flex;">playlist_add</mat-icon>
           </button>
-        </ng-container>
+
     </div>
   </div>
 </div>
@@ -75,10 +74,7 @@
   <br>
     <div class="col-md-12 text-center text-white moradoDegradado fixed-top">
       <div class="row">
-        <button mat-icon-button class="col-1">
-          <mat-icon (click)="anterior()">reply</mat-icon>
-        </button>
-        <div class="col-11">
+        <div class="col-12">
             <h1>Detalle Señales</h1>
         </div>
       </div>
@@ -136,4 +132,10 @@
 </mat-card>
      </div>
 </div>
+<button mat-icon-button class="col-1">
+    <mat-icon (click)="anterior()">reply</mat-icon>
+  </button>
+  <button id="btnNuevo" mat-fab  (click)="anterior()">
+    <mat-icon style="display: flex;">reply</mat-icon>
+  </button>
 </div>
