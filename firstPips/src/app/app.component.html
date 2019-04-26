@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
- <mat-drawer-container [hasBackdrop]="true" #mode value="over" #hasBackdrop >
-    <mat-drawer #drawer [mode]="mode.value" class="moradoDegradado text-white">
+<mat-drawer-container #hasBackdrop [hasBackdrop]="true" class="mat-drawer-container">
+    <mat-drawer #drawer [mode]="mode.value" #mode value="side" class="moradoDegradado text-white">
             <ul class="nav justify-content-end navbar-nav" *ngIf="loggedIn" align="center">
               <li *ngIf="usuario">
                 <ng-container *ngIf="usuario.avatar">
@@ -52,10 +52,10 @@
                   </li>
               </ul>
     </mat-drawer>
+    <mat-drawer-content >
     <router-outlet></router-outlet>
-      <button id="despegable"  *ngIf="loggedIn"  (click)="drawer.toggle()">
+      <button  mat-icon-button mat-raised-button id="despegable"  *ngIf="loggedIn"  (click)="drawer.toggle()">
         <img src="../assets/icons/desplazamientoMenu.png" alt="">
       </button>
-
-
-  </mat-drawer-container>
+  </mat-drawer-content>
+</mat-drawer-container>
