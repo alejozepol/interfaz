@@ -57,12 +57,7 @@
   margin: 0 0 0 0 !important;
   padding: 0 0 0 0 !important;
 }
-.mat-drawer-container {
-  width: 400px;
-  height: 200px;
-  margin: 12px;
-  border: 1px solid #555;
-}
+
 mat-drawer-content {
   display: flex;
   flex-direction: column;
@@ -70,7 +65,7 @@ mat-drawer-content {
 }
 
 body{
-  font-family: 'Kalam', bold !important;
+
   font-size: 20px !important;
  }
 .fondoImagen{
