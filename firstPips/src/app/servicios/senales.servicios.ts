@@ -18,10 +18,9 @@ export class SenalesServicios{
   }
 
   getSenal(id){
-    return this.afDB.collection('Senales', ref => ref.where("id","==",1556166188368))
+    var query = this.afDB.collection("Senales", ref => ref.where("id","==",id)).snapshotChanges()  
+    return query
    }
-
-
 
   getSenales(){
     return this.afDB.collection('Senales')

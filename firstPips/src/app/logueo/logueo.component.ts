@@ -45,5 +45,8 @@ errorClave() {
      this.autorizacionService.logout()
    }
 
-
+   olvideClave(){
+    this.loginP.email= this.formLogin.controls.email.value
+     this.autorizacionService.restablecerClave(this.loginP.email)
+   }
 }

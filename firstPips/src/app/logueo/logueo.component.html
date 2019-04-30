@@ -27,14 +27,14 @@
                   <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
                 </div>
                     <mat-error *ngIf="formLogin.controls.clave.invalid">{{errorClave()}}</mat-error>
-
               </mat-form-field>
               <!--Fin clave           -->
-               <button mat-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block btn-success rounded-pill azulDegradado">Ingresar</button>
+               <button mat-raised-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block rounded-pill moradoDegradado">Ingresar</button>
+               <button mat-raised-button (click)="olvideClave()" type="submit" class="btn-block btn-warning rounded-pill">Recorde contraseña</button>
             </form>
             <div class="col-12" align="center" style="padding-top: 12px;">
-                <button mat-button (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
-               <button mat-button (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
+                <button mat-raised-button (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
+               <button mat-raised-button (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
             </div>
                       <!--Creacion de formulario de usuario y contraseña-->
             <br>
@@ -42,7 +42,7 @@
             <br>
             <br>
             <div align="center" class="col-12 ">
-                <button mat-button routerLink="/registro" type="button" class="btn-block btn-success rounded-pill azulDegradado">Registro</button>
+                <button mat-button routerLink="/registro" type="button" class="btn-block btn-success rounded-pill moradoDegradado">Registro</button>
             </div>
           </div>
         </div>

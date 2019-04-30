@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import swal from'sweetalert';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
 
@@ -19,7 +20,8 @@ constructor(//afDB  objeto para conexion con base de datos de firebase
             // angularFireAuth objeto para autenticacion con las opciones de firebase
                 private angularFireAuth: AngularFireAuth,
             // Router para redireccionamiento de paginas
-                private router:Router)
+                private router:Router,
+                private mensajes:MatSnackBar)
           {this.islogged()}
 
 
@@ -142,9 +144,6 @@ public login(email, clave){
               });
   }
 
-
-
-
   public islogged(){
     return this.angularFireAuth.authState;
 
@@ -154,8 +153,6 @@ public login(email, clave){
 
     return this.angularFireAuth.auth
   }
-
-
 
   loginFacebook(){
     //metodo de logueo con facebook utilizando un popup para ingreso a la red social y devolverse a la pagina de la aplicacion
@@ -192,5 +189,12 @@ public login(email, clave){
       .catch((error)=>{
         console.log(error)
       })
+  }
+
+  restablecerClave(email){
+    this.angularFireAuth.auth
+                            .sendPasswordResetEmail(email)
+                            .then()
+                            .catch((error)=> {this.mensajes.open('correo enviado para recuperacion de contraseña','Enviado',{duration:2000})})
   }
 }

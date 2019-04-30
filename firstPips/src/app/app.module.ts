@@ -159,7 +159,8 @@ const  firebaseConfig = {
   providers: [AutorizacionSericios,
               GuardianServicios,
               SenalesServicios,
-              RegistroComponent],
+              RegistroComponent,
+            DeshboardComponentes],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, Injectable } from "@angular/core";
 import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
 import { SenalesServicios } from '../servicios/senales.servicios';
 import { Router } from '@angular/router';
 declare const TradingView: any;
+@Injectable()
 @Component({
   selector: 'app-root',
   templateUrl: '../deshboard/deshboard.componentes.html',
@@ -11,7 +12,6 @@ declare const TradingView: any;
 
 export class DeshboardComponentes{
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
    senales: any = []
    usuarios = null
    senal: any = {}
@@ -28,36 +28,31 @@ export class DeshboardComponentes{
 
 consularSenal(id){
     this.vista = 1
-    this.senales
+/*     this.senales
         .forEach(e => {
           if (e.id === id) {
             this.senal=e
           }
 
-        })
+        }) */
 
+    this.senalesServicio.getSenal(id)
+    .subscribe(senal => this.senal = senal)
+    debugger
         new TradingView.widget({
-          "width": 400,
+          "width": 300,
+          "height": 300,
           "symbol": `OANDA:${this.senal.grupoDivisa}`,
-          "interval": "120",
-          "timezone": "Etc/UTC",
+          "interval": "60",
+          "timezone": "America/Lima",
           "theme": "Dark",
           "style": "1",
           "locale": "es",
           "toolbar_bg": "#f1f3f6",
           "enable_publishing": false,
-          "hide_top_toolbar": true,
-          "allow_symbol_change": true,
+          "save_image": false,
           "container_id": "graficaTW",
-          'withdateranges': true,
-          'hide_side_toolbar': false,
-          'save_image': false,
-          'hideideas': true,
-          'studies': [
-          'MASimple@tv-basicstudies' ],
-          'show_popup_button': true,
-          'popup_width': '1000',
-          'popup_height': '650'
+
         })
   }
 

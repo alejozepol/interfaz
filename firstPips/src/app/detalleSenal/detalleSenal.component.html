@@ -1,4 +1,58 @@
-<div class="contenidoApp">
+<div class="contenidoAppGrafico" >
+    <br>
+      <div class="col-md-12 text-center text-white moradoDegradado fixed-top">
+        <div class="row">
+          <div class="col-12">
+              <h1>Detalle Señales</h1>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+  <div class="container">
+       <div class="row justify-content-md-center justify-content-sm-center">
+              <mat-card class="col-md-12 col-sm-12 tarjetaSenal" [ngSwitch]="senal.orden" >
+                  <span class="idFecha ">{{senal.id | date:"dd/MM/yyyy hh:mm"}}</span>
+                <div class="row text-center">
+                <div class="col-4">
+                  <h4>SL</h4>
+                  {{senal.sl}}
+                </div>
+                <div class="col-4">
+                    <H3>💵{{senal.grupoDivisa}}💵</H3>
+                      <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">📉SELL📉</h4>
+                      <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">📉SELL STOP📉</h4>
+                      <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
+                      <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
+                      <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">📈BUY📈</h4>
+                      <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
+                      <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
+                      <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
+                      <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                      <h5>Lotaje: {{senal.lotaje}}</h5>
+                  </div>
+                <div class="col-4">
+                    <h4>TP</h4>
+                  {{senal.tp1}}
+                  <br>
+                  {{senal.tp2}}
+                  <br>
+                  {{senal.tp3}}
+                </div>
+              </div>
+              </mat-card>
+  <br>
+      <h3 style="color:#ffffff">Grafica</h3>
+      <br>
+       </div>
+       <button id="btnNuevo" mat-fab  (click)="anterior()">
+          <mat-icon style="display: flex;">reply</mat-icon>
+        </button>
 
-</div>
+  </div>
+  </div>
+  <div  class="tradingview-widget-container">
+    <div id="graficaTW" class="contenidoAppGrafico"></div>
+  </div>
+
 
