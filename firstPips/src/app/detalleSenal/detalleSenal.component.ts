@@ -11,56 +11,42 @@ declare const TradingView: any;
   templateUrl: './detalleSenal.component.html',
   styleUrls: ['./detalleSenal.component.css']
 })
-export class DetalleSenalComponent implements OnInit {
+export class DetalleSenalComponent {
 
   senal :any = {}
   senales: any = []
-  id: any;
+  id: any = {};
 
   constructor(private senalesServicio: SenalesServicios,
-    private activatedRoute: ActivatedRoute, private router:Router, private deshboard: DeshboardComponentes)
-    { this.id = this.activatedRoute.snapshot.params['id']
-      /* this.id = 1556242612963 */
-      /* this.id = this.activatedRoute.snapshot.params['id'] */
+    private activatedRoute: ActivatedRoute, private router:Router)
+    { this.id =  Number.parseInt(this.activatedRoute.snapshot.params.id)
+      this.consularSenal(this.id)
    }
 
 
-      ngOnInit(){
-        /* this.id = this.activatedRoute.snapshot.paramMap.get('id') */
-          console.log(this.id)
-
-        /*   this.senales
-              .forEach((e: { id: any; }) => {
-                console.log(e.id)
-                if (e.id === id) {
-                  this.senal=e
-                }
-
-              }) */
-
-              this.senalesServicio.getSenal(this.id)
-
-
-
-
+consularSenal(id: number){
+              this.senalesServicio.getSenal(id)
+              .subscribe(senal => {
+                console.log('metodo')
+                  this.senal = senal[0]
                   new TradingView.widget({
-                    "width": 300,
-                    "height": 300,
-                    "symbol": `OANDA:${this.senal.grupoDivisa}`,
-                    "interval": "60",
-                    "timezone": "America/Lima",
-                    "theme": "Dark",
-                    "style": "1",
-                    "locale": "es",
-                    "toolbar_bg": "#f1f3f6",
-                    "enable_publishing": false,
-                    "save_image": false,
-                    "container_id": "graficaTW",
+                  "width": 300,
+                  "height": 300,
+                  "symbol": `OANDA:${this.senal.grupoDivisa}`,
+                  "interval": "60",
+                  "timezone": "America/Lima",
+                  "theme": "Dark",
+                  "style": "1",
+                  "locale": "es",
+                  "toolbar_bg": "#f1f3f6",
+                  "enable_publishing": false,
+                  "save_image": false,
+                  "container_id": "graficaTW",
 
-                  })
+                })
+              })
+
             }
-
-
 
   }
 
