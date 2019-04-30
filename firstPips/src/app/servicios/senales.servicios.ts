@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class SenalesServicios{
   user = this.autorizacionServicios.datosUsuario()
   senal : any = {}
+  doc : any
   constructor(private afDB:AngularFirestore, private autorizacionServicios : AutorizacionSericios){
 
   }
@@ -26,10 +27,15 @@ export class SenalesServicios{
     return this.afDB.collection('Senales')
   }
 
-  editarsenal(id){
-    this.afDB.collection('Senales').ref
-    .where('id','==', id)
+  editarsenal(id, senal){
+    this.afDB.collection("Senales", ref => ref.where("id","==",id)).stateChanges()
+    .subscribe(doc => {
+       this.doc = doc[0].payload.doc.id
 
+      console.log(senal)
+      console.log(this.doc)
+      this.afDB.collection('Senales').doc(this.doc).update(senal)
+    })
   }
 
 

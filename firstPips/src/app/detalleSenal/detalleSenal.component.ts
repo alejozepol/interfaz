@@ -18,7 +18,7 @@ export class DetalleSenalComponent {
   id: any = {};
 
   constructor(private senalesServicio: SenalesServicios,
-    private activatedRoute: ActivatedRoute, private router:Router)
+    private activatedRoute: ActivatedRoute)
     { this.id =  Number.parseInt(this.activatedRoute.snapshot.params.id)
       this.consularSenal(this.id)
    }
@@ -27,7 +27,6 @@ export class DetalleSenalComponent {
 consularSenal(id: number){
               this.senalesServicio.getSenal(id)
               .subscribe(senal => {
-                console.log('metodo')
                   this.senal = senal[0]
                   new TradingView.widget({
                   "width": 300,

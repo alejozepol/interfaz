@@ -18,13 +18,33 @@ export class CrearComponent {
   user         = this.autorizacionServicios.datosUsuario()
 
   constructor(private senalesServicio: SenalesServicios,
-              private route: ActivatedRoute,
+              private activatedRoute: ActivatedRoute,
               private autorizacionServicios: AutorizacionSericios)
               {
 
-              this.id = this.route.snapshot.params['id']
+               this.id =  Number.parseInt(this.activatedRoute.snapshot.params.id)
               if( this.id != 'new'){
-                this.senal = this.senalesServicio.getSenal(this.id)
+                this.senalesServicio
+                      .getSenal(this.id)
+                      .subscribe(senal => {
+                          this.senal = senal[0]
+                          console.log(this.senal.grupoDivisa)
+                          this.FCrearSenal = new FormGroup({
+                            grupoDivisa: new FormControl(this.senal.grupoDivisa,[Validators.required]),
+                            lotaje: new FormControl(this.senal.lotaje,[Validators.required] ),
+                            orden: new FormControl(this.senal.orden,[Validators.required] ),
+                            precioEntrada: new FormControl(this.senal.precioEntrada,[Validators.required] ),
+                            sl: new FormControl(this.senal.sl,[Validators.required] ),
+                            tp1: new FormControl(this.senal.tp1,[Validators.required] ),
+                            tp2: new FormControl(this.senal.tp2,[Validators.required]),
+                            tp3: new FormControl(this.senal.tp3,[Validators.required]),
+                            estado: new FormControl(this.senal.estado),
+                            tipo: new FormControl(this.senal.tipo),
+
+                          })
+
+
+                                    })
               }
 
                }
@@ -60,7 +80,8 @@ this.senal = {
 }
 
   if(this.id !='new'){
-    this.senalesServicio.editarsenal(this.senal)
+    console.log(this.senal)
+    this.senalesServicio.editarsenal(this.id, this.senal)
     swal({
       title: `🤟🏻¡Señal modificada con exito!🤟🏽`,
        icon: 'success'
