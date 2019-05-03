@@ -45,8 +45,15 @@
   border-top-width: 0px !important;
   padding-top: 0px !important;
 }
+
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-empty.mat-form-field-label{
+  color: #ffc107;
+  font-family: 'Patrick Hand', cursive !important;
+}
+
 .mat-form-field-appearance-legacy .mat-form-field-label{
   color:#000000 ;
+  font-family: 'Patrick Hand', cursive !important;
 }
 
 .contenidoApp{
@@ -57,7 +64,7 @@
   padding: 0 0 0 0 !important;
 }
 .contenidoAppGrafico{
-  background: rgb(11, 15, 126);
+  background: #0b0f7e;
   /* background: -webkit-gradient(linear, left bottom, right top, from(rgb(75, 160, 173)), to(rgb(11, 15, 126))); */
   margin: 0 0 0 0 !important;
   padding: 0 0 0 0 !important;
@@ -73,6 +80,11 @@ body{
 
   font-size: 18px !important;
  }
+.rounded-pill{
+  color:#ffffff;
+  font-family: 'Patrick Hand', cursive !important;
+}
+
 .fondoImagen{
   background-image: url("assets/FondoImagen.png");
   background-size: cover;
