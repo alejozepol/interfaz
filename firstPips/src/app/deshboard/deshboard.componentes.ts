@@ -12,23 +12,37 @@ declare const TradingView: any;
 
 export class DeshboardComponentes{
 
-   senales: any = []
-   usuarios = null
-   senal: any = {}
-   vista = 0
-
+  senales: any = []
+  usuarios = null
+  senal: any = {}
+  vista = 0
+  usuario: any = {}
+  fechaActual = new Date
   constructor(private senalesServicio: SenalesServicios,
               private autorizacionservice: AutorizacionSericios, private router:Router){
+/* console.log(this.fechaActual)
 
-             senalesServicio.getSenales().valueChanges()
-                            .subscribe(senales => {this.senales = senales
-                              console.log(this.senales)
-                            })
-
+            senalesServicio.getSenales().valueChanges()
+                           .subscribe(senales => {this.senales = senales}) */
+this.datosUsuario()
 
 
   }
 
+  datosUsuario(){
+    this.autorizacionservice.datosUsuariosBD(this.autorizacionservice.uid)
+    .subscribe(usuario => {this.usuario = usuario[0]
+    console.log(this.usuario)
+    if(this.usuario.usuarioPremium){
+      this.senalesServicio.getSenales().valueChanges()
+        .subscribe(senales => {this.senales = senales})
+    }else{
+      this.senalesServicio.consultaSenalCampoValor('tipo','Free')
+      .subscribe(senales => {this.senales = senales})
+    }
+    })
+
+  }
 consularSenal(id){
  /*    this.vista = 1 */
 /*     this.senales

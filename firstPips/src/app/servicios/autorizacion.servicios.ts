@@ -10,9 +10,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class AutorizacionSericios{
 //inicio de declaracion de atributos de la clase
-  usuarios={}
+  usuarios      ={}
   Configuracion = {url: 'http://localhost:4200'}
-  usuario = {}
+  usuario       = {}
+  uid
 //fin de declaracion de atributos de la clase
 
 constructor(//afDB  objeto para conexion con base de datos de firebase
@@ -22,7 +23,8 @@ constructor(//afDB  objeto para conexion con base de datos de firebase
             // Router para redireccionamiento de paginas
                 private router:Router,
                 private mensajes:MatSnackBar)
-          {this.islogged()}
+          {this.islogged()
+          }
 
 
 //inicio Creacion de usuario por email y contraseña
@@ -39,6 +41,7 @@ public crearCuentaEmailClave = (usuario) =>{
           respuesta.user.updateProfile({
             displayName: usuario.nombres
           })
+          usuario.uid = respuesta.user.uid
           /* @metodo sendEmailVerification se envia el correo y se configura la
           URL como @param this.Configuracion del boton del link de verificacion */
           respuesta.user.sendEmailVerification(this.Configuracion)
@@ -83,7 +86,9 @@ public crearCuentaEmailClave = (usuario) =>{
           email           : usuario.email,
           usuarioPremium  : false,
           fechaRegistro   : new Date(),
-          fechaPago       : null
+          fechaPago       : null,
+          uid             : usuario.uid,
+          admin           : false
   })
   .catch(bderror =>{
     console.log(`se presento el siguiente error al intentar registrar un nuevo
@@ -93,10 +98,15 @@ public crearCuentaEmailClave = (usuario) =>{
 }
 //Fin Creacion de usuario por email y contraseña
 
+public getUsuarioAdmin(){
+
+}
+
 public login(email, clave){
   this.angularFireAuth.auth.signInWithEmailAndPassword(email, clave)
       .then((respuesta)=>{
           if(respuesta.user.emailVerified){
+            this.uid = respuesta.user.uid
             swal({
               title: `¡Bienvenido 🤩 ${respuesta.user.displayName}🤩!`,
               text: `estamos muy feliz de que estes aqui`,
@@ -149,12 +159,16 @@ public login(email, clave){
 
   }
 
+  public datosUsuariosBD(uid){
+    var query = this.afDB.collection("Usuarios", ref => ref.where("uid","==",uid)).valueChanges()
+    return query
+  }
   public datosUsuario(){
 
     return this.angularFireAuth.auth
   }
 
-  loginFacebook(){
+  public loginFacebook(){
     //metodo de logueo con facebook utilizando un popup para ingreso a la red social y devolverse a la pagina de la aplicacion
       this.angularFireAuth.auth.signInWithPopup(
         new firebase.auth.FacebookAuthProvider())
@@ -172,10 +186,11 @@ public login(email, clave){
           })
   }
 
-  loginGoogle(){
+  public loginGoogle(){
     this.angularFireAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider())
       .then((resultado)=>{
+        console.log(resultado.user)
         this.usuario = resultado.user.email
         this.router.navigate(['deshboard'])
         swal({
@@ -191,7 +206,7 @@ public login(email, clave){
       })
   }
 
-  restablecerClave(email){
+  public restablecerClave(email){
     this.angularFireAuth.auth
                             .sendPasswordResetEmail(email)
                             .then()

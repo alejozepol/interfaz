@@ -37,7 +37,7 @@
               </div>
               <div class="col-12">
                   <div class="row">
-                    <div class="col-4">
+                    <div class="col-4" *ngIf="usuario.admin">
                       <a mat-mini-fab routerLink="/crear/{{senal.id}}" style="text-decoration: none;">
                         <mat-icon>edit</mat-icon>
                        <br>
@@ -62,9 +62,11 @@
             </div>
           </mat-card>
       </ng-container>
-          <button id="btnNuevo" mat-fab  routerLink="/crear/new">
+      <div *ngIf="usuario.admin">
+          <button id="btnNuevo" mat-fab  routerLink="/crear/new" >
             <mat-icon style="display: flex;">playlist_add</mat-icon>
           </button>
+        </div>
     </div>
   </div>
 </div>

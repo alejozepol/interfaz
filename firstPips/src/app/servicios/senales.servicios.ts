@@ -23,6 +23,11 @@ export class SenalesServicios{
     return query
    }
 
+   consultaSenalCampoValor(campo,valor){
+    var query = this.afDB.collection("Senales", ref => ref.where(campo,"==",valor)).valueChanges()
+    return query
+   }
+
   getSenales(){
     return this.afDB.collection('Senales')
   }
