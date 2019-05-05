@@ -21,13 +21,16 @@ export class DeshboardComponentes{
               private autorizacionservice: AutorizacionSericios, private router:Router){
 
              senalesServicio.getSenales().valueChanges()
-                            .subscribe(senales => this.senales = senales)
+                            .subscribe(senales => {this.senales = senales
+                              console.log(this.senales)
+                            })
+
 
 
   }
 
 consularSenal(id){
-    this.vista = 1
+ /*    this.vista = 1 */
 /*     this.senales
         .forEach(e => {
           if (e.id === id) {

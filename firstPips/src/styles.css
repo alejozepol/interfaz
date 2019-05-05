@@ -18,6 +18,9 @@
   top:90%;
   left: 80%;
 }
+body{
+  font-size: 16px !important;
+ }
   }
 
   @media (min-width: 601px)  {
@@ -35,6 +38,10 @@
   top:85%;
   left: 90%;
 }
+
+body{
+  font-size: 18px !important;
+ }
     }
 .mat-form-field{
   text-align: center !important;
@@ -58,7 +65,7 @@
 
 .contenidoApp{
   min-height: 700px;
-  background: rgb(11, 15, 126);
+  background: #30339c;
   /* background: -webkit-gradient(linear, left bottom, right top, from(rgb(75, 160, 173)), to(rgb(11, 15, 126))); */
   margin: 0 0 0 0 !important;
   padding: 0 0 0 0 !important;
@@ -76,10 +83,6 @@ mat-drawer-content {
   align-items: flex-start;
 }
 
-body{
-
-  font-size: 18px !important;
- }
 .rounded-pill{
   color:#ffffff;
   font-family: 'Patrick Hand', cursive !important;
@@ -96,6 +99,10 @@ body{
   background-size: cover;
   background-attachment: fixed;
   background-image: url("assets/fondoColor.png");
+}
+
+.fondoTarjeta{
+  background-color: rgba(6, 46, 53, 0.322);
 }
 #logo{
   width: 100px;

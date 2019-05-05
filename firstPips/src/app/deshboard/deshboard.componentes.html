@@ -1,40 +1,39 @@
   <div class="contenidoApp" *ngIf="vista === 0">
     <br>
-      <div class="col-md-12 text-center text-white moradoDegradado fixed-top">
+      <div class="col-md-12 text-center text-white fixed-top fondoTarjeta">
           <h1>Señales Activas</h1>
       </div>
   <div class="container">
       <br>
     <div class="row justify-content-md-center justify-content-sm-center">
       <ng-container *ngFor="let senal of senales" [ngSwitch]="senal.orden" >
-          <mat-card class="col-md-12 col-sm-12 text-white moradoDegradado">
-              <div class="col-12 text-center">
-                  <H3>💵{{senal.grupoDivisa}}💵</H3>
-                    <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">📉SELL📉</h4>
-                    <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">📉SELL STOP📉</h4>
+          <mat-card class="col-md-12 col-sm-12 text-white fondoTarjeta">
+              <div class="row text-center">
+                  <div class="col-4 rounded" [ngSwitch]="senal.slActivo">
+                      <h4>SL</h4>
+                      <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
+                      <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
+                      <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
+                      <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
+                  </div>
+                <div class="col-4">
+                    <H3>{{senal.grupoDivisa}}</H3>
+                    <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h4>
+                    <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h4>
                     <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
                     <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
-                    <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">📈BUY📈</h4>
+                    <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">BUY</h4>
                     <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
                     <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
                     <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
                 </div>
-              <div class="row text-center">
-                  <div class="col-4 rounded" >
-                      <h4>SL</h4>
-                      {{senal.sl}}
-                    </div>
-                <div class="col-4">
-                    <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
-                    <h5>Lotaje: {{senal.lotaje}}</h5>
-                </div>
               <div class="col-4 rounded" >
                   <h4>TP</h4>
-                {{senal.tp1}}
-                <br>
-                {{senal.tp2}}
-                <br>
-                {{senal.tp3}}
+                {{senal.tp}}
+              </div>
+              <div class="col-12">
+                  <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                  <h5>Lotaje: {{senal.lotaje}}</h5>
               </div>
               <div class="col-12">
                   <div class="row">
@@ -66,12 +65,11 @@
           <button id="btnNuevo" mat-fab  routerLink="/crear/new">
             <mat-icon style="display: flex;">playlist_add</mat-icon>
           </button>
-
     </div>
   </div>
 </div>
 
-<div class="contenidoAppGrafico" *ngIf="vista === 1">
+<!-- <div class="contenidoAppGrafico" *ngIf="vista === 1">
   <br>
     <div class="col-md-12 text-center text-white moradoDegradado fixed-top">
       <div class="row">
@@ -123,10 +121,8 @@
       </button>
 
 </div>
-</div>
-<div  class="tradingview-widget-container">
-  <div id="graficaTW" class="contenidoAppGrafico"></div>
-</div>
+</div> -->
+
 
 
 

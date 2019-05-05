@@ -23,7 +23,7 @@
             <!--Inicio Lotaje     -->
             <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
               <div class="form-control rounded-pill">
-                <input matInput formControlName="lotaje"  placeholder="Lotaje" type="number" required>
+                <input matInput formControlName="lotaje"  placeholder="Lotaje" type="number" step=0.01  required>
               </div>
                   <mat-error *ngIf="FCrearSenal.controls.lotaje.invalid">{{errorLotaje()}}</mat-error>
             </mat-form-field>
@@ -48,38 +48,58 @@
                     <mat-error *ngIf="FCrearSenal.controls.precioEntrada.invalid">{{errorPrecioEntrada()}}</mat-error>
               </mat-form-field>
               <!--Fin orden      -->
-              <!--Inicio sl     -->
+              <!--Inicio sl1     -->
               <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                   <div class="form-control rounded-pill">
-                    <input matInput formControlName="sl"  placeholder="Stop Loss" type="number" required>
+                    <input matInput formControlName="sl1"  placeholder="Primero Stop Loss" type="number" required>
                   </div>
-                      <mat-error *ngIf="FCrearSenal.controls.sl.invalid">{{errorSl()}}</mat-error>
+                      <mat-error *ngIf="FCrearSenal.controls.sl1.invalid">{{errorSl1()}}</mat-error>
                 </mat-form-field>
-                <!--Fin sl      -->
-                <!--Inicio tp1     -->
+                <!--Fin sl1      -->
+                <!--Inicio sl2     -->
               <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                   <div class="form-control rounded-pill">
-                    <input matInput formControlName="tp1"  placeholder="Primer Take Proffit" type="number" required>
+                    <input matInput formControlName="sl2"  placeholder="Segundo Stop Loss" type="number" required>
                   </div>
-                      <mat-error *ngIf="FCrearSenal.controls.tp1.invalid">{{errortp1()}}</mat-error>
+                      <mat-error *ngIf="FCrearSenal.controls.sl2.invalid">{{errorSl2()}}</mat-error>
                 </mat-form-field>
-                <!--Fin tp1      -->
-                <!--Inicio tp2     -->
+                <!--Fin sl2      -->
+                <!--Inicio sl3     -->
               <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                   <div class="form-control rounded-pill">
-                    <input matInput formControlName="tp2"  placeholder="Segundo Take Proffit" type="number" required>
+                    <input matInput formControlName="sl3"  placeholder="Tercero Stop Loss" type="number" required>
                   </div>
-                      <mat-error *ngIf="FCrearSenal.controls.tp2.invalid">{{errortp2()}}</mat-error>
+                      <mat-error *ngIf="FCrearSenal.controls.sl3.invalid">{{errorSl3()}}</mat-error>
                 </mat-form-field>
-                <!--Fin tp2      -->
-                <!--Inicio tp3     -->
+                <!--Fin sl3      -->
+                <!--Inicio sl4     -->
                 <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
                   <div class="form-control rounded-pill">
-                    <input matInput formControlName="tp3"  placeholder="Tercer Take Proffit" type="number" required>
+                    <input matInput formControlName="sl4"  placeholder="Cuarto Stop Loss" type="number" required>
                   </div>
-                      <mat-error *ngIf="FCrearSenal.controls.tp3.invalid">{{errortp3()}}</mat-error>
+                      <mat-error *ngIf="FCrearSenal.controls.sl4.invalid">{{errorSl4()}}</mat-error>
                 </mat-form-field>
-                <!--Fin tp3      -->
+                <!--Fin sl4      -->
+                <!--Inicio tp     -->
+                <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
+                    <div class="form-control rounded-pill">
+                      <input matInput formControlName="tp"  placeholder="Take Proffit" type="number" required>
+                    </div>
+                        <mat-error *ngIf="FCrearSenal.controls.tp.invalid">{{errorTp()}}</mat-error>
+                </mat-form-field>
+                  <!--Fin tp     -->
+                              <!--Sl activo     -->
+            <mat-form-field class="form-group col-md-6 col-sm-12 col-xl-6 ">
+                <div class="form-control rounded-pill">
+                  <mat-select placeholder="SlActivo" formControlName="slActivo" required>
+                    <div *ngFor="let i of slActivo">
+                        <mat-option value="{{i}}">{{i}}</mat-option>
+                    </div>
+                  </mat-select>
+                </div>
+                <mat-error *ngIf="FCrearSenal.controls.slActivo.invalid">{{errorSlActivo()}}</mat-error>
+              </mat-form-field>
+            <!--Sl activo     -->
                 <div class="row" align="center">
 
 
