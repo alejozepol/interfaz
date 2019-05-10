@@ -2,7 +2,7 @@ import { Component, Injectable } from "@angular/core";
 import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
 import { SenalesServicios } from '../servicios/senales.servicios';
 import { Router } from '@angular/router';
-declare const TradingView: any;
+import {MatSnackBar} from '@angular/material';
 @Injectable()
 @Component({
   selector: 'app-root',
@@ -11,15 +11,15 @@ declare const TradingView: any;
 
 
 export class DeshboardComponentes{
-
+  diasPrueba = 15
   senales: any = []
   usuarios = null
   senal: any = {}
   vista = 0
   usuario: any = {}
-  fechaActual = new Date
+  fechaActual:any  = new Date()
   constructor(private senalesServicio: SenalesServicios,
-              private autorizacionservice: AutorizacionSericios, private router:Router){
+              private autorizacionservice: AutorizacionSericios, private router:Router, private snackBar: MatSnackBar){
 /* console.log(this.fechaActual)
 
             senalesServicio.getSenales().valueChanges()
@@ -32,51 +32,36 @@ this.datosUsuario()
   datosUsuario(){
     this.autorizacionservice.datosUsuariosBD(this.autorizacionservice.uid)
     .subscribe(usuario => {this.usuario = usuario[0]
-    console.log(this.usuario)
+    var dias = (this.fechaActual-this.usuario.fechaRegistro.toDate())/(1000*60*60*24)
+    console.log(dias)
+
     if(this.usuario.usuarioPremium){
       this.senalesServicio.getSenales().valueChanges()
         .subscribe(senales => {this.senales = senales})
     }else{
-      this.senalesServicio.consultaSenalCampoValor('tipo','Free')
-      .subscribe(senales => {this.senales = senales})
+        if(this.diasPrueba>=dias){
+
+          this.senalesServicio.getSenales().valueChanges()
+          .subscribe(senales => {this.senales = senales})
+          this.snackBar.open(`Te quedan ${Math.round(this.diasPrueba-dias)} dias para que pruebes nuestros señales`,
+                              'Cerrar',{duration:10000})
+
+        }else{
+          this.senalesServicio.consultaSenalCampoValor('tipo','Free')
+          .subscribe(senales => {this.senales = senales})
+          this.snackBar.open(`Te invitamos a que te suscribas para que veas todas las señales`,
+          'Cerrar',{duration:10000})
+        }
+
     }
     })
 
   }
-consularSenal(id){
- /*    this.vista = 1 */
-/*     this.senales
-        .forEach(e => {
-          if (e.id === id) {
-            this.senal=e
-          }
 
-        }) */
-
-    this.senalesServicio.getSenal(id)
-    .subscribe(senal => {
-        this.senal = senal[0]
-        new TradingView.widget({
-        "width": 300,
-        "height": 300,
-        "symbol": `OANDA:${this.senal.grupoDivisa}`,
-        "interval": "60",
-        "timezone": "America/Lima",
-        "theme": "Dark",
-        "style": "1",
-        "locale": "es",
-        "toolbar_bg": "#f1f3f6",
-        "enable_publishing": false,
-        "save_image": false,
-        "container_id": "graficaTW",
-
-      })
-    })
-
-  }
 
 
   anterior(){
   this.vista = 0
 }
+
 }
