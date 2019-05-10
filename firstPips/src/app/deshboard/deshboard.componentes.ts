@@ -25,8 +25,6 @@ export class DeshboardComponentes{
             senalesServicio.getSenales().valueChanges()
                            .subscribe(senales => {this.senales = senales}) */
 this.datosUsuario()
-
-
   }
 
   datosUsuario(){
@@ -34,20 +32,19 @@ this.datosUsuario()
     .subscribe(usuario => {this.usuario = usuario[0]
     var dias = (this.fechaActual-this.usuario.fechaRegistro.toDate())/(1000*60*60*24)
     console.log(dias)
-
     if(this.usuario.usuarioPremium){
-      this.senalesServicio.getSenales().valueChanges()
+      this.senalesServicio.getSenalesActivas().valueChanges()
         .subscribe(senales => {this.senales = senales})
     }else{
         if(this.diasPrueba>=dias){
 
-          this.senalesServicio.getSenales().valueChanges()
+          this.senalesServicio.getSenalesActivas().valueChanges()
           .subscribe(senales => {this.senales = senales})
           this.snackBar.open(`Te quedan ${Math.round(this.diasPrueba-dias)} dias para que pruebes nuestros señales`,
                               'Cerrar',{duration:10000})
 
         }else{
-          this.senalesServicio.consultaSenalCampoValor('tipo','Free')
+          this.senalesServicio.consultaSenalCampoValorActivas('tipo','Free')
           .subscribe(senales => {this.senales = senales})
           this.snackBar.open(`Te invitamos a que te suscribas para que veas todas las señales`,
           'Cerrar',{duration:10000})
