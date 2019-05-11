@@ -28,6 +28,7 @@ this.datosUsuario()
   }
 
   datosUsuario(){
+    if(this.autorizacionservice.uid){
     this.autorizacionservice.datosUsuariosBD(this.autorizacionservice.uid)
     .subscribe(usuario => {this.usuario = usuario[0]
     var dias = (this.fechaActual-this.usuario.fechaRegistro.toDate())/(1000*60*60*24)
@@ -52,6 +53,9 @@ this.datosUsuario()
 
     }
     })
+  }else{
+    this.autorizacionservice.logout()
+  }
 
   }
 
