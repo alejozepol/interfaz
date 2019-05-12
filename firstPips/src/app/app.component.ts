@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutorizacionSericios } from './servicios/autorizacion.servicios';
 import { SwUpdate } from '@angular/service-worker';
+import { FacebookService, InitParams } from 'ngx-facebook';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,9 @@ export class AppComponent implements OnInit {
   usuario: any = {}
   usuarios : any = {}
 
-  constructor( private autorizacionService: AutorizacionSericios, private swUpdate: SwUpdate){
+  constructor(  private autorizacionService: AutorizacionSericios,
+                private swUpdate: SwUpdate,
+                private facebookService: FacebookService){
 
       this.autorizacionService.islogged()
         .subscribe((resultado)=>{
@@ -37,6 +40,10 @@ export class AppComponent implements OnInit {
     this.autorizacionService.logout()
   }
 
+  private initFacebookService(): void {
+    const initParams: InitParams = {xfbml:true, version:'v3.2'};
+    this.facebookService.init(initParams);
+  }
   ngOnInit():void{
     if(this.swUpdate.isEnabled){
       this.swUpdate.available.subscribe( (v) =>{
@@ -44,5 +51,7 @@ export class AppComponent implements OnInit {
         window.location.reload();
       }
       })
-  }}
+  }
+  this.initFacebookService();
+}
 }

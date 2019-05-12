@@ -69,6 +69,7 @@ import { environment } from '../environments/environment';
 import { SenalesServicios } from './servicios/senales.servicios';
 import { CrearComponent } from './crear/crear.component';
 import { DetalleSenalComponent } from './detalleSenal/detalleSenal.component';
+import { FacebookModule } from 'ngx-facebook';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDCuSSpHi3L9PSbLnCOGid3zuQLqSSwNj0",
@@ -153,7 +154,8 @@ const  firebaseConfig = {
     PortalModule,
     ScrollingModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    FacebookModule.forRoot()
 
   ],
   providers: [AutorizacionSericios,
