@@ -1,170 +1,95 @@
-
-<div class="text-white fondoImagen contenidoApp">
-    <mat-icon (click)="anterior()" style="display: flex;">reply</mat-icon>
-
-  <div class="container">
-      <div  class="row justify-content-center">
-          <!--caja de logo-->
-          <div id="logo" class="col col-2">
-              <div >Logo</div>
-
-          </div>
-         <!-- fin caja de logo-->
-      </div>
-<br>
-
-<mat-horizontal-stepper #stepper class="transparente" *ngIf="paso === 1">
-    <mat-step>
-      <form >
-        <ng-template matStepLabel >Bienvenida</ng-template>
-        <br>
-        <div align="center" style="margin-top: 30px;" >
-            <h4 class="text-warning">Dile SI</h4>
-            <span>a todo lo que te imaginas para ser el dueño de tu propia
-              <span class="text-warning">historia</span>
-            </span>
-            <h2 style="margin-top: 50px;" class="text-warning">Obtén 15 días gratis de las mejores señales</h2>
-            <span style="margin-top: 20px;">y contaras un bono en dólares para crear <span class="text-warning">capital </span>desde tu telefono
-          </span>
-        </div>
-        <br>
-        <div align="center">
-          <button mat-button matStepperNext class="btn-success rounded-pill moradoDegradado btnAccionGrande">Siguiente</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <form>
-        <ng-template matStepLabel>Terminos y condiciones</ng-template>
-            <div class="textoLargo ">
-                <div class="text-break">
-                    Bienvenido a <strong>Undervisa Master Trading </strong>
-                    (compañia prestadora de servicios de operación, asesoramiento en trading, canal de señales y social marketing), nombrada de aquí en adelante para estos términos y condiciones  como la compañía, a la cual nos complace que tú como consumidor hagas parte de nuestra comunidad, a sopena de estos términos de servicio y la política de privacidad, los cuales usted expresa su consentimiento y aceptación, de lo contrario, abstenerse de hacer uso de nuestro servicio.
-                    <br>
-                    La compañía se reserva el derecho de admisión y cambio o modificación de estos términos sin previo aviso.
-                    <br>
-                    <br>
-                    <strong>1.	Obligaciones de la compañía</strong>
-                    <br>
-                    <strong>1.1.	Uso de datos:</strong>
-                    Este sitio web garantiza que la información personal que usted envía cuenta con la seguridad necesaria, los datos ingresados por usuario no serán entregados a terceros, salvo que deba ser revelada en cumplimiento a una orden judicial o requerimientos legales según la <strong>Ley 1581 de 2012  y 1 266 de 2008</strong>, donde se estipulan los derechos y deberes con el tratamiento de los mismos.
-                    <br>
-                    <br>
-                    <strong>1.2.	Proveer señales:</strong> se enviará señales al <strong>consumidor</strong>, en los días que el mercado esté apto para operar según el análisis realizado por el trader. Con un  mínimo de dos señales diarias, para asi lograr que obtengas un ingreso en la  cuenta del cliente.
-                    <br>
-                    <br>
-                    <strong>Se brindara a los clientes videos iniciales para educarlos en la copia de señales y a la ves se emviara diario infogramas el cual les ayudara a obtener un mejor beneficio y contaran con un sevicio al cliente en de 16 horas en un horario de 6am a 9 pm.</strong>
-                </div>
-            </div>
-            <br>
-            <div align="center">
-          <button mat-button matStepperPrevious class="btn-danger rounded-pill  btnAccionGrande">Anterior</button>
-          <button mat-button matStepperNext class="btn-success rounded-pill btnAccionGrande">Acepto</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step >
-      <ng-template matStepLabel>Datos Basicos</ng-template>
-      <br>
-    <form [formGroup]="formRegistro" action="sumit">
-      <!--Inicio Nombre  -->
-      <mat-form-field class="form-group col-md-4 col-sm-6">
-        <div class="form-control rounded-pill">
-          <input matInput placeholder="Nombres" type="text" formControlName="nombres" required>
-        </div>
-        <mat-error *ngIf="formRegistro.controls.nombres.invalid">{{errorNombres()}}</mat-error>
-      </mat-form-field>
-      <!--Fin Nombre      -->
-      <!--Inicio Apellido -->
-      <mat-form-field class="form-group col-md-4 col-sm-6">
-        <div class="form-control rounded-pill">
-          <input matInput formControlName="apellidos" placeholder="Apellidos" type="text" required>
-        </div>
-        <mat-error *ngIf="formRegistro.controls.apellidos.invalid">{{errorApellidos()}}</mat-error>
-      </mat-form-field>
-      <!--Fin Apellido    -->
-      <!--Inicio telefono -->
-      <mat-form-field class="form-group col-md-4 col-sm-6">
-        <div class="form-control rounded-pill">
-          <input matInput formControlName="telefono" placeholder="Telefono" type="number" required>
-        </div>
-        <mat-error *ngIf="formRegistro.controls.telefono.invalid">{{errorTelefono()}}</mat-error>
-      </mat-form-field>
-      <!--Fin telefono           -->
-      <!--Inicio fechaNacimiento -->
-      <mat-form-field class="form-group col-md-4 col-sm-6">
-        <div class="form-control rounded-pill">
-          <input matInput formControlName="fechaNacimiento" placeholder="Fecha de Nacimiento"
-          type="date" required>
-      </div>
-      <mat-error *ngIf="formRegistro.controls.fechaNacimiento.invalid">{{errorFechaNacimiento()}}</mat-error>
-      </mat-form-field>
-      <!--Fin fechaNacimiento           -->
-      <!--Inicio email -->
-      <mat-form-field class="form-group col-md-4 col-sm-6">
-        <div class="form-control rounded-pill">
-          <input matInput formControlName="email" placeholder="Correo" type="email" required>
-        </div>
-          <mat-error *ngIf="formRegistro.controls.email.invalid">{{errorCorreo()}}</mat-error>
-      </mat-form-field>
-      <!--Fin email           -->
-      <!--Inicio clave -->
-      <mat-form-field class="form-group col-md-4 col-sm-6">
-        <div class="form-control rounded-pill">
-          <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
-        </div>
-        <mat-error *ngIf="formRegistro.controls.clave.invalid">{{errorClave()}}</mat-error>
-      </mat-form-field>
-      <!--Fin clave           -->
-      <!--Inicio Boton -->
-      <br>
-      <br>
-      <div align="center">
-        <button mat-button [disabled]="formRegistro.invalid" (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionGrande moradoDegradado">Siguiente</button>
-      </div>
-      <!--fin Boton -->
-    </form>
-    </mat-step>
-
-  </mat-horizontal-stepper>
-
-  <mat-horizontal-stepper #stepper class="transparente" *ngIf="paso === 2">
-      <mat-step>
-        <form method="get">
-          <ng-template matStepLabel >Apertura de cuenta</ng-template>
-          <br>
-          <div align="center" class="embed-responsive embed-responsive-16by9">
-
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-          </div>
-          <br>
-          <div align="center">
-            <button mat-button matStepperNext class="btn-success rounded-pill moradoDegradado btnAccionGrande">Siguiente</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step>
-          <ng-template matStepLabel >Anclar cuenta</ng-template>
-          <br>
-          <div align="center" class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-          </div>
-          <br>
-          <div align="center">
-             <button mat-button matStepperNext class="btn-success rounded-pill btnAccionGrande moradoDegradado">siguiente</button>
-          </div>
-      </mat-step>
-      <mat-step >
-        <ng-template matStepLabel>¿Como copiar señales?</ng-template>
-        <br>
-        <div align="center" class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-        </div>
-        <br>
-      <div align="center">
-          <button mat-button (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionGrande moradoDegradado">Siguiente</button>
-        </div>
-      </mat-step>
-  </mat-horizontal-stepper>
+<!-- <div align="center" style="margin-top: 30px;" >
+    <h4 class="text-warning">Dile SI</h4>
+    <span>a todo lo que te imaginas para ser el dueño de tu propia
+      <span class="text-warning">historia</span>
+    </span>
+    <h2 style="margin-top: 50px;" class="text-warning">Obtén 15 días gratis de las mejores señales</h2>
+    <span style="margin-top: 20px;">y contaras un bono en dólares para crear <span class="text-warning">capital </span>desde tu telefono
+  </span>
 </div>
+
+ -->
+<div class="row m-2 justify-content-center">
+    <div class="col-md-5 col-xl-4 col-sm-12 col-lg-4 p-2">
+        <div class="p-1 shadow rounded" align="center">
+          <div class="row">
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="col-12" value="Registro">
+                <mat-button-toggle mat-flat-button value="Ingreso" routerLink="/logueo" class="col-6 lineaPuntoAmarilloDer m-0 btn-outline-danger">
+                    Ingreso
+                </mat-button-toggle>
+            <mat-button-toggle mat-flat-button value="Registro" routerLink="/registro" class="col-6 btn-outline-danger">
+              <div class="col-6">
+                  Registro
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+          </div>
+            <div class="col-12 p-0 m-0">
+                <hr class="lineaPuntoAmarillo m-0">
+            </div>
+            <!--caja de logo-->
+            <div class="p-0">
+                <img src="../../assets/icons/icon-152x152.png" alt="LogoUndervisa">
+            </div>
+            <!-- fin caja de logo-->
+            <form [formGroup]="formRegistro" action="sumit">
+                <!--Inicio Nombre  -->
+                <mat-form-field class="form-group col-md-4 col-sm-6">
+                  <div class="form-control rounded-pill">
+                    <input matInput placeholder="Nombres" type="text" formControlName="nombres" required>
+                  </div>
+                  <mat-error *ngIf="formRegistro.controls.nombres.invalid">{{errorNombres()}}</mat-error>
+                </mat-form-field>
+                <!--Fin Nombre      -->
+                <!--Inicio Apellido -->
+                <mat-form-field class="form-group col-md-4 col-sm-6">
+                  <div class="form-control rounded-pill">
+                    <input matInput formControlName="apellidos" placeholder="Apellidos" type="text" required>
+                  </div>
+                  <mat-error *ngIf="formRegistro.controls.apellidos.invalid">{{errorApellidos()}}</mat-error>
+                </mat-form-field>
+                <!--Fin Apellido    -->
+                <!--Inicio telefono -->
+                <mat-form-field class="form-group col-md-4 col-sm-6">
+                  <div class="form-control rounded-pill">
+                    <input matInput formControlName="telefono" placeholder="Telefono" type="number" required>
+                  </div>
+                  <mat-error *ngIf="formRegistro.controls.telefono.invalid">{{errorTelefono()}}</mat-error>
+                </mat-form-field>
+                <!--Fin telefono           -->
+                <!--Inicio fechaNacimiento -->
+                <mat-form-field class="form-group col-md-4 col-sm-6">
+                  <div class="form-control rounded-pill">
+                    <input matInput formControlName="fechaNacimiento" placeholder="Fecha de Nacimiento"
+                    type="date" required>
+                </div>
+                <mat-error *ngIf="formRegistro.controls.fechaNacimiento.invalid">{{errorFechaNacimiento()}}</mat-error>
+                </mat-form-field>
+                <!--Fin fechaNacimiento           -->
+                <!--Inicio email -->
+                <mat-form-field class="form-group col-md-4 col-sm-6">
+                  <div class="form-control rounded-pill">
+                    <input matInput formControlName="email" placeholder="Correo" type="email" required>
+                  </div>
+                    <mat-error *ngIf="formRegistro.controls.email.invalid">{{errorCorreo()}}</mat-error>
+                </mat-form-field>
+                <!--Fin email           -->
+                <!--Inicio clave -->
+                <mat-form-field class="form-group col-md-4 col-sm-6">
+                  <div class="form-control rounded-pill">
+                    <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
+                  </div>
+                  <mat-error *ngIf="formRegistro.controls.clave.invalid">{{errorClave()}}</mat-error>
+                </mat-form-field>
+                <!--Fin clave           -->
+                <!--Inicio Boton -->
+                <br>
+                <br>
+                <div align="center">
+                  <button mat-button [disabled]="formRegistro.invalid" (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionGrande moradoDegradado">Siguiente</button>
+                </div>
+                <!--fin Boton -->
+              </form>
+        </div>
+    </div>
 </div>

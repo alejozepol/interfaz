@@ -221,7 +221,21 @@ mat-drawer-content {
 .sobraActivoFB:hover{
   box-shadow: 0 0.5rem 1rem #3B5998 !important;
 }
+.sobraActivoFB{
+  background-color: #3B5998
+}
 
+.iconoGoogle{
+background-color: #ffffff
+}
+
+.lineaPuntoAmarillo {
+  border-bottom:  #ffc107 2px dotted;
+}
+
+.lineaPuntoAmarilloDer {
+  border-right:  #ffc107 2px dotted !important;
+}
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -230,3 +244,8 @@ input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #252b2d inset;
 
 }
+.mat-button-toggle-checked{
+  background-color:  rgba(1, 80, 160, 0.623) !important;
+  color: #ffc107 !important;
+}
+

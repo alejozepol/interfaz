@@ -1,10 +1,23 @@
-
 <div class="row m-2 justify-content-center">
     <div class="col-md-5 col-xl-4 col-sm-12 col-lg-4 p-2">
         <div class="p-1 shadow rounded" align="center">
-
+          <div class="row">
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="col-12" value="Ingreso">
+                <mat-button-toggle mat-flat-button value="Ingreso" routerLink="/logueo" class="col-6 lineaPuntoAmarilloDer m-0 btn-outline-danger">
+                    Ingreso
+                </mat-button-toggle>
+            <mat-button-toggle mat-flat-button value="Registro" routerLink="/registro" class="col-6 btn-outline-danger">
+              <div class="col-6">
+                  Registro
+              </div>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+          </div>
+            <div class="col-12 p-0 m-0">
+                <hr class="lineaPuntoAmarillo m-0">
+            </div>
             <!--caja de logo-->
-            <div class="pt-3">
+            <div class="p-0">
                 <img src="../../assets/icons/icon-152x152.png" alt="LogoUndervisa">
             </div>
             <!-- fin caja de logo-->
@@ -26,11 +39,16 @@
                 </mat-form-field>
                 <!--Fin clave-->
                 <!-- Terminos y condiciones -->
-                <mat-checkbox class="p-0" formControlName="terminos">Acepto
-                  <a class="text-warning" href="http://inscripcion.undervisa.ga/Terminos%20y%20condiciones-convertido.pdf" target="_blank" >
-                    Termino y condicions
-                  </a>
-                </mat-checkbox>
+                <div class="col-12">
+                  <mat-checkbox formControlName="terminos">Acepto
+                      <a class="text-warning" href="http://inscripcion.undervisa.ga/Terminos%20y%20condiciones-convertido.pdf" target="_blank" >
+                        Termino y condicions
+                      </a>
+                  </mat-checkbox>
+                  <mat-error class="position-fixed" *ngIf="formLogin.controls.terminos.invalid">{{errorTerminos()}}</mat-error>
+                </div>
+
+
                 <!-- Fin Terminos y condiciones -->
                 <!-- Inicio botones formulario -->
                 <div class="col-12">
@@ -40,12 +58,12 @@
                 <!-- Inicio de botones redes sociales -->
                 <div class="pt-3 row" align="center">
                   <div class="col-6 pr-1">
-                      <button mat-raised-button [disabled]="formLogin.controls.terminos.invalid" (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivoFB" style="background: #3B5998">
+                      <button mat-raised-button [disabled]="formLogin.controls.terminos.invalid" (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivoFB">
                         <img src="../assets/facebook.png" alt="Logo Facebook">
                       </button>
                   </div>
                   <div class="col-6 pl-1">
-                    <button mat-raised-button [disabled]="formLogin.controls.terminos.invalid" (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivo" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
+                    <button mat-raised-button [disabled]="formLogin.controls.terminos.invalid" (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivo iconoGoogle"> <img src="../assets/google.png" alt="Logo Google"></button>
                   </div>
                 </div>
                 <!-- Fin de botones redes sociales -->
@@ -53,7 +71,7 @@
                 <!-- Fin botones formulario -->
             </form>
             <div class="col-12 p-0">
-                <hr class="vl">
+                <hr class="lineaPuntoAmarillo">
             </div>
             <div class="col-12 pb-4">
                 <button mat-stroked-button (click)="olvideClave()" type="submit" class="btn-block rounded-pill btn-outline-dark sobraActivo text-white">Recorde contraseña</button>
@@ -61,13 +79,6 @@
         </div>
     </div>
 </div>
-
-    <!--Inicio boton de registro-->
-          <div align="center" class="col-md-4">
-              <button mat-button routerLink="/registro" type="button" class="btn-block btn-success rounded-pill moradoDegradado btnAccionGrande">Registro</button>
-          </div>
-    <!--fin boton de registro-->
-
   <!--   otros diseños de colores -->
 <!--   <div class="row m-4">
       <div class="col-md-5">

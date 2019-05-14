@@ -20,12 +20,17 @@ export class LogueoComponent {
    })
 
 errorCorreo() {
-  return this.formLogin.controls.email.hasError('required') ? 'Correo electronico es requerido' :
-  this.formLogin.controls.email.hasError('email') ? 'Correo electronico no Valido' : '';
+  return this.formLogin.controls.email.hasError('required') ? 'El 📧 es requerido' :
+  this.formLogin.controls.email.hasError('email') ? 'El 📧no Valido' : '';
      }
 errorClave() {
-  return this.formLogin.controls.clave.hasError('required') ? 'La contraseña es requerido' :
-  this.formLogin.controls.clave.hasError('minLength') ? 'La contraseña no Valido' : 'La contraseña no Valido';
+  return this.formLogin.controls.clave.hasError('required') ? 'La 🔐 es requerido' :
+  this.formLogin.controls.clave.hasError('minLength') ? 'La 🔐 no Valido' : 'La 🔐 no Valido';
+  }
+errorTerminos() {
+  return this.formLogin.controls.terminos.hasError('required')
+            ? 'Terminos y Condiciones requerido 😎'  :
+            'Terminos y Condiciones requerido 😎';
   }
 
    login(){
