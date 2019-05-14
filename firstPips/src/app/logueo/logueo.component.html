@@ -1,6 +1,8 @@
+
 <div class="row m-2 justify-content-center">
-    <div class="col-md-3 p-2">
+    <div class="col-md-5 col-xl-4 col-sm-12 col-lg-4 p-2">
         <div class="p-1 shadow rounded" align="center">
+
             <!--caja de logo-->
             <div class="pt-3">
                 <img src="../../assets/icons/icon-152x152.png" alt="LogoUndervisa">
@@ -24,7 +26,7 @@
                 </mat-form-field>
                 <!--Fin clave-->
                 <!-- Terminos y condiciones -->
-                <mat-checkbox class="p-0">Acepto
+                <mat-checkbox class="p-0" formControlName="terminos">Acepto
                   <a class="text-warning" href="http://inscripcion.undervisa.ga/Terminos%20y%20condiciones-convertido.pdf" target="_blank" >
                     Termino y condicions
                   </a>
@@ -33,15 +35,17 @@
                 <!-- Inicio botones formulario -->
                 <div class="col-12">
                 <!-- Inicio boton inicio de sesion -->
-                  <button mat-raised-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block rounded-pill btn-warning sobraActivoAmarillo">Ingresar</button>
+                  <button mat-button mat-raised-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block rounded-pill btn-warning sobraActivoAmarillo">Ingresar</button>
                 <!-- Fin boton inicio de sesion -->
                 <!-- Inicio de botones redes sociales -->
                 <div class="pt-3 row" align="center">
                   <div class="col-6 pr-1">
-                      <button mat-raised-button (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivoFB" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
+                      <button mat-raised-button [disabled]="formLogin.controls.terminos.invalid" (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivoFB" style="background: #3B5998">
+                        <img src="../assets/facebook.png" alt="Logo Facebook">
+                      </button>
                   </div>
                   <div class="col-6 pl-1">
-                    <button mat-raised-button (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivo" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
+                    <button mat-raised-button [disabled]="formLogin.controls.terminos.invalid" (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivo" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
                   </div>
                 </div>
                 <!-- Fin de botones redes sociales -->
@@ -52,7 +56,7 @@
                 <hr class="vl">
             </div>
             <div class="col-12 pb-4">
-                <button mat-raised-button (click)="olvideClave()" type="submit" class="btn-block rounded-pill btn-outline-warning bg-transparent text-warning sobraActivoAmarillo">Recorde contraseña</button>
+                <button mat-stroked-button (click)="olvideClave()" type="submit" class="btn-block rounded-pill btn-outline-dark sobraActivo text-white">Recorde contraseña</button>
             </div>
         </div>
     </div>

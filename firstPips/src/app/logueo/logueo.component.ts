@@ -15,7 +15,8 @@ export class LogueoComponent {
 
    formLogin = new FormGroup({
     email             : new FormControl('',[Validators.required, Validators.email]),
-    clave             : new FormControl('',[Validators.required, Validators.minLength(6)])
+    clave             : new FormControl('',[Validators.required, Validators.minLength(6)]),
+    terminos          : new FormControl('', [Validators.required,Validators.pattern("true")])
    })
 
 errorCorreo() {
