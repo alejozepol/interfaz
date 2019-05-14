@@ -215,10 +215,18 @@ mat-drawer-content {
 .sobraActivo:hover{
   box-shadow: 0 0.5rem 1rem rgba(195,197,199,1) !important;
 }
+.sobraActivoAmarillo:hover{
+  box-shadow: 0 0.5rem 1rem #ffc107 !important;
+}
+.sobraActivoFB:hover{
+  box-shadow: 0 0.5rem 1rem #3B5998 !important;
+}
+
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
   -webkit-text-fill-color: rgb(255, 255, 255) !important;
-  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.836) inset;
+  -webkit-box-shadow: 0 0 0px 1000px #252b2d inset;
 
 }

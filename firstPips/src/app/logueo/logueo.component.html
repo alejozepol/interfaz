@@ -1,127 +1,71 @@
 <div class="row m-2 justify-content-center">
-    <div class="col-md-5 p-2">
+    <div class="col-md-3 p-2">
         <div class="p-1 shadow rounded" align="center">
             <!--caja de logo-->
             <div class="pt-3">
                 <img src="../../assets/icons/icon-152x152.png" alt="LogoUndervisa">
             </div>
             <!-- fin caja de logo-->
-            <form align="center" [formGroup]="formLogin" class="mt-1">
+            <form align="center" [formGroup]="formLogin" class="mt-1 text-white">
                 <!--Inicio email -->
-                      <mat-form-field class="form-group col-12 bg-transparent">
-                        <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
-                          <input class="bg-transparent " matInput formControlName="email" placeholder="Correo" type="email" required>
-                        </div>
-                            <mat-error *ngIf="formLogin.controls.email.invalid">{{errorCorreo()}}</mat-error>
-                      </mat-form-field>
+                <mat-form-field class="form-group col-12 bg-transparent">
+                  <div class="form-control rounded-pill bg-transparent sobraActivo text-white"style="padding-bottom: 0% !important;">
+                    <input class="bg-transparent " matInput formControlName="email" placeholder="Correo" type="email" required>
+                  </div>
+                      <mat-error *ngIf="formLogin.controls.email.invalid">{{errorCorreo()}}</mat-error>
+                </mat-form-field>
                 <!--Fin email-->
                 <!--Inicio clave-->
-                      <mat-form-field class="form-group col-12">
-                        <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
-                          <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
-                        </div>
-                            <mat-error *ngIf="formLogin.controls.clave.invalid">{{errorClave()}}</mat-error>
-                      </mat-form-field>
+                <mat-form-field class="form-group col-12 pb-0 mb-0">
+                  <div class="form-control rounded-pill bg-transparent sobraActivo text-white pb-0">
+                    <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
+                  </div>
+                      <mat-error *ngIf="formLogin.controls.clave.invalid">{{errorClave()}}</mat-error>
+                </mat-form-field>
                 <!--Fin clave-->
+                <!-- Terminos y condiciones -->
+                <mat-checkbox class="p-0">Acepto
+                  <a class="text-warning" href="http://inscripcion.undervisa.ga/Terminos%20y%20condiciones-convertido.pdf" target="_blank" >
+                    Termino y condicions
+                  </a>
+                </mat-checkbox>
+                <!-- Fin Terminos y condiciones -->
+                <!-- Inicio botones formulario -->
+                <div class="col-12">
                 <!-- Inicio boton inicio de sesion -->
-                        <button mat-raised-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block rounded-pill moradoDegradado">Ingresar</button>
+                  <button mat-raised-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block rounded-pill btn-warning sobraActivoAmarillo">Ingresar</button>
                 <!-- Fin boton inicio de sesion -->
-                <!-- Inicio boton recordar contraseña-->
-                        <button mat-raised-button (click)="olvideClave()" type="submit" class="btn-block rounded-pill btn-warning btnAccionGrande">Recorde contraseña</button>
-                <!-- Fin boton recordar contraseña-->
+                <!-- Inicio de botones redes sociales -->
+                <div class="pt-3 row" align="center">
+                  <div class="col-6 pr-1">
+                      <button mat-raised-button (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivoFB" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
+                  </div>
+                  <div class="col-6 pl-1">
+                    <button mat-raised-button (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btn-block sobraActivo" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
+                  </div>
+                </div>
+                <!-- Fin de botones redes sociales -->
+                </div>
+                <!-- Fin botones formulario -->
             </form>
-            <form class="mt-1">
-                <div class="form-group">
-                    <input type="email"
-                        class="form-control form-control-sm bg-light"
-                        placeholder="Email Id">
-                </div>
-
-                <div class="form-group">
-                    <input type="password"
-                        class="form-control form-control-sm bg-light"
-                        placeholder="Password">
-                </div>
-
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberCheckBox">
-                    <label class="form-check-label text-light" for="rememberCheckBox">Remember me?</label>
-                </div>
-
-                <div class="mt-5">
-                    <button class="btn btn-sm btn-light col">
-                        Login
-                    </button>
-                </div>
-
-                <div class="text-center mt-2">
-                    <a href="#" class="text-warning">Forgot Password?</a>
-                </div>
-
-                <div class="mt-5">
-                    <p class="text-white text-center">
-                        Don't have an account?
-                        <a href="#" class="text-warning">Click here to register</a>
-                    </p>
-                </div>
-            </form>
+            <div class="col-12 p-0">
+                <hr class="vl">
+            </div>
+            <div class="col-12 pb-4">
+                <button mat-raised-button (click)="olvideClave()" type="submit" class="btn-block rounded-pill btn-outline-warning bg-transparent text-warning sobraActivoAmarillo">Recorde contraseña</button>
+            </div>
         </div>
     </div>
 </div>
-<div class="row justify-content-center login-dark" align="center">
-  <!-- inicio Formulario -->
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div  class="row justify-content-center">
-    <!-- inicio caja formulario logueo-->
-          <form align="center" [formGroup]="formLogin" class="col-md-4">
-      <!--Inicio email -->
-            <br>
-            <mat-form-field class="form-group col-12">
-              <div class="form-control rounded-pill">
-                <input matInput formControlName="email" placeholder="Correo" type="email" required>
-              </div>
-                  <mat-error *ngIf="formLogin.controls.email.invalid">{{errorCorreo()}}</mat-error>
-            </mat-form-field>
-      <!--Fin email-->
-      <!--Inicio clave-->
-            <mat-form-field class="form-group col-12">
-              <div class="form-control rounded-pill">
-                <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
-              </div>
-                  <mat-error *ngIf="formLogin.controls.clave.invalid">{{errorClave()}}</mat-error>
-            </mat-form-field>
-      <!--Fin clave-->
-      <!-- Inicio boton inicio de sesion -->
-              <button mat-raised-button [disabled]="formLogin.invalid" (click)="login()" type="submit" class="btn-block rounded-pill moradoDegradado">Ingresar</button>
-      <!-- Fin boton inicio de sesion -->
-      <!-- Inicio boton recordar contraseña-->
-              <button mat-raised-button (click)="olvideClave()" type="submit" class="btn-block rounded-pill btn-warning btnAccionGrande">Recorde contraseña</button>
-      <!-- Fin boton recordar contraseña-->
-          </form>
-    <!-- Inicio de botones redes sociales -->
-          <div class="col-12" align="center" style="padding-top: 12px;">
-              <button mat-raised-button (click)="facebookLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #3B5998"><img src="../assets/facebook.png" alt="Logo Facebook"></button>
-              <button mat-raised-button (click)="googleLogin()" routerLink="/deshboard" type="submit" class="rounded-pill btnAccionSmall" style="background: #FFFFFF; color: #000000"> <img src="../assets/google.png" alt="Logo Google"></button>
-          </div>
-    <!-- Fin de botones redes sociales -->
-    <!--Creacion de formulario de usuario y contraseña-->
-          <br>
-    <!-- Inicio division-->
-          <div class="col-12">
-            <hr class="vl col-md-4">
-          </div>
-    <!-- fin division-->
+
     <!--Inicio boton de registro-->
           <div align="center" class="col-md-4">
               <button mat-button routerLink="/registro" type="button" class="btn-block btn-success rounded-pill moradoDegradado btnAccionGrande">Registro</button>
           </div>
     <!--fin boton de registro-->
-        </div>
-    </div><!-- Fin Formulario -->
-  </div>
 
-
-  <div class="row m-4">
+  <!--   otros diseños de colores -->
+<!--   <div class="row m-4">
       <div class="col-md-5">
           <div class=" p-3 shadow-lg rounded">
               <div class="pt-3">
@@ -296,5 +240,5 @@
               </form>
           </div>
       </div>
-  </div>
+  </div> -->
 
