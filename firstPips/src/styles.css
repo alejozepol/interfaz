@@ -47,7 +47,7 @@ font-size: 18px !important;
 body{
     /* min-height: 700px; */
 /*     background: -webkit-gradient(linear, left bottom, right top, from(rgb(75, 160, 173)), to(rgb(11, 15, 126))); */
-background-color: rgba(0, 27, 146, 0.637) !important;
+background: linear-gradient(14deg, #575b5d, #252b2d);
 }
 .mat-drawer-container{
   position: inherit !important
@@ -76,9 +76,6 @@ background-color: rgba(0, 27, 146, 0.637) !important;
 .contenidoApp{
 
   background: transparent
-}
-.contenidoAppGrafico{
-
 }
 
 mat-drawer-content {
@@ -129,10 +126,6 @@ mat-drawer-content {
   width: 112px !important;
   height: 36px !important;
   color: #ffffff;
-}
-.transparente{
-  background-color: transparent !important;
-  background: transparent !important;
 }
 
 .mat-horizontal-stepper-header-container {
@@ -207,6 +200,7 @@ mat-drawer-content {
 
 /*===================================Version 2=============================================*/
 
+
 .login-card-purple {
   background: linear-gradient(145deg, #673AB7, #9C27B0);
 }
@@ -217,4 +211,14 @@ mat-drawer-content {
 
 .login-dark {
   background: linear-gradient(145deg, #575b5d, #252b2d);
+}
+.sobraActivo:hover{
+  box-shadow: 0 0.5rem 1rem rgba(195,197,199,1) !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgb(255, 255, 255) !important;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.836) inset;
+
 }

@@ -1,24 +1,23 @@
 <div class="row m-2 justify-content-center">
-    <div class="col-md-5 p-0">
-        <div class=" p-3 shadow-lg rounded" align="center">
+    <div class="col-md-5 p-2">
+        <div class="p-1 shadow rounded" align="center">
             <!--caja de logo-->
             <div class="pt-3">
                 <img src="../../assets/icons/icon-152x152.png" alt="LogoUndervisa">
             </div>
             <!-- fin caja de logo-->
-            <form align="center" [formGroup]="formLogin" class="mt-5">
+            <form align="center" [formGroup]="formLogin" class="mt-1">
                 <!--Inicio email -->
-                      <br>
-                      <mat-form-field class="form-group col-12">
-                        <div class="form-control rounded-pill">
-                          <input matInput formControlName="email" placeholder="Correo" type="email" required>
+                      <mat-form-field class="form-group col-12 bg-transparent">
+                        <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
+                          <input class="bg-transparent " matInput formControlName="email" placeholder="Correo" type="email" required>
                         </div>
                             <mat-error *ngIf="formLogin.controls.email.invalid">{{errorCorreo()}}</mat-error>
                       </mat-form-field>
                 <!--Fin email-->
                 <!--Inicio clave-->
                       <mat-form-field class="form-group col-12">
-                        <div class="form-control rounded-pill">
+                        <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
                           <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
                         </div>
                             <mat-error *ngIf="formLogin.controls.clave.invalid">{{errorClave()}}</mat-error>
@@ -31,7 +30,7 @@
                         <button mat-raised-button (click)="olvideClave()" type="submit" class="btn-block rounded-pill btn-warning btnAccionGrande">Recorde contraseña</button>
                 <!-- Fin boton recordar contraseña-->
             </form>
-            <form class="mt-5">
+            <form class="mt-1">
                 <div class="form-group">
                     <input type="email"
                         class="form-control form-control-sm bg-light"
