@@ -23,26 +23,36 @@ body{
  }
   }
 
-  @media (min-width: 601px)  {
+@media (min-width: 601px)  {
 
-    #despegable{
-      position:fixed;
-      top:50%;
-      left: 0%;
-      padding: 0 0 0 0;
-      background-color: transparent
-    }
+  #despegable{
+    position:fixed;
+    top:50%;
+    left: 0%;
+    padding: 0 0 0 0;
+    background-color: transparent
+  }
 
 #btnNuevo{
-  position:fixed;
-  top:85%;
-  left: 90%;
+position:fixed;
+top:85%;
+left: 90%;
 }
 
 body{
-  font-size: 18px !important;
- }
-    }
+font-size: 18px !important;
+}
+  }
+
+body{
+    /* min-height: 700px; */
+/*     background: -webkit-gradient(linear, left bottom, right top, from(rgb(75, 160, 173)), to(rgb(11, 15, 126))); */
+background-color: rgba(0, 27, 146, 0.637) !important;
+}
+.mat-drawer-container{
+  position: inherit !important
+}
+
 .mat-form-field{
   text-align: center !important;
 
@@ -64,17 +74,11 @@ body{
 }
 
 .contenidoApp{
-  min-height: 700px;
-  background: #30339c;
-  /* background: -webkit-gradient(linear, left bottom, right top, from(rgb(75, 160, 173)), to(rgb(11, 15, 126))); */
-  margin: 0 0 0 0 !important;
-  padding: 0 0 0 0 !important;
+
+  background: transparent
 }
 .contenidoAppGrafico{
-  background: #0b0f7e;
-  /* background: -webkit-gradient(linear, left bottom, right top, from(rgb(75, 160, 173)), to(rgb(11, 15, 126))); */
-  margin: 0 0 0 0 !important;
-  padding: 0 0 0 0 !important;
+
 }
 
 mat-drawer-content {
@@ -103,13 +107,6 @@ mat-drawer-content {
 
 .fondoTarjeta{
   background-color: rgba(6, 46, 53, 0.322);
-}
-#logo{
-  width: 100px;
-  height: 100px;
-  margin-top: 30px;
-  padding: 0 0 0 0;
-
 }
 .btnAccionGrande{
   width: 246px !important;
@@ -206,4 +203,18 @@ mat-drawer-content {
 }
 .swal-text{
   text-align: center
+}
+
+/*===================================Version 2=============================================*/
+
+.login-card-purple {
+  background: linear-gradient(145deg, #673AB7, #9C27B0);
+}
+
+.login-card-light {
+  background: linear-gradient(145deg, #eee, #fff);
+}
+
+.login-dark {
+  background: linear-gradient(145deg, #575b5d, #252b2d);
 }
