@@ -1,3 +1,4 @@
+
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-drawer-container #hasBackdrop [hasBackdrop]="true" class="bg-transparent">
   <mat-drawer #drawer [mode]="mode.value" #mode value="side" class="moradoDegradado text-white">
@@ -54,6 +55,7 @@
                 <br>
                 <span>Cerrar</span>
                 </li>
+
         </ul>
     </div>
 
@@ -63,12 +65,54 @@
       <button  mat-icon-button mat-raised-button id="despegable"  *ngIf="loggedIn"  (click)="drawer.toggle()">
         <img src="../assets/icons/desplazamientoMenu.png" alt="">
       </button>
+      <div class="container">
+      <div class="row fixed-bottom bg-warning justify-content-start" style="height: 60px">
+          <ul class="list-group list-group-horizontal list-unstyled p-1" align="center">
+                <li class="p-1">
+                  <button mat-button routerLink="/deshboard/">
+                    <img src="../assets/icons/deshboard.svg" height="55px" alt="deshboard" class="p-1">
+                  </button>
+                </li>
+
+                <li>
+                    <button mat-button >
+                            <img src="../assets/icons/chat.svg" alt="chat" height="100%" class="p-1">
+                    </button>
+                </li>
+                <li id="EspacioBotonCentro">
+
+                </li>
+
+                  <li>
+                    <button mat-button >
+                      <img src="../assets/icons/hitorico.svg" height="60px" class="p-1" alt="historico">
+                    </button>
+                </li>
+                <li *ngIf="usuario">
+                    <ng-container *ngIf="usuario.avatar">
+                      <button mat-button >
+                        <img src="{{usuario.avatar}}" alt="avatar" style="height: 50px;" class="rounded-circle">
+                      </button>
+                    </ng-container>
+                    <ng-container *ngIf="!usuario.avatar">
+                      <button mat-button >
+                        <img src="/assets/icons/Avatar.svg" alt="avatar" style="height: 50px;">
+                      </button>
+                    </ng-container>
+                  </li>
+
+  <!--                 <li>
+                    <button mat-button >
+                      <img src="../assets/icons/ayuda.svg" alt="Ayuda">
+                    </button>
+                    <br>
+                  <span>Ayuda</span>
+                </li> -->
+
+          </ul>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
-<router-outlet></router-outlet>
-<div *ngIf="loggedIn">
-  <div class="col-10 text-center text-white fixed-bottom bg-danger">
-    hola
-  </div>
-</div>
 

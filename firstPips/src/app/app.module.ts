@@ -91,12 +91,12 @@ const  firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent,
     DeshboardComponentes,
     LogueoComponent,
     RegistroComponent,
     CrearComponent,
-    DetalleSenalComponent
+    DetalleSenalComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

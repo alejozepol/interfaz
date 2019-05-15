@@ -34,12 +34,12 @@ this.datosUsuario()
     var dias = (this.fechaActual-this.usuario.fechaRegistro.toDate())/(1000*60*60*24)
     /* console.log(dias) */
     if(this.usuario.usuarioPremium){
-      this.senalesServicio.getSenalesActivas().valueChanges()
+      this.senalesServicio.getSenales().valueChanges()
         .subscribe(senales => {this.senales = senales})
     }else{
         if(this.diasPrueba>=dias){
 
-          this.senalesServicio.getSenalesActivas().valueChanges()
+          this.senalesServicio.getSenales().valueChanges()
           .subscribe(senales => {this.senales = senales})
           this.snackBar.open(`Te quedan ${Math.round(this.diasPrueba-dias)} dias para que pruebes nuestros señales`,
                               'Cerrar',{duration:10000})

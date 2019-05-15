@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
+/* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+
+
+
 
 @media (max-width: 600px) {
   #despegable{
@@ -12,12 +18,10 @@
     border: 0ch !important;
     background-color: transparent
   }
+  #EspacioBotonCentro{
+    padding: 1.5rem !important;
+  }
 
-#btnNuevo{
-  position:fixed;
-  top:90%;
-  left: 80%;
-}
 body{
   font-size: 16px !important;
  }
@@ -33,11 +37,6 @@ body{
     background-color: transparent
   }
 
-#btnNuevo{
-position:fixed;
-top:85%;
-left: 90%;
-}
 
 body{
 font-size: 18px !important;
@@ -233,8 +232,36 @@ background-color: #ffffff
   border-bottom:  #ffc107 2px dotted;
 }
 
+.lineaPuntoAmarilloArriba {
+  border-top:  #ffc107 2px dotted;
+}
+
 .lineaPuntoAmarilloDer {
   border-right:  #ffc107 2px dotted !important;
+}
+.lineaPuntoAmarilloIzq {
+  border-left:  #ffc107 2px dotted !important;
+}
+
+.triangulo-equilatero-bottom-izq {
+  width: 0;
+  height: 0;
+  border-radius: 50% 0 0 0;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid #ffc107;
+}
+
+.triangulo-equilatero-bottom-der {
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid #ffc107;
+  border-left: 50px solid transparent;
+
+}
+.profundidad{
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(255, 253, 253, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(255, 255, 255, 0.75);
 }
 
 input:-webkit-autofill,
@@ -262,3 +289,25 @@ input:-webkit-autofill:focus {
   background-color: #dc3545 !important
 }
 
+.btnCentro{
+  position:fixed !important;
+  bottom: 4% !important;
+  z-index: 1031;
+}
+.mat-expansion-panel{
+  background: #252b2da4
+}
+
+.mat-tab-header  {
+  background: #ffc107
+}
+.mat-tab-label{
+  font-family: 'Patrick Hand', cursive !important;
+  text-align: justify;
+  font-size: 20px !important;
+  color: #000000;
+
+}
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+  background-color: #f44336
+}
