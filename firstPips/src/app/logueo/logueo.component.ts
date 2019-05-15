@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import swal from'sweetalert';
 
 @Component({
   selector: 'app-logueo',

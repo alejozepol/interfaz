@@ -248,4 +248,17 @@ input:-webkit-autofill:focus {
   background-color:  rgba(1, 80, 160, 0.623) !important;
   color: #ffc107 !important;
 }
+.swal-modal{
+  background-color: #010647d8 !important;
+}
+.swal-title, .swal-text{
+  color: #ffffff !important
+}
+.swal-button{
+  background-color: #ffc107;
+  color: #000000
+}
+.swal-button:hover{
+  background-color: #dc3545 !important
+}
 

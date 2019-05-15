@@ -32,34 +32,34 @@
                 <img src="../../assets/icons/icon-152x152.png" alt="LogoUndervisa">
             </div>
             <!-- fin caja de logo-->
-            <form [formGroup]="formRegistro" action="sumit">
+            <form [formGroup]="formRegistro" align="center" class="mt-1 text-white">
                 <!--Inicio Nombre  -->
-                <mat-form-field class="form-group col-md-4 col-sm-6">
-                  <div class="form-control rounded-pill">
-                    <input matInput placeholder="Nombres" type="text" formControlName="nombres" required>
+                <mat-form-field class="form-group col-12 bg-transparent">
+                  <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
+                    <input class="bg-transparent " matInput placeholder="Nombres" type="text" formControlName="nombres" required>
                   </div>
                   <mat-error *ngIf="formRegistro.controls.nombres.invalid">{{errorNombres()}}</mat-error>
                 </mat-form-field>
                 <!--Fin Nombre      -->
                 <!--Inicio Apellido -->
-                <mat-form-field class="form-group col-md-4 col-sm-6">
-                  <div class="form-control rounded-pill">
+                <mat-form-field class="form-group col-12 bg-transparent">
+                  <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
                     <input matInput formControlName="apellidos" placeholder="Apellidos" type="text" required>
                   </div>
                   <mat-error *ngIf="formRegistro.controls.apellidos.invalid">{{errorApellidos()}}</mat-error>
                 </mat-form-field>
                 <!--Fin Apellido    -->
                 <!--Inicio telefono -->
-                <mat-form-field class="form-group col-md-4 col-sm-6">
-                  <div class="form-control rounded-pill">
+                <mat-form-field class="form-group col-12 bg-transparent">
+                  <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
                     <input matInput formControlName="telefono" placeholder="Telefono" type="number" required>
                   </div>
                   <mat-error *ngIf="formRegistro.controls.telefono.invalid">{{errorTelefono()}}</mat-error>
                 </mat-form-field>
                 <!--Fin telefono           -->
                 <!--Inicio fechaNacimiento -->
-                <mat-form-field class="form-group col-md-4 col-sm-6">
-                  <div class="form-control rounded-pill">
+                <mat-form-field class="form-group col-12 bg-transparent">
+                  <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
                     <input matInput formControlName="fechaNacimiento" placeholder="Fecha de Nacimiento"
                     type="date" required>
                 </div>
@@ -67,29 +67,28 @@
                 </mat-form-field>
                 <!--Fin fechaNacimiento           -->
                 <!--Inicio email -->
-                <mat-form-field class="form-group col-md-4 col-sm-6">
-                  <div class="form-control rounded-pill">
+                <mat-form-field class="form-group col-12 bg-transparent">
+                  <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
                     <input matInput formControlName="email" placeholder="Correo" type="email" required>
                   </div>
                     <mat-error *ngIf="formRegistro.controls.email.invalid">{{errorCorreo()}}</mat-error>
                 </mat-form-field>
                 <!--Fin email           -->
                 <!--Inicio clave -->
-                <mat-form-field class="form-group col-md-4 col-sm-6">
-                  <div class="form-control rounded-pill">
+                <mat-form-field class="form-group col-12 bg-transparent">
+                  <div class="form-control rounded-pill bg-transparent sobraActivo text-white">
                     <input matInput formControlName="clave" placeholder="Contraseña" type="password" required>
                   </div>
                   <mat-error *ngIf="formRegistro.controls.clave.invalid">{{errorClave()}}</mat-error>
                 </mat-form-field>
                 <!--Fin clave           -->
-                <!--Inicio Boton -->
-                <br>
-                <br>
-                <div align="center">
-                  <button mat-button [disabled]="formRegistro.invalid" (click)="registrar()" (click)="siguiente()" type="submit" class="btn-success rounded-pill btnAccionGrande moradoDegradado">Siguiente</button>
+                <!-- Inicio botones formulario -->
+                <div class="col-12">
+                  <!-- Inicio boton inicio de sesion -->
+                    <button mat-button mat-raised-button [disabled]="formRegistro.invalid" (click)="registrar()" type="submit" class="btn-block rounded-pill btn-warning sobraActivoAmarillo">Registrar</button>
+                  <!-- Fin boton inicio de sesion -->
                 </div>
-                <!--fin Boton -->
-              </form>
+            </form>
         </div>
     </div>
 </div>

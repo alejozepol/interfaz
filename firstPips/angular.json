@@ -27,7 +27,9 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": ["src/app/tv.js"],
+            "scripts": [
+                "src/app/tv.js"
+              ],
             "es5BrowserSupport": true
           },
           "configurations": {
