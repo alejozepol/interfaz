@@ -32,7 +32,7 @@ this.datosUsuario()
     this.autorizacionservice.datosUsuariosBD(this.autorizacionservice.uid)
     .subscribe(usuario => {this.usuario = usuario[0]
     var dias = (this.fechaActual-this.usuario.fechaRegistro.toDate())/(1000*60*60*24)
-    console.log(dias)
+    /* console.log(dias) */
     if(this.usuario.usuarioPremium){
       this.senalesServicio.getSenalesActivas().valueChanges()
         .subscribe(senales => {this.senales = senales})

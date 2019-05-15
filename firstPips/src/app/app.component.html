@@ -1,65 +1,74 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-drawer-container #hasBackdrop [hasBackdrop]="true" class="bg-transparent">
   <mat-drawer #drawer [mode]="mode.value" #mode value="side" class="moradoDegradado text-white">
-            <ul class="nav justify-content-end navbar-nav" *ngIf="loggedIn" align="center">
-              <li *ngIf="usuario">
-                <ng-container *ngIf="usuario.avatar">
-                  <img src="{{usuario.avatar}}" alt="avatar"srcset="" style="height: 70px; width: 70px;" class="rounded-circle">
-                </ng-container>
-                <ng-container *ngIf="!usuario.avatar">
-                  <img src="/assets/icons/Avatar.svg" alt="avatar" sizes="" srcset="">
-                </ng-container>
-                <a class="btn nav-link">{{usuario.email}}</a>
+    <div *ngIf="loggedIn">
+        <ul class="nav justify-content-end navbar-nav" align="center">
+            <li *ngIf="usuario">
+              <ng-container *ngIf="usuario.avatar">
+                <img src="{{usuario.avatar}}" alt="avatar"srcset="" style="height: 70px; width: 70px;" class="rounded-circle">
+              </ng-container>
+              <ng-container *ngIf="!usuario.avatar">
+                <img src="/assets/icons/Avatar.svg" alt="avatar" sizes="" srcset="">
+              </ng-container>
+              <a class="btn nav-link">{{usuario.email}}</a>
+            </li>
+              <li>
+                <br>
+                <button mat-button routerLink="/deshboard/" >
+                  <img src="../assets/icons/deshboard.svg" alt="deshboard">
+                </button> <br>
+                <span>Deshboard</span>
               </li>
-                <li>
-                  <br>
-                  <button mat-button routerLink="/deshboard/" >
-                    <img src="../assets/icons/deshboard.svg" alt="deshboard">
-                  </button> <br>
-                  <span>Deshboard</span>
-                </li>
 
-                <li>
-                    <button mat-button >
-                            <img src="../assets/icons/chat.svg" alt="chat">
-                    </button>
-                    <br>
-                  <span>Chat</span>
-                  <div class="fb-customerchat"
-                  page_id="797970213935758">
-                  </div>
-                </li>
-
-<!--                 <li>
-                    <button mat-button >
-                      <img src="../assets/icons/hitorico.svg" alt="historico">
-                    </button>
-                    <br>
-                  <span>Historico</span>
-                </li> -->
-
-<!--                 <li>
-                    <button mat-button >
-                      <img src="../assets/icons/ayuda.svg" alt="Ayuda">
-                    </button>
-                    <br>
-                  <span>Ayuda</span>
-                </li> -->
-
-                <li class="nav-item">
-                  <button mat-button routerLink="/logueo/" (click)="cerrar()" >
-                    <img src="../assets/icons/cerrarSesion.svg" alt="Cerrar">
+              <li>
+                  <button mat-button >
+                          <img src="../assets/icons/chat.svg" alt="chat">
                   </button>
                   <br>
-                  <span>Cerrar</span>
-                  </li>
-              </ul>
+                <span>Chat</span>
+                <div class="fb-customerchat"
+                page_id="797970213935758">
+                </div>
+              </li>
+
+<!--                 <li>
+                  <button mat-button >
+                    <img src="../assets/icons/hitorico.svg" alt="historico">
+                  </button>
+                  <br>
+                <span>Historico</span>
+              </li> -->
+
+<!--                 <li>
+                  <button mat-button >
+                    <img src="../assets/icons/ayuda.svg" alt="Ayuda">
+                  </button>
+                  <br>
+                <span>Ayuda</span>
+              </li> -->
+
+              <li class="nav-item">
+                <button mat-button routerLink="/logueo/" (click)="cerrar()" >
+                  <img src="../assets/icons/cerrarSesion.svg" alt="Cerrar">
+                </button>
+                <br>
+                <span>Cerrar</span>
+                </li>
+        </ul>
+    </div>
+
 
   </mat-drawer>
   <mat-drawer-content>
-    <router-outlet></router-outlet>
       <button  mat-icon-button mat-raised-button id="despegable"  *ngIf="loggedIn"  (click)="drawer.toggle()">
         <img src="../assets/icons/desplazamientoMenu.png" alt="">
       </button>
   </mat-drawer-content>
 </mat-drawer-container>
+<router-outlet></router-outlet>
+<div *ngIf="loggedIn">
+  <div class="col-10 text-center text-white fixed-bottom bg-danger">
+    hola
+  </div>
+</div>
+
