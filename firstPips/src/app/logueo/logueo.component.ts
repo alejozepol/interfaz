@@ -22,11 +22,11 @@ export class LogueoComponent {
 
 errorCorreo() {
   return this.formLogin.controls.email.hasError('required') ? 'El 📧 es requerido' :
-  this.formLogin.controls.email.hasError('email') ? 'El 📧no Valido' : '';
+  this.formLogin.controls.email.hasError('email') ? 'El 📧no Valido ' : '';
      }
 errorClave() {
   return this.formLogin.controls.clave.hasError('required') ? 'La 🔐 es requerido' :
-  this.formLogin.controls.clave.hasError('minLength') ? 'La 🔐 no Valido' : 'La 🔐 no Valido';
+  this.formLogin.controls.clave.hasError('minLength') ? ' La 🔐 no Valido' : 'La 🔐 no Valido';
   }
 errorTerminos() {
   return this.formLogin.controls.terminos.hasError('required')

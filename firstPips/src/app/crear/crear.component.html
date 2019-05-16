@@ -121,9 +121,15 @@
                     <!-- <mat-error *ngIf="FCrearSenal.controls.tp3.invalid">{{errorTipo()}}</mat-error> -->
                   </div>
                 </div>
-                <ng-container>
-                    <button id="btnNuevo" mat-fab (click)="guardarSenal()" routerLink="/deshboard">guardar</button>
-                  </ng-container>
+                <ng-container class="btnCentro">
+                    <button  class="sobraActivoAmarillo" mat-fab routerLink="/deshboard"><i class="material-icons">
+                        undo
+                        </i>
+                    </button>
+                    <button [disabled]="FCrearSenal.invalid" class="sobraActivoAmarillo" mat-fab (click)="guardarSenal()" routerLink="/deshboard"><i class="material-icons">
+                        save
+                        </i></button>
+                </ng-container>
         </form>
       </div>
     </div>

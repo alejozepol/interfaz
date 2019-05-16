@@ -13,7 +13,7 @@ import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
 export class CrearComponent {
   senal: any    ={}
   id            = null
-  divisas: any  = ['EURJPY', 'EURUSD', 'USDEUR']
+  divisas: any  = ['🇪🇺 EURJPY 🇯🇵', 'EURUSD', 'USDEUR']
   ordenes: any  = ['SELL', 'SELL STOP', 'SELL LIMIT', 'SELL STOP LIMIT', 'BUY', 'BUY STOP','BUY LIMIT', 'BUY STOP LIMIT']
   slActivo: any = ['SL1', 'SL2', 'SL3','SL4']
   user          = this.autorizacionServicios.datosUsuario()

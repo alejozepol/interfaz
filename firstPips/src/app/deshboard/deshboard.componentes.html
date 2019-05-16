@@ -1,8 +1,8 @@
 <mat-tab-group mat-align-tabs="center" class="text-white generalGrupo" >
     <mat-tab label="Abiertas" class="text-white" >
       <div class="m-2">
-          <mat-tab-group mat-align-tabs="center" class="text-white" >
-              <mat-tab label="Todas" class="text-white" >
+          <mat-tab-group mat-align-tabs="center" class="text-white">
+              <mat-tab label="Todas" class="text-white fixed-bottom" >
                 <mat-accordion *ngFor="let senal of senales">
                   <div *ngIf="senal.estado">
                     <mat-expansion-panel [ngSwitch]="senal.orden" class=" text-center text-white">
@@ -12,30 +12,30 @@
                         </mat-panel-title>
                         <!--=============TIPO DE ORDEN===================================== -->
                         <mat-panel-description class="col-4 p-0 m-0">
-                            <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h4>
-                            <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h4>
-                            <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
-                            <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
-                            <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">BUY</h4>
-                            <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
-                            <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
-                            <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
+                            <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
+                            <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
+                            <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
+                            <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
+                            <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
+                            <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
+                            <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
+                            <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
                         </mat-panel-description>
                       </mat-expansion-panel-header>
                       <div class="row">
                         <div class="col-4" [ngSwitch]="senal.slActivo">
-                            <h4>SL</h4>
+                            <h6>SL</h6>
                             <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
                             <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
                             <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
                             <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
                         </div>
                         <div class="col-4">
-                            <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                            <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
                             <h5>Lotaje: {{senal.lotaje}}</h5>
                         </div>
                         <div class="col-4">
-                            <h4>TP</h4>
+                            <h6>TP</h6>
                             {{senal.tp}}
                         </div>
                         <div class="col-12">
@@ -77,30 +77,30 @@
                         </mat-panel-title>
                         <!--=============TIPO DE ORDEN===================================== -->
                         <mat-panel-description class="col-4 p-0 m-0">
-                            <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h4>
-                            <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h4>
-                            <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
-                            <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
-                            <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">BUY</h4>
-                            <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
-                            <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
-                            <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
+                            <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
+                            <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
+                            <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
+                            <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
+                            <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
+                            <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
+                            <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
+                            <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
                         </mat-panel-description>
                       </mat-expansion-panel-header>
                       <div class="row">
                         <div class="col-4" [ngSwitch]="senal.slActivo">
-                            <h4>SL</h4>
+                            <h6>SL</h6>
                             <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
                             <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
                             <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
                             <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
                         </div>
                         <div class="col-4">
-                            <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                            <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
                             <h5>Lotaje: {{senal.lotaje}}</h5>
                         </div>
                         <div class="col-4">
-                            <h4>TP</h4>
+                            <h6>TP</h6>
                             {{senal.tp}}
                         </div>
                         <div class="col-12">
@@ -142,30 +142,30 @@
                         </mat-panel-title>
                         <!--=============TIPO DE ORDEN===================================== -->
                         <mat-panel-description class="col-4 p-0 m-0">
-                            <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h4>
-                            <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h4>
-                            <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
-                            <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
-                            <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">BUY</h4>
-                            <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
-                            <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
-                            <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
+                            <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
+                            <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
+                            <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
+                            <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
+                            <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
+                            <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
+                            <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
+                            <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
                         </mat-panel-description>
                       </mat-expansion-panel-header>
                       <div class="row">
                         <div class="col-4" [ngSwitch]="senal.slActivo">
-                            <h4>SL</h4>
+                            <h6>SL</h6>
                             <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
                             <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
                             <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
                             <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
                         </div>
                         <div class="col-4">
-                            <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                            <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
                             <h5>Lotaje: {{senal.lotaje}}</h5>
                         </div>
                         <div class="col-4">
-                            <h4>TP</h4>
+                            <h6>TP</h6>
                             {{senal.tp}}
                         </div>
                         <div class="col-12">
@@ -203,7 +203,7 @@
     </mat-tab>
     <mat-tab label="Cerrados" class="text-white" >
         <div class="m-2">
-            <mat-tab-group mat-align-tabs="center" class="text-white" >
+            <mat-tab-group  mat-align-tabs="center" class="text-white" >
                 <mat-tab label="Todas" class="text-white" >
                   <mat-accordion *ngFor="let senal of senales">
                     <div *ngIf="!senal.estado">
@@ -214,30 +214,30 @@
                           </mat-panel-title>
                           <!--=============TIPO DE ORDEN===================================== -->
                           <mat-panel-description class="col-4 p-0 m-0">
-                              <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h4>
-                              <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h4>
-                              <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
-                              <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
-                              <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">BUY</h4>
-                              <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
-                              <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
-                              <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
+                              <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
+                              <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
+                              <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
+                              <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
+                              <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
+                              <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
+                              <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
+                              <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
                           </mat-panel-description>
                         </mat-expansion-panel-header>
                         <div class="row">
                           <div class="col-4" [ngSwitch]="senal.slActivo">
-                              <h4>SL</h4>
+                              <h6>SL</h6>
                               <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
                               <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
                               <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
                               <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
                           </div>
                           <div class="col-4">
-                              <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                              <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
                               <h5>Lotaje: {{senal.lotaje}}</h5>
                           </div>
                           <div class="col-4">
-                              <h4>TP</h4>
+                              <h6>TP</h6>
                               {{senal.tp}}
                           </div>
                           <div class="col-12">
@@ -279,30 +279,30 @@
                           </mat-panel-title>
                           <!--=============TIPO DE ORDEN===================================== -->
                           <mat-panel-description class="col-4 p-0 m-0">
-                              <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h4>
-                              <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h4>
-                              <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
-                              <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
-                              <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">BUY</h4>
-                              <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
-                              <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
-                              <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
+                              <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
+                              <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
+                              <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
+                              <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
+                              <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
+                              <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
+                              <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
+                              <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
                           </mat-panel-description>
                         </mat-expansion-panel-header>
                         <div class="row">
                           <div class="col-4" [ngSwitch]="senal.slActivo">
-                              <h4>SL</h4>
+                              <h6>SL</h6>
                               <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
                               <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
                               <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
                               <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
                           </div>
                           <div class="col-4">
-                              <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                              <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
                               <h5>Lotaje: {{senal.lotaje}}</h5>
                           </div>
                           <div class="col-4">
-                              <h4>TP</h4>
+                              <h6>TP</h6>
                               {{senal.tp}}
                           </div>
                           <div class="col-12">
@@ -344,30 +344,30 @@
                           </mat-panel-title>
                           <!--=============TIPO DE ORDEN===================================== -->
                           <mat-panel-description class="col-4 p-0 m-0">
-                              <h4 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h4>
-                              <h4 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h4>
-                              <h4 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h4>
-                              <h4 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h4>
-                              <h4 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'green'}">BUY</h4>
-                              <h4 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'green'}">BUY STOP</h4>
-                              <h4 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'green'}">BUY LIMIT</h4>
-                              <h4 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'green'}">BUY STOP LIMIT</h4>
+                              <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
+                              <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
+                              <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
+                              <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
+                              <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
+                              <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
+                              <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
+                              <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
                           </mat-panel-description>
                         </mat-expansion-panel-header>
                         <div class="row">
                           <div class="col-4" [ngSwitch]="senal.slActivo">
-                              <h4>SL</h4>
+                              <h6>SL</h6>
                               <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
                               <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
                               <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
                               <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
                           </div>
                           <div class="col-4">
-                              <h4>Precio Entrada: {{senal.precioEntrada}}</h4>
+                              <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
                               <h5>Lotaje: {{senal.lotaje}}</h5>
                           </div>
                           <div class="col-4">
-                              <h4>TP</h4>
+                              <h6>TP</h6>
                               {{senal.tp}}
                           </div>
                           <div class="col-12">
@@ -410,7 +410,7 @@
 
 <div class="row justify-content-md-center justify-content-center">
     <div *ngIf="usuario.admin">
-            <button mat-fab routerLink="/crear/new" class="btnCentro" >
+            <button mat-fab routerLink="/crear/new" class="btnCentro sobraActivoAmarillo" >
               <mat-icon style="display: flex;">playlist_add</mat-icon>
             </button>
       </div>

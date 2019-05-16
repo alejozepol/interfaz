@@ -43,6 +43,12 @@ font-size: 18px !important;
 }
   }
 
+html{
+    height: -webkit-fill-available;
+  }
+html, body {
+  height: 100%;
+}
 body{
     /* min-height: 700px; */
 /*     background: -webkit-gradient(linear, left bottom, right top, from(rgb(75, 160, 173)), to(rgb(11, 15, 126))); */
@@ -310,4 +316,8 @@ input:-webkit-autofill:focus {
 }
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
   background-color: #f44336
+}
+
+.mat-expansion-indicator::after, .mat-expansion-panel-header-description{
+ color: #ffffff
 }
