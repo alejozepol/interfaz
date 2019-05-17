@@ -23,9 +23,9 @@
             <!-- fin caja de logo-->
             <form align="center" [formGroup]="formLogin" class="mt-1 text-white">
                 <!--Inicio email -->
-                <mat-form-field class="form-group col-12 bg-transparent">
+                <mat-form-field class="form-group col-12 bg-transparent ">
                   <div class="form-control rounded-pill bg-transparent sobraActivo text-white"style="padding-bottom: 0% !important;">
-                    <input class="bg-transparent " matInput formControlName="email" placeholder="Correo" type="email" required>
+                    <input class="bg-transparent text-white" matInput formControlName="email" placeholder="Correo" type="email" required>
                   </div>
                       <mat-error *ngIf="formLogin.controls.email.invalid">{{errorCorreo()}}</mat-error>
                 </mat-form-field>

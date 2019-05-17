@@ -74,7 +74,7 @@ background: linear-gradient(14deg, #575b5d, #252b2d);
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-label{
-  color:#000000 ;
+  color:#ffffff ;
   font-family: 'Patrick Hand', cursive !important;
 }
 
@@ -320,4 +320,8 @@ input:-webkit-autofill:focus {
 
 .mat-expansion-indicator::after, .mat-expansion-panel-header-description{
  color: #ffffff
+}
+
+.mat-focused .placeholder {
+  color: #00D318 !important;
 }

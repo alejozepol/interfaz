@@ -56,5 +56,8 @@ export class SenalesServicios{
     })
   }
 
+  suscripcionSenal(){
+    this.afDB.collection("SenalUsuario")
+  }
 
 }
