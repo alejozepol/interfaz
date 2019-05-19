@@ -65,30 +65,30 @@ public crearCuentaEmailClave = (usuario) =>{
           /* @metodo sendEmailVerification se envia el correo y se configura la
           URL como @param this.Configuracion del boton del link de verificacion */
           respuesta.user.sendEmailVerification(this.Configuracion)
-          .then(()=>{
-            console.log(this.usuario)
+                    .then(()=>{
 
-          })
-                        .catch(error => {
-                          console.log(error)
-                          /* Mensaje de error si hay un error en el envio del correo
-                          de verificación */
-                          swal({
-                            title: "Error envio de correo",
-                            text: `se presento el siguiente error al momento de
-                                  intentar enviar el correo de verificacion: ${error}`,
-                            icon: 'error'
-                          })
-                        })
-
-                        /* Deslogueo despues del regisro */
-                        swal({
-                              title: `¡Gracias por registrarte y Bienvenido!
-                                            🤩 ${usuario.nombres} 🤩`,
-                              text: `No olvides realizar el porceso de verificacion desde el enlace enviado a tu ${usuario.email} para poderte loguear despues de ver los siguientes videos`,
-                              icon: 'info'
-                        })
+                    })
+                    .catch(error => {
+                      console.log(error)
+                      /* Mensaje de error si hay un error en el envio del correo
+                      de verificación */
+                      swal({
+                        title: "Error envio de correo",
+                        text: `se presento el siguiente error al momento de
+                              intentar enviar el correo de verificacion: ${error}`,
+                        icon: 'error'
                       })
+                      this.logout()
+                    })
+
+                    /* Deslogueo despues del regisro */
+                    swal({
+                          title: `¡Gracias por registrarte y Bienvenido!
+                                        🤩 ${usuario.nombres} 🤩`,
+                          text: `No olvides realizar el porceso de verificacion desde el enlace enviado a tu ${usuario.email} para poderte loguear despues de ver los siguientes videos`,
+                          icon: 'info'
+                    })
+                  })
       .catch((error)=>{
         if(error.code ==="auth/email-already-in-use"){
           swal({
@@ -116,7 +116,6 @@ public crearCuentaEmailClave = (usuario) =>{
           alert('un error a ocurrido')
           console.log(error)
         }})
-
 //Fin Creacion de usuario por email y contraseña
 }
 
@@ -207,6 +206,7 @@ console.log(resultado)
       this.usuario.UrlPhoto          = resultado.user.photoURL
       resultado.user.updateProfile({
         displayName: this.usuario.nombresApellidos,
+        photoURL : this.usuario.UrlPhoto
 
       })
       this.datosUsuariosBD(this.usuario.uid)
@@ -268,8 +268,6 @@ console.log(resultado)
 
 
   public creacionUsuarioBD(usuario){
-    console.log(usuario)
-    console.log(usuario.email)
     this.afDB.collection('Usuarios').doc(usuario.email)
     /* Registro en la base de datos en la coleccion Usuarios y enviando el objeto
     como coleccion JSON con los atributos recogidos en el formulario de registro*/

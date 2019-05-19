@@ -84,8 +84,7 @@ errorClave() {
     this.autorizacionService.crearCuentaEmailClave(this.registro)
       /* Metodo del servicio autorizacionService para creacion de usuario mediante email y contraseña */
 
-    this.paso === 3
-    this.router.navigate(['registro'])
+this.autorizacionService.logout()
   }
 
 siguiente(){
