@@ -317,7 +317,16 @@ input:-webkit-autofill:focus {
 
 }
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
-  background-color: #f44336
+  background-color: #ffffff
+}
+
+.mat-tab-label .mat-ripple .mat-tab-label-active .ng-star-inserted{
+
+}
+
+.mat-tab-label-active{
+  background: #000000c2;
+  color: #ffc107;
 }
 
 .mat-expansion-indicator::after, .mat-expansion-panel-header-description{

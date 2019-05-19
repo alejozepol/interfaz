@@ -1,5 +1,10 @@
 <mat-tab-group mat-align-tabs="center" class="text-white generalGrupo" >
-    <mat-tab label="Abiertas" class="text-white" >
+        <mat-tab class="text-white">
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">show_chart</mat-icon>
+              Abiertas
+            </ng-template>
+
       <div class="m-2">
           <mat-tab-group mat-align-tabs="center" class="text-white">
               <mat-tab label="Todas" class="text-white fixed-bottom" >
@@ -7,9 +12,14 @@
                   <div *ngIf="senal.estado">
                     <mat-expansion-panel [ngSwitch]="senal.orden" class=" text-center text-white">
                       <mat-expansion-panel-header class="text-center">
-                        <mat-panel-title class="col-8 p-0 m-0">
-                            <H3 class="text-center text-white">{{senal.grupoDivisa}}</H3>
-                        </mat-panel-title>
+                          <mat-panel-title class="col-8 p-0 m-0" *ngIf="senal.tipo === 'Premium'" >
+
+                              <H3 class="text-center text-white">🔥⭐{{senal.grupoDivisa}}</H3>
+                            </mat-panel-title>
+                            <mat-panel-title class="col-8 p-0 m-0" *ngIf="senal.tipo === 'Free'" >
+
+                                <H3 class="text-center text-white">{{senal.grupoDivisa}}</H3>
+                              </mat-panel-title>
                         <!--=============TIPO DE ORDEN===================================== -->
                         <mat-panel-description class="col-4 p-0 m-0">
                             <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
@@ -67,7 +77,7 @@
                   </div>
                 </mat-accordion>
               </mat-tab>
-              <mat-tab label="Premium" class="text-white" >
+              <mat-tab label="🔥⭐ Premium" class="text-white" >
                 <mat-accordion *ngFor="let senal of senales">
                   <div *ngIf="senal.estado">
                     <mat-expansion-panel *ngIf="senal.tipo === 'Premium'" [ngSwitch]="senal.orden" class=" text-center text-white">
@@ -201,7 +211,11 @@
       </div>
 
     </mat-tab>
-    <mat-tab label="Cerrados" class="text-white" >
+        <mat-tab class="text-white">
+            <ng-template mat-tab-label>
+              <mat-icon class="material-icons">smultiline_chart</mat-icon>
+              Cerrados
+            </ng-template>
         <div class="m-2">
             <mat-tab-group  mat-align-tabs="center" class="text-white" >
                 <mat-tab label="Todas" class="text-white" >
@@ -209,9 +223,14 @@
                     <div *ngIf="!senal.estado">
                       <mat-expansion-panel [ngSwitch]="senal.orden" class=" text-center text-white">
                         <mat-expansion-panel-header class="text-center">
-                          <mat-panel-title class="col-8 p-0 m-0">
-                              <H3 class="text-center text-white">{{senal.grupoDivisa}}</H3>
-                          </mat-panel-title>
+                            <mat-panel-title class="col-8 p-0 m-0" *ngIf="senal.tipo === 'Premium'" >
+
+                                <H3 class="text-center text-white">🔥⭐{{senal.grupoDivisa}}</H3>
+                              </mat-panel-title>
+                              <mat-panel-title class="col-8 p-0 m-0" *ngIf="senal.tipo === 'Free'" >
+
+                                  <H3 class="text-center text-white">{{senal.grupoDivisa}}</H3>
+                                </mat-panel-title>
                           <!--=============TIPO DE ORDEN===================================== -->
                           <mat-panel-description class="col-4 p-0 m-0">
                               <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
@@ -402,7 +421,94 @@
             </mat-tab-group>
         </div>
 
-      </mat-tab>
+    </mat-tab>
+    <mat-tab label="Historial" class="text-white" >
+        <div class="m-2">
+            <mat-accordion *ngFor="let senal of senales">
+                  <mat-expansion-panel [ngSwitch]="senal.orden" class=" text-center text-white">
+                    <mat-expansion-panel-header class="text-center">
+                      <mat-panel-title class="col-8 p-0 m-0" *ngIf="senal.tipo === 'Premium'" >
+
+                        <H3 class="text-center text-white">🔥⭐{{senal.grupoDivisa}}</H3>
+                      </mat-panel-title>
+                      <mat-panel-title class="col-8 p-0 m-0" *ngIf="senal.tipo === 'Free'" >
+
+                          <H3 class="text-center text-white">{{senal.grupoDivisa}}</H3>
+                        </mat-panel-title>
+                      <!--=============TIPO DE ORDEN===================================== -->
+                      <mat-panel-description class="col-4 p-0 m-0">
+                        <div class="row">
+                          <div class="col-4">
+                              <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
+                              <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
+                              <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
+                              <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
+                              <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
+                              <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
+                              <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
+                              <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
+                          </div>
+                          <div class="col-4">
+                              <mat-icon *ngIf="senal.estado" class="material-icons">show_chart</mat-icon>
+                              <mat-icon *ngIf="!senal.estado" class="material-icons">smultiline_chart</mat-icon>
+                          </div>
+                          <div class="col-4">
+                              <mat-icon  *ngIf="senal.estado"class="material-icons">attach_money</mat-icon>
+                              <mat-icon *ngIf="!senal.estado" class="material-icons">money_off</mat-icon>
+
+                          </div>
+                        </div>
+
+
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                      <div class="col-4" [ngSwitch]="senal.slActivo">
+                          <h6>SL</h6>
+                          <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
+                          <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
+                          <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
+                          <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
+                      </div>
+                      <div class="col-4">
+                          <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
+                          <h5>Lotaje: {{senal.lotaje}}</h5>
+                      </div>
+                      <div class="col-4">
+                          <h6>TP</h6>
+                          {{senal.tp}}
+                      </div>
+                      <div class="col-12">
+                        <div class="row">
+                            <div class="col-4" *ngIf="usuario.admin">
+                              <a mat-mini-fab routerLink="/crear/{{senal.id}}" style="text-decoration: none;">
+                                <mat-icon>edit</mat-icon>
+                                <br>
+                              </a>
+                            </div>
+                            <div class="col-4">
+                              <button mat-mini-fab>
+                              <mat-checkbox ></mat-checkbox>
+
+                            </button>
+                            </div>
+                            <div class="col-4">
+                              <button mat-mini-fab routerLink="/detalleSenal/{{senal.id}}" >
+
+                              <mat-icon  >visibility</mat-icon>
+                            </button>
+
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+
+    </mat-tab>
+
 </mat-tab-group>
 
 
