@@ -12,20 +12,7 @@ export class AutorizacionSericios{
 //inicio de declaracion de atributos de la clase
   usuarios      ={}
   Configuracion = {url: 'https://fistpips.firebaseapp.com/'}
-  usuario       = {
-    nombres         : null,
-    apellidos       : null,
-    nombresApellidos: null,
-    telefono        : null,
-    fechaNacimiento : null,
-    email           : null,
-    usuarioPremium  : false,
-    fechaRegistro   : new Date(),
-    fechaPago       : null,
-    uid             : null,
-    admin           : false,
-    UrlPhoto        : 'null'
-  }
+  usuario: any  = {}
 //fin de declaracion de atributos de la clase
 
 constructor(//afDB  objeto para conexion con base de datos de firebase
@@ -213,8 +200,9 @@ console.log(resultado)
       .subscribe( usuario =>{
         var usu = usuario[0]
         if(usu === undefined){
-
-          console.log(this.usuario)
+          this.usuario.admin             = false
+          this.usuario.usuarioPremium    = false
+          this.usuario.fechaRegistro     = new Date()
           this.creacionUsuarioBD(this.usuario)
           swal({
             title: `¡Bienvenido  🤩${resultado.user.displayName}🤩!`,
@@ -226,6 +214,7 @@ console.log(resultado)
 
       } else{
         this.usuario.UrlPhoto          = resultado.user.photoURL
+        this.modificarUsuarioBD(this.usuario)
         swal({
           title: `¡Bienvenido 🤩${resultado.user.displayName}🤩!`,
           text: `estamos muy feliz de que estes aqui`,
@@ -278,5 +267,13 @@ console.log(resultado)
     })
   }
 
+  public modificarUsuarioBD(usuario){
+    this.afDB.collection('Usuarios').doc(usuario.email)
+    .update(usuario)
+    .catch(bderror =>{
+      console.log(`se presento el siguiente error al intentar registrar un nuevo
+      usuario en la base de datos: ${bderror} `)
+    })
+  }
 
 }
