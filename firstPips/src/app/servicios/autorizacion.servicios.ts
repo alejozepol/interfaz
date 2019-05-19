@@ -48,6 +48,9 @@ public crearCuentaEmailClave = (usuario) =>{
           this.usuario.telefono          = usuario.telefono
           this.usuario.nombres           = usuario.nombres
           this.usuario.apellidos         = usuario.apellidos
+          this.usuario.admin             = false
+          this.usuario.usuarioPremium    = false
+          this.usuario.fechaRegistro     = new Date()
           this.creacionUsuarioBD(this.usuario)
           /* @metodo sendEmailVerification se envia el correo y se configura la
           URL como @param this.Configuracion del boton del link de verificacion */
@@ -103,6 +106,7 @@ public crearCuentaEmailClave = (usuario) =>{
           alert('un error a ocurrido')
           console.log(error)
         }})
+        this.logout()
 //Fin Creacion de usuario por email y contraseña
 }
 
@@ -188,7 +192,6 @@ public loginGoogle(){
 console.log(resultado)
       this.usuario.email             = resultado.user.email
       this.usuario.uid               = resultado.user.uid
-      this.usuario.telefono          = resultado.user.phoneNumber
       this.usuario.nombresApellidos  = resultado.user.displayName
       this.usuario.UrlPhoto          = resultado.user.photoURL
       resultado.user.updateProfile({
@@ -196,9 +199,10 @@ console.log(resultado)
         photoURL : this.usuario.UrlPhoto
 
       })
-      this.datosUsuariosBD(this.usuario.uid)
+      this.datosUsuariosBD(this.usuario.email)
       .subscribe( usuario =>{
-        var usu = usuario[0]
+        console.log(usuario)
+        var usu = usuario
         if(usu === undefined){
           this.usuario.admin             = false
           this.usuario.usuarioPremium    = false
@@ -247,8 +251,9 @@ console.log(resultado)
   }
         /*---------------------Fin Generales ----------------------------------------*/
 /*===============================>De consulta<================================================*/
-  public datosUsuariosBD(uid){
-    var query = this.afDB.collection("Usuarios", ref => ref.where("uid","==",uid)).valueChanges()
+  public datosUsuariosBD(email){
+    var query = this.afDB.collection("Usuarios").doc(email)
+    .valueChanges()
     return query
   }
   public datosUsuario(){
