@@ -189,7 +189,6 @@ public loginGoogle(){
   this.angularFireAuth.auth.signInWithPopup(
     new firebase.auth.GoogleAuthProvider())
     .then((resultado)=>{
-console.log(resultado)
       this.usuario.email             = resultado.user.email
       this.usuario.uid               = resultado.user.uid
       this.usuario.nombresApellidos  = resultado.user.displayName
@@ -201,7 +200,7 @@ console.log(resultado)
       })
       this.datosUsuariosBD(this.usuario.email)
       .subscribe( usuario =>{
-        console.log(usuario)
+
         var usu = usuario
         if(usu === undefined){
           this.usuario.admin             = false
@@ -209,21 +208,28 @@ console.log(resultado)
           this.usuario.fechaRegistro     = new Date()
           this.creacionUsuarioBD(this.usuario)
           swal({
-            title: `¡Bienvenido  🤩${resultado.user.displayName}🤩!`,
-            text: `Gracias por registrarte. Vuelve a iniciar sesion`,
+            title: `¡Bienvenido
+            🤩${resultado.user.displayName}🤩!`,
+            text: `Gracias por registrarte.
+                  Vuelve a iniciar sesion`,
             icon: 'Warning'
         })
         this.logout()
         this.router.navigate(['logueo'])
 
-      } else{
+      }
+      if (usu !== undefined){
         this.usuario.UrlPhoto          = resultado.user.photoURL
         this.modificarUsuarioBD(this.usuario)
         swal({
-          title: `¡Bienvenido 🤩${resultado.user.displayName}🤩!`,
+          title: `¡Bienvenido
+          🤩${resultado.user.displayName}🤩!`,
           text: `estamos muy feliz de que estes aqui`,
           icon: 'info' })
           this.router.navigate(['deshboard'])
+        }
+        else{
+          console.log("a ocurrido un error")
         }
 
       })
