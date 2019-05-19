@@ -278,7 +278,7 @@ input:-webkit-autofill:focus {
 
 }
 .mat-button-toggle-checked{
-  background-color:  rgba(1, 80, 160, 0.623) !important;
+  background-color:  rgba(255, 255, 255, 0.171) !important;
   color: #ffc107 !important;
 }
 .swal-modal{
@@ -300,6 +300,8 @@ input:-webkit-autofill:focus {
   bottom: 4% !important;
   z-index: 1031;
 }
+
+
 .mat-expansion-panel{
   background: #252b2da4
 }

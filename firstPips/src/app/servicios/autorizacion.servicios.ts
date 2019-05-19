@@ -11,9 +11,21 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AutorizacionSericios{
 //inicio de declaracion de atributos de la clase
   usuarios      ={}
-  Configuracion = {url: 'http://localhost:4200'}
-  usuario       = {}
-  uid
+  Configuracion = {url: 'https://fistpips.firebaseapp.com/'}
+  usuario       = {
+    nombres         : null,
+    apellidos       : null,
+    nombresApellidos: null,
+    telefono        : null,
+    fechaNacimiento : null,
+    email           : null,
+    usuarioPremium  : false,
+    fechaRegistro   : new Date(),
+    fechaPago       : null,
+    uid             : null,
+    admin           : false,
+    UrlPhoto        : 'null'
+  }
 //fin de declaracion de atributos de la clase
 
 constructor(//afDB  objeto para conexion con base de datos de firebase
@@ -27,7 +39,9 @@ constructor(//afDB  objeto para conexion con base de datos de firebase
           }
 
 
-//inicio Creacion de usuario por email y contraseña
+
+/*===============================>De logueo<================================================*/
+      /*---------------------Inicio por Correo----------------------------------------------*/
 public crearCuentaEmailClave = (usuario) =>{
 /*   metodo @createUserWithEmailAndPassword: crea el usuario en firebase con los
   @param email del usuario y la @param clave
@@ -41,10 +55,20 @@ public crearCuentaEmailClave = (usuario) =>{
           respuesta.user.updateProfile({
             displayName: usuario.nombres
           })
-          usuario.uid = respuesta.user.uid
+          this.usuario.email             = usuario.email
+          this.usuario.fechaNacimiento   = usuario.fechaNacimiento
+          this.usuario.uid               = respuesta.user.uid
+          this.usuario.telefono          = usuario.telefono
+          this.usuario.nombres           = usuario.nombres
+          this.usuario.apellidos         = usuario.apellidos
+          this.creacionUsuarioBD(this.usuario)
           /* @metodo sendEmailVerification se envia el correo y se configura la
           URL como @param this.Configuracion del boton del link de verificacion */
           respuesta.user.sendEmailVerification(this.Configuracion)
+          .then(()=>{
+            console.log(this.usuario)
+
+          })
                         .catch(error => {
                           console.log(error)
                           /* Mensaje de error si hay un error en el envio del correo
@@ -56,6 +80,7 @@ public crearCuentaEmailClave = (usuario) =>{
                             icon: 'error'
                           })
                         })
+
                         /* Deslogueo despues del regisro */
                         swal({
                               title: `¡Gracias por registrarte y Bienvenido!
@@ -63,50 +88,43 @@ public crearCuentaEmailClave = (usuario) =>{
                               text: `No olvides realizar el porceso de verificacion desde el enlace enviado a tu ${usuario.email} para poderte loguear despues de ver los siguientes videos`,
                               icon: 'info'
                         })
-                        this.angularFireAuth.auth.signOut()
                       })
-
-        .catch((error)=>{
-        console.log(error)
-        swal({
-          title: "Error realizando el registro del usuario",
-          text: `se presento el siguiente error al momento de
-                intentar registrar el usuario: ${error}`,
-          icon: 'error'
-        })
+      .catch((error)=>{
+        if(error.code ==="auth/email-already-in-use"){
+          swal({
+            title: `⚠¡Correo ya registrado!😰`,
+            text: ` ¿Quieres restaurar la clave para el ${usuario.email} ?`,
+            icon: 'error',
+            content: {
+              element: "button",
+              attributes: {
+                textContent: "Restaurar Contraseña",
+                type: "button",
+                className:"btn btn-warning",
+                onclick: this.restablecerClave(usuario.email)
+              }
+          }})}
+        else if(error.code ==="auth/user-not-found"){
+          swal({
+            title: `😰¡Usuario no encontrado!😰`,
+            text: `Por favor intenta verifica de intenta de nuevo. Si no estas registrado nos gustaria mucho tenerte en nuestra app
+            ¡Registrate! `,
+            icon: 'warning'
       })
-  this.afDB.collection('Usuarios')
-  /* Registro en la base de datos en la coleccion Usuarios y enviando el objeto
-  como coleccion JSON con los atributos recogidos en el formulario de registro*/
-  .add({
-          nombre          : usuario.nombres,
-          apellidos       : usuario.apellidos,
-          telefono        : usuario.telefono,
-          fechaNacimiento : usuario.fechaNacimiento,
-          email           : usuario.email,
-          usuarioPremium  : false,
-          fechaRegistro   : new Date(),
-          fechaPago       : null,
-          uid             : usuario.uid,
-          admin           : false
-  })
-  .catch(bderror =>{
-    console.log(`se presento el siguiente error al intentar registrar un nuevo
-    usuario en la base de datos: ${bderror} `)
-  })
+        }
+        else{
+          alert('un error a ocurrido')
+          console.log(error)
+        }})
 
-}
 //Fin Creacion de usuario por email y contraseña
-
-public getUsuarioAdmin(){
-
 }
 
 public login(email, clave){
   this.angularFireAuth.auth.signInWithEmailAndPassword(email, clave)
       .then((respuesta)=>{
           if(respuesta.user.emailVerified){
-            this.uid = respuesta.user.uid
+            this.usuario.uid = respuesta.user.uid
             swal({
               title: `¡Bienvenido 🤩 ${respuesta.user.displayName}🤩!`,
               text: `estamos muy feliz de que estes aqui`,
@@ -144,8 +162,88 @@ public login(email, clave){
             }
 
                     })
-  }
+//Fin Logeo por email y contraseña
+}
 
+public restablecerClave(email){
+  this.angularFireAuth.auth
+                          .sendPasswordResetEmail(email)
+                          .then()
+                          .catch((error)=> {this.mensajes.open('correo enviado para recuperacion de contraseña','Enviado',{duration:2000})})
+}
+      /*---------------------Fin por Correo---------------------------------------------------*/
+      /*---------------------Inicio por Redes Sociales----------------------------------------*/
+public loginFacebook(){
+    //metodo de logueo con facebook utilizando un popup para ingreso a la red social y devolverse a la pagina de la aplicacion
+      this.angularFireAuth.auth.signInWithPopup(
+        new firebase.auth.FacebookAuthProvider())
+          .then((resultado)=>{
+            this.usuario.email             = resultado.user.email
+            this.usuario.uid               = resultado.user.uid
+            this.usuario.telefono          = resultado.user.phoneNumber
+            this.usuario.nombresApellidos  = resultado.user.displayName
+            swal({
+              title: `¡Bienvenido 🤩 ${resultado.user.displayName}🤩!`,
+              text: `estamos muy feliz de que estes aqui`,
+              icon: 'info'
+        })
+              this.router.navigate(['deshboard'])
+          })
+          .catch((error)=>{
+            console.log(error)
+          })
+//Fin Logeo Facebook
+}
+
+public loginGoogle(){
+  this.angularFireAuth.auth.signInWithPopup(
+    new firebase.auth.GoogleAuthProvider())
+    .then((resultado)=>{
+console.log(resultado)
+      this.usuario.email             = resultado.user.email
+      this.usuario.uid               = resultado.user.uid
+      this.usuario.telefono          = resultado.user.phoneNumber
+      this.usuario.nombresApellidos  = resultado.user.displayName
+      this.usuario.UrlPhoto          = resultado.user.photoURL
+      resultado.user.updateProfile({
+        displayName: this.usuario.nombresApellidos,
+
+      })
+      this.datosUsuariosBD(this.usuario.uid)
+      .subscribe( usuario =>{
+        var usu = usuario[0]
+        if(usu === undefined){
+
+          console.log(this.usuario)
+          this.creacionUsuarioBD(this.usuario)
+          swal({
+            title: `¡Bienvenido  🤩${resultado.user.displayName}🤩!`,
+            text: `Gracias por registrarte. Vuelve a iniciar sesion`,
+            icon: 'Warning'
+        })
+        this.logout()
+        this.router.navigate(['logueo'])
+
+      } else{
+        this.usuario.UrlPhoto          = resultado.user.photoURL
+        swal({
+          title: `¡Bienvenido 🤩${resultado.user.displayName}🤩!`,
+          text: `estamos muy feliz de que estes aqui`,
+          icon: 'info' })
+          this.router.navigate(['deshboard'])
+        }
+
+      })
+
+      })
+    .catch((error)=>{
+      console.log(error)
+    })
+//Fin Logeo Google
+}
+
+        /*---------------------Fin por Redes Sociales----------------------------------------*/
+        /*---------------------Inicio Generales ----------------------------------------*/
   public logout(){
     // metodo para logueo con usuario y contraseña
     return this.angularFireAuth.auth.signOut()
@@ -158,58 +256,29 @@ public login(email, clave){
     return this.angularFireAuth.authState;
 
   }
-
+        /*---------------------Fin Generales ----------------------------------------*/
+/*===============================>De consulta<================================================*/
   public datosUsuariosBD(uid){
     var query = this.afDB.collection("Usuarios", ref => ref.where("uid","==",uid)).valueChanges()
     return query
   }
   public datosUsuario(){
-
-    return this.angularFireAuth.auth
+    return this.angularFireAuth.auth.currentUser
   }
 
-  public loginFacebook(){
-    //metodo de logueo con facebook utilizando un popup para ingreso a la red social y devolverse a la pagina de la aplicacion
-      this.angularFireAuth.auth.signInWithPopup(
-        new firebase.auth.FacebookAuthProvider())
-          .then((resultado)=>{
-             this.usuario = resultado.user
-            swal({
-              title: `¡Bienvenido 🤩 ${resultado.user.displayName}🤩!`,
-              text: `estamos muy feliz de que estes aqui`,
-              icon: 'info'
-        })
-              this.router.navigate(['deshboard'])
-          })
-          .catch((error)=>{
-            console.log(error)
-          })
-  }
 
-  public loginGoogle(){
-    this.angularFireAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider())
-      .then((resultado)=>{
-        console.log(resultado.user)
-        this.usuario = resultado.user.email
-        this.router.navigate(['deshboard'])
-        swal({
-          title: `¡Bienvenido 🤩${resultado.user.displayName}🤩!`,
-          text: `estamos muy feliz de que estes aqui`,
-          icon: 'info'
+  public creacionUsuarioBD(usuario){
+    console.log(usuario)
+    console.log(usuario.email)
+    this.afDB.collection('Usuarios').doc(usuario.email)
+    /* Registro en la base de datos en la coleccion Usuarios y enviando el objeto
+    como coleccion JSON con los atributos recogidos en el formulario de registro*/
+    .set(usuario)
+    .catch(bderror =>{
+      console.log(`se presento el siguiente error al intentar registrar un nuevo
+      usuario en la base de datos: ${bderror} `)
     })
-
-
-      })
-      .catch((error)=>{
-        console.log(error)
-      })
   }
 
-  public restablecerClave(email){
-    this.angularFireAuth.auth
-                            .sendPasswordResetEmail(email)
-                            .then()
-                            .catch((error)=> {this.mensajes.open('correo enviado para recuperacion de contraseña','Enviado',{duration:2000})})
-  }
+
 }

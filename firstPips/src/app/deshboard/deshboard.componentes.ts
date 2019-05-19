@@ -28,8 +28,8 @@ this.datosUsuario()
   }
 
   datosUsuario(){
-    if(this.autorizacionservice.uid){
-    this.autorizacionservice.datosUsuariosBD(this.autorizacionservice.uid)
+    if(this.autorizacionservice.usuario.uid){
+    this.autorizacionservice.datosUsuariosBD(this.autorizacionservice.usuario.uid)
     .subscribe(usuario => {this.usuario = usuario[0]
     var dias = (this.fechaActual-this.usuario.fechaRegistro.toDate())/(1000*60*60*24)
     /* console.log(dias) */

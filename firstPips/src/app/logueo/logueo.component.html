@@ -3,7 +3,7 @@
         <div class="p-1 shadow rounded" align="center">
           <div class="row">
           <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="col-12" value="Ingreso">
-                <mat-button-toggle mat-flat-button value="Ingreso" routerLink="/logueo" class="col-6 lineaPuntoAmarilloDer m-0 btn-outline-danger">
+                <mat-button-toggle mat-flat-button value="Ingreso" routerLink="/logueo" class="col-6 sobraActivo lineaPuntoAmarilloDer m-0  btn-outline-danger">
                     Ingreso
                 </mat-button-toggle>
             <mat-button-toggle mat-flat-button value="Registro" routerLink="/registro" class="col-6 btn-outline-danger">
@@ -23,11 +23,11 @@
             <!-- fin caja de logo-->
             <form align="center" [formGroup]="formLogin" class="mt-1 text-white">
                 <!--Inicio email -->
-                <mat-form-field class="form-group col-12 bg-transparent ">
+                <mat-form-field class="form-group col-12 bg-transparent " ic>
                   <div class="form-control rounded-pill bg-transparent sobraActivo text-white"style="padding-bottom: 0% !important;">
-                    <input class="bg-transparent text-white" matInput formControlName="email" placeholder="Correo" type="email" required>
+                      <input class="bg-transparent text-white" matInput formControlName="email" placeholder="Correo" type="email" required>
                   </div>
-                      <mat-error *ngIf="formLogin.controls.email.invalid">{{errorCorreo()}}</mat-error>
+                    <mat-error *ngIf="formLogin.controls.email.invalid">{{errorCorreo()}}</mat-error>
                 </mat-form-field>
                 <!--Fin email-->
                 <!--Inicio clave-->

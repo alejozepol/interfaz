@@ -82,7 +82,7 @@ this.senal = {
   tp            : this.FCrearSenal.controls.tp.value,
   estado        : this.FCrearSenal.controls.estado.value,
   tipo          : this.FCrearSenal.controls.tipo.value,
-  uid           : this.user.currentUser.uid,
+  uid           : this.user.uid,
   fecha         : new Date(),
   slActivo      : this.FCrearSenal.controls.slActivo.value
 }

@@ -24,8 +24,8 @@ export class AppComponent implements OnInit {
 
               this.loggedIn = true
              setTimeout(()=>{
-                this.usuario.email = this.autorizacionService.datosUsuario().currentUser.email
-                this.usuario.avatar = this.autorizacionService.datosUsuario().currentUser.photoURL
+                this.usuario.email = this.autorizacionService.datosUsuario().email
+                this.usuario.avatar = this.autorizacionService.datosUsuario().photoURL
               },500)
           }
           else{
@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
             this.loggedIn = false
           }
         }, (error) =>{
+          console.log(error)
           this.loggedIn = false
         })
   }

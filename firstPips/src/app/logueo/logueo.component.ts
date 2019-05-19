@@ -42,6 +42,7 @@ errorTerminos() {
 
    facebookLogin(){
      this.autorizacionService.loginFacebook()
+
    }
 
    googleLogin(){
