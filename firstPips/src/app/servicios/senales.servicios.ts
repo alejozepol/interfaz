@@ -12,9 +12,12 @@ export class SenalesServicios{
 
   }
 
-  suscripcion(estado, usuarioSenal){
-
+  suscripcion(estado, sid, uid){
+    var usuarioSenal: any={}
+    usuarioSenal.uid = sid
+    usuarioSenal.sid = uid
     if(!estado){
+
       this.GuardarSuscripcionSenal(usuarioSenal)
     }
     else{

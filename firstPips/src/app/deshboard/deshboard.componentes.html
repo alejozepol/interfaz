@@ -44,20 +44,20 @@
                         </mat-panel-description>
                       </mat-expansion-panel-header>
                       <div class="row">
-<!--                         <div>
-                            <mat-icon class="text-warning" value="true" (click)="suscripcion({{senal.suscripcion}}, {{senal.id}})">notifications_action</mat-icon>
-                        </div> -->
-                        <div>
+                        <div *ngIf="senal.suscripcion">
+                            <mat-icon class="text-warning" value="true" (click)="suscripcion(senal.suscripcion, senal.id)">notifications_action</mat-icon>
+                        </div>
+                        <div *ngIf="!senal.suscripcion">
                             <mat-icon class="text-danger" value="false" (click)="suscripcion(senal.suscripcion, senal.id)">notifications_off</mat-icon>
-                          </div>
-                                                                          <div class="col-12">
+                        </div>
+                        <div class="col-12">
                             <div class="row lineaPuntoAmarillo">
                               <h5 class="text-secondary col-5" align="right">-0.01</h5>
                               <h5 class="col-2">{{senal.lotaje}}</h5>
                               <h5 class="text-secondary col-5" align="left">+0.01</h5>
                             </div>
                             Lotaje
-                          </div>
+                        </div>
                         <div class="col-6 mt-2" [ngSwitch]="senal.slActivo">
                           <div class="row lineaPuntoRojo">
                             <div class="col-12">
@@ -73,7 +73,6 @@
                             <div class="col-1">+</div>
                           </div>
                         </div>
-
                         <div class="col-6 mt-2" [ngSwitch]="senal.slActivo">
                             <div class="row lineaPuntoVerde">
                               <div class="col-12">
@@ -85,7 +84,7 @@
                               </div>
                               <div class="col-1">+</div>
                             </div>
-                          </div>
+                        </div>
                         <div class="col-12 mt-3">
                           <div class="row">
                               <div class="col-4" *ngIf="usuario.admin">

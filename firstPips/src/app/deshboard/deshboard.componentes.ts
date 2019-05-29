@@ -32,45 +32,10 @@ this.datosUsuario()
   datosUsuario(){
     if(this.autorizacionservice.usuario.email){
     this.autorizacionservice.datosUsuariosBD(this.autorizacionservice.usuario.email)
-    .subscribe(usuario => {this.usuario = usuario
-    var dias = (this.fechaActual-this.usuario.fechaRegistro.toDate())/(1000*60*60*24)
-    /* console.log(dias) */
-    if(this.usuario.usuarioPremium){
-      this.senalesServicio.getSenales().valueChanges()
-        .subscribe(senales => {this.senales = senales
-          this.senalesServicio.ConsultarDatosSuscripcionSenal(this.usuario.uid, this.senal.id)
-          .subscribe(suscripcion => this.senales.suscripcion=suscripcion)
-          console.log(this.senales)
-
-
-        })
-    }else{
-        if(this.diasPrueba>=dias){
-          debugger
-          this.senalesServicio.getSenales().valueChanges()
-          .subscribe(senales => {this.senales = senales
-            debugger
-            this.senalesServicio.ConsultarDatosSuscripcionSenal(this.usuario.uid, this.senal.id)
-            .subscribe(suscripcion => {
-              if (suscripcion === undefined) {this.senales.suscripcion=false}
-              else{this.senales.suscripcion=true}
-
-              })})
-            console.log(this.senales)
-          this.snackBar.open(`Te quedan ${Math.round(this.diasPrueba-dias)} dias para que pruebes nuestros señales`,
-                              'Cerrar',{duration:10000})
-                              debugger
-        }else{
-          this.senalesServicio.consultaSenalCampoValorActivas('tipo','Free')
-          .subscribe(senales => {this.senales = senales
-            this.senalesServicio.ConsultarDatosSuscripcionSenal(this.usuario.uid, this.senal.id)
-            .subscribe(suscripcion => this.senales.suscripcion=suscripcion)
-            console.log(this.senales)})
-          this.snackBar.open(`Te invitamos a que te suscribas para que veas todas las señales`,
-          'Cerrar',{duration:10000})
-        }
-
-    }
+    .subscribe(usuario => {
+      this.usuario = usuario
+    var dias =  this.diasSuscripcionPrueba(this.usuario.fechaRegistro.toDate())
+    this.tipoSuscripcionUsuario(this.usuario.usuarioPremium,dias)
     })
   }else{
     this.autorizacionservice.logout()
@@ -78,13 +43,66 @@ this.datosUsuario()
 
   }
 
+public diasSuscripcionPrueba(fechaRegistro){
+  return (this.fechaActual - fechaRegistro)/(1000*60*60*24)
+}
+
+public tipoSuscripcionUsuario(tipoUsuario,diasSuscripcion){
+
+  if(tipoUsuario){
+    this.senalesServicio.getSenales().valueChanges()
+      .subscribe(senales => {
+        this.senales = senales
+        this.senales.forEach((senal, indice) => {
+          this.senalesServicio.ConsultarDatosSuscripcionSenal(this.usuario.uid, senal.id)
+          .subscribe(suscripcion => {
+            if (suscripcion.length === 0) {
+              this.senales[indice].suscripcion=false}
+            else{
+              this.senales[indice].suscripcion=true
+            }
+          })
+          })
+      })
+  }else{
+      if(this.diasPrueba>=diasSuscripcion){
+        this.senalesServicio.getSenales().valueChanges()
+        .subscribe(senales => {
+          this.senales = senales
+          this.senales.forEach((senal, indice) => {
+            this.senalesServicio.ConsultarDatosSuscripcionSenal(this.usuario.uid, senal.id)
+            .subscribe(suscripcion => {
+              if (suscripcion.length === 0) {
+                this.senales[indice].suscripcion=false}
+              else{
+                this.senales[indice].suscripcion=true
+              }
+            })
+            })
+          })
+        this.snackBar.open(`Te quedan ${Math.round(this.diasPrueba-diasSuscripcion)} dias para que pruebes nuestros señales`,
+                            'Cerrar',{duration:10000})
+
+      }else{
+        this.senalesServicio.consultaSenalCampoValorActivas('tipo','Free')
+        .subscribe(senales => {this.senales = senales
+          this.senalesServicio.ConsultarDatosSuscripcionSenal(this.usuario.uid, this.senal.id)
+          .subscribe(suscripcion => this.senales.suscripcion=suscripcion)
+          console.log(this.senales)})
+        this.snackBar.open(`Te invitamos a que te suscribas para que veas todas las señales`,
+        'Cerrar',{duration:10000})
+      }
+
+
+}
+}
+
 suscripcion(estado, sid){
+  var usuarioSenal: any ={}
 
-  var usuarioSenal
-  usuarioSenal.uid = this.autorizacionservice.usuario.uid
+  usuarioSenal.uid = this.usuario.uid
   usuarioSenal.sid = sid
-
-  this.senalesServicio.suscripcion(estado,usuarioSenal)
+  this.senalesServicio.suscripcion( estado,usuarioSenal.uid, usuarioSenal.sid)
 }
 
   anterior(){
