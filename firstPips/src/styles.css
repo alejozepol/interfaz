@@ -16,7 +16,9 @@
     padding: 0 0 0 0 !important;
     margin: 0% !important;
     border: 0ch !important;
-    background-color: transparent
+    background-color: transparent;
+    z-index: 1031;
+
   }
   #EspacioBotonCentro{
     padding: 1.5rem !important;
@@ -34,7 +36,8 @@ body{
     top:50%;
     left: 0%;
     padding: 0 0 0 0;
-    background-color: transparent
+    background-color: transparent;
+    z-index: 1031;
   }
 
 
