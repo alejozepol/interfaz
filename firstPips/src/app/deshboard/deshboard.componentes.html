@@ -12,43 +12,81 @@
                   <div *ngIf="senal.estado">
                     <mat-expansion-panel [ngSwitch]="senal.orden" class=" text-center text-white">
                       <mat-expansion-panel-header class="text-center">
-                          <mat-panel-title class="col-8 p-0 m-0" *ngIf="senal.tipo === 'Premium'" >
+                          <mat-panel-title class="col-4 p-0 m-0" *ngIf="senal.tipo === 'Premium'" >
 
                               <H3 class="text-center text-white">🔥⭐{{senal.grupoDivisa}}</H3>
-                            </mat-panel-title>
-                            <mat-panel-title class="col-8 p-0 m-0" *ngIf="senal.tipo === 'Free'" >
+                          </mat-panel-title>
+                          <mat-panel-title class="col-4 p-0 m-0" *ngIf="senal.tipo === 'Free'" >
 
                                 <H3 class="text-center text-white">{{senal.grupoDivisa}}</H3>
-                              </mat-panel-title>
+                          </mat-panel-title>
                         <!--=============TIPO DE ORDEN===================================== -->
-                        <mat-panel-description class="col-4 p-0 m-0">
-                            <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
-                            <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
-                            <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
-                            <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
-                            <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
-                            <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
-                            <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
-                            <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
+                        <mat-panel-description class="col-8 p-0 m-0">
+                          <div class="conteiner">
+                          <div class="row p-0 m-0">
+                            <div class="col-6 p-0 m-0">
+                                <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
+                                <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
+                                <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
+                                <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
+                                <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
+                                <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
+                                <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
+                                <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
+                            </div>
+                            <div class="col-6 p-0 m-0">
+                                <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
+                            </div>
+                          </div>
+                        </div>
+
+
                         </mat-panel-description>
                       </mat-expansion-panel-header>
                       <div class="row">
-                        <div class="col-4" [ngSwitch]="senal.slActivo">
-                            <h6>SL</h6>
-                            <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
-                            <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
-                            <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
-                            <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
+<!--                         <div>
+                            <mat-icon class="text-warning" value="true" (click)="suscripcion({{senal.suscripcion}}, {{senal.id}})">notifications_action</mat-icon>
+                        </div> -->
+                        <div>
+                            <mat-icon class="text-danger" value="false" (click)="suscripcion(senal.suscripcion, senal.id)">notifications_off</mat-icon>
+                          </div>
+                                                                          <div class="col-12">
+                            <div class="row lineaPuntoAmarillo">
+                              <h5 class="text-secondary col-5" align="right">-0.01</h5>
+                              <h5 class="col-2">{{senal.lotaje}}</h5>
+                              <h5 class="text-secondary col-5" align="left">+0.01</h5>
+                            </div>
+                            Lotaje
+                          </div>
+                        <div class="col-6 mt-2" [ngSwitch]="senal.slActivo">
+                          <div class="row lineaPuntoRojo">
+                            <div class="col-12">
+                                <h6>SL</h6>
+                            </div>
+                            <div class="col-1">-</div>
+                            <div class="col-9">
+                                <span *ngSwitchCase="'SL1'">{{senal.sl1}}</span>
+                                <span *ngSwitchCase="'SL2'">{{senal.sl2}}</span>
+                                <span *ngSwitchCase="'SL3'">{{senal.sl3}}</span>
+                                <span *ngSwitchCase="'SL4'">{{senal.sl4}}</span>
+                            </div>
+                            <div class="col-1">+</div>
+                          </div>
                         </div>
-                        <div class="col-4">
-                            <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
-                            <h5>Lotaje: {{senal.lotaje}}</h5>
-                        </div>
-                        <div class="col-4">
-                            <h6>TP</h6>
-                            {{senal.tp}}
-                        </div>
-                        <div class="col-12">
+
+                        <div class="col-6 mt-2" [ngSwitch]="senal.slActivo">
+                            <div class="row lineaPuntoVerde">
+                              <div class="col-12">
+                                  <h6>TP</h6>
+                              </div>
+                              <div class="col-1">-</div>
+                              <div class="col-9">
+                                  {{senal.tp}}
+                              </div>
+                              <div class="col-1">+</div>
+                            </div>
+                          </div>
+                        <div class="col-12 mt-3">
                           <div class="row">
                               <div class="col-4" *ngIf="usuario.admin">
                                 <a mat-mini-fab routerLink="/crear/{{senal.id}}" style="text-decoration: none;">

@@ -234,6 +234,12 @@ mat-drawer-content {
 background-color: #ffffff
 }
 
+.lineaPuntoRojo{
+  border-bottom:  #dc3545 2px dotted;
+}
+.lineaPuntoVerde{
+  border-bottom:  #09ff00 2px dotted;
+}
 .lineaPuntoAmarillo {
   border-bottom:  #ffc107 2px dotted;
 }

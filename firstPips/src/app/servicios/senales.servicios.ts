@@ -12,6 +12,44 @@ export class SenalesServicios{
 
   }
 
+  suscripcion(estado, usuarioSenal){
+
+    if(!estado){
+      this.GuardarSuscripcionSenal(usuarioSenal)
+    }
+    else{
+      this.ConsultarDocumentoSuscripcionSenal(usuarioSenal.uid, usuarioSenal.sid)
+      .subscribe( resultado =>{
+                  console.log(resultado)
+                  this.EliminarSuscripcionSenal(resultado)
+      })
+
+    }
+
+  }
+
+  GuardarSuscripcionSenal(usuarioSenal){
+    return this.afDB.collection("usuarioSenal")
+                    .add(usuarioSenal)
+  }
+
+  ConsultarDatosSuscripcionSenal(uid, sid){
+    return this.afDB.collection("usuarioSenal",
+                                ref => ref
+                                .where("uid","==",uid)
+                                .where("sid","==",sid) ).valueChanges()
+  }
+
+  ConsultarDocumentoSuscripcionSenal(uid, sid){
+    return this.afDB.collection("usuarioSenal",
+                                ref => ref
+                                .where("uid","==",uid)
+                                .where("sid","==",sid) ).snapshotChanges()
+  }
+
+  EliminarSuscripcionSenal(doc){
+    return this.afDB.doc(doc).delete()
+  }
 
   guardarSenal(senal){
     return this.afDB.collection('Senales')
@@ -44,8 +82,6 @@ export class SenalesServicios{
   getSenalesInactivas(){
     return this.afDB.collection('Senales', ref => ref.where('estado',"==",false))
   }
-
-
   editarsenal(id, senal){
     this.afDB.collection("Senales", ref => ref.where("id","==",id)).stateChanges()
     .subscribe(doc => {
@@ -55,9 +91,4 @@ export class SenalesServicios{
       this.afDB.collection('Senales').doc(this.doc).update(senal)
     })
   }
-
-  suscripcionSenal(){
-    this.afDB.collection("SenalUsuario")
-  }
-
 }
