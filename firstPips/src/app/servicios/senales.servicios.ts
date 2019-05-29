@@ -12,20 +12,25 @@ export class SenalesServicios{
 
   }
 
-  suscripcion(estado, sid, uid){
+  suscripcion(estado, uid, sid){
     var usuarioSenal: any={}
-    usuarioSenal.uid = sid
-    usuarioSenal.sid = uid
+    usuarioSenal.uid = uid
+    usuarioSenal.sid = sid
     if(!estado){
 
       this.GuardarSuscripcionSenal(usuarioSenal)
     }
     else{
       this.ConsultarDocumentoSuscripcionSenal(usuarioSenal.uid, usuarioSenal.sid)
-      .subscribe( resultado =>{
-                  console.log(resultado)
-                  this.EliminarSuscripcionSenal(resultado)
+      .subscribe(suscripcion => {
+        if(suscripcion[0].payload !== undefined){
+          this.EliminarSuscripcionSenal(suscripcion[0].payload.doc.id)
+        }
+
       })
+
+
+
 
     }
 
@@ -51,7 +56,7 @@ export class SenalesServicios{
   }
 
   EliminarSuscripcionSenal(doc){
-    return this.afDB.doc(doc).delete()
+    return this.afDB.collection("usuarioSenal").doc(doc).delete()
   }
 
   guardarSenal(senal){

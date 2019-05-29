@@ -342,3 +342,7 @@ input:-webkit-autofill:focus {
 .mat-focused .placeholder {
   color: #00D318 !important;
 }
+
+.mat-expansion-panel-header-description{
+  display: block !important;
+}

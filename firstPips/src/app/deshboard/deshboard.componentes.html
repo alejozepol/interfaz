@@ -13,42 +13,44 @@
                     <mat-expansion-panel [ngSwitch]="senal.orden" class=" text-center text-white">
                       <mat-expansion-panel-header class="text-center">
                           <mat-panel-title class="col-4 p-0 m-0" *ngIf="senal.tipo === 'Premium'" >
-
                               <H3 class="text-center text-white">🔥⭐{{senal.grupoDivisa}}</H3>
                           </mat-panel-title>
                           <mat-panel-title class="col-4 p-0 m-0" *ngIf="senal.tipo === 'Free'" >
-
                                 <H3 class="text-center text-white">{{senal.grupoDivisa}}</H3>
                           </mat-panel-title>
                         <!--=============TIPO DE ORDEN===================================== -->
                         <mat-panel-description class="col-8 p-0 m-0">
-                          <div class="conteiner">
-                          <div class="row p-0 m-0">
+                          <div class="row">
                             <div class="col-6 p-0 m-0">
                                 <h6 *ngSwitchCase="'SELL'" [ngStyle]="{'color': 'red'}">SELL</h6>
-                                <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL STOP</h6>
-                                <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL LIMIT</h6>
-                                <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL STOP LIMIT</h6>
+                                <h6 *ngSwitchCase="'SELL STOP'" [ngStyle]="{'color': 'red'}">SELL<br>STOP</h6>
+                                <h6 *ngSwitchCase="'SELL LIMIT'" [ngStyle]="{'color': 'red'}">SELL<br>LIMIT</h6>
+                                <h6 *ngSwitchCase="'SELL STOP LIMIT'" [ngStyle]="{'color': 'red'}">SELL<br>STOP LIMIT</h6>
                                 <h6 *ngSwitchCase="'BUY'" [ngStyle]="{'color': 'blue'}">BUY</h6>
-                                <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY STOP</h6>
-                                <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY LIMIT</h6>
-                                <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY STOP LIMIT</h6>
+                                <h6 *ngSwitchCase="'BUY STOP'" [ngStyle]="{'color': 'blue'}">BUY<br>STOP</h6>
+                                <h6 *ngSwitchCase="'BUY LIMIT'" [ngStyle]="{'color': 'blue'}">BUY<br>LIMIT</h6>
+                                <h6 *ngSwitchCase="'BUY STOP LIMIT'" [ngStyle]="{'color': 'blue'}">BUY<br>STOP LIMIT</h6>
                             </div>
                             <div class="col-6 p-0 m-0">
-                                <h6>Precio Entrada: {{senal.precioEntrada}}</h6>
+                                <h6>Precio Entrada: <br> {{senal.precioEntrada}}</h6>
                             </div>
                           </div>
-                        </div>
-
-
                         </mat-panel-description>
                       </mat-expansion-panel-header>
                       <div class="row">
                         <div *ngIf="senal.suscripcion">
-                            <mat-icon class="text-warning" value="true" (click)="suscripcion(senal.suscripcion, senal.id)">notifications_action</mat-icon>
+                            <button mat-icon-button>
+                              <mat-icon class="text-warning" value="true" (click)="suscripcion(senal.suscripcion, senal.id)">
+                                notifications_action
+                              </mat-icon>
+                            </button>
                         </div>
                         <div *ngIf="!senal.suscripcion">
-                            <mat-icon class="text-danger" value="false" (click)="suscripcion(senal.suscripcion, senal.id)">notifications_off</mat-icon>
+                            <button mat-icon-button>
+                              <mat-icon class="text-danger" value="false" (click)="suscripcion(senal.suscripcion, senal.id)">
+                                notifications_off
+                              </mat-icon>
+                            </button>
                         </div>
                         <div class="col-12">
                             <div class="row lineaPuntoAmarillo">
