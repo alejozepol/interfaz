@@ -3,6 +3,7 @@ import { AutorizacionSericios } from '../servicios/autorizacion.servicios';
 import { SenalesServicios } from '../servicios/senales.servicios';
 import { Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material';
+import { AppComponent } from '../app.component';
 @Injectable()
 @Component({
   selector: 'app-root',

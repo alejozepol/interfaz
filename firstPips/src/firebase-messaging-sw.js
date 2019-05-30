@@ -26,3 +26,4 @@ messaging.setBackgroundMessageHandler(payload => {
     opcionesNotificacion
   )
 })
+

@@ -2,7 +2,7 @@
   "dir": "ltr",
   "lang": "es",
   "name": "Undervisa",
-  "display": "Fullscreen",
+  "display": "fullscreen",
   "start_url": "/",
   "scope": "/",
   "short_name": "firstPips",

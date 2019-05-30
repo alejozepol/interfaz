@@ -11,6 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { DeshboardComponentes } from './deshboard/deshboard.componentes';
@@ -106,6 +107,7 @@ const  firebaseConfig = {
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireDatabaseModule,
+    AngularFireMessagingModule, // modulo de notificaciones
         // import HttpClientModule after BrowserModule.
     FormsModule,
 
